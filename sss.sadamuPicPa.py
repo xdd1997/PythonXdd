@@ -5,7 +5,7 @@ pip install requests BeautifulSoup4
 '''
 
 
-
+#添加头部信息
 import requests
 import urllib.request
 from bs4 import BeautifulSoup
