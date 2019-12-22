@@ -1,12 +1,15 @@
 print('xdd')
 #
-print("\033[31m这是红色字体\033[0m")
-print("\033[32m这是绿色字体\033[0m")
-print("\033[33m这是黄色字体\033[0m")
-print("\033[34m这是蓝色字体\033[0m")
-print("\033[38m这是默认字体\033[0m")  # 大于37将显示默认字体
-
-print("\033[0;31;42m这是默认红色字体背景绿色\033[0m")
-print("\033[1;32;43m这是高亮绿色字体背景黄色\033[0m")
-print("\033[4;33;45m这是下划线黄色字体背景紫红色\033[0m")
-print("\033[5;34;46m这是闪烁蓝色字体背景青蓝色\033[0m")
+steps = 0
+def hanoi(src, des, mid, n):
+    global steps
+    if n == 1:
+        steps += 1
+        print("[STEP{:>4}] {}->{}".format(steps, src, des))
+    else:
+        hanoi(src, mid, des, n-1)
+        steps += 1
+        print("[STEP{:>4}] {}->{}".format(steps, src, des))
+        hanoi(mid, des, src, n-1)
+N = eval(input())
+hanoi("A", "C", "B", N)

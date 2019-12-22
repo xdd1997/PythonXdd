@@ -21,5 +21,6 @@ while(1):
         break
     else:
         B = Bup(i)
-        i+=0.0001
+        i+=0.000001
+        #
 
