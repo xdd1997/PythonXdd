@@ -23,13 +23,28 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             result = result+ str(a)+'\t'
         print(result)
         self.textdisplay.setText(result)
+
         #\033[显示方式;前景色;背景色m要打印的字符串\033[0m
         #'  1    \033[1;;42m result  \033[0m '
-        if counter == 1:
-            self.rbtnChongFu.setEnabled(False)
+
      except:
         self.textdisplay.setText('请正确输入整数')
 
+    def editCounter_Finish(self):
+        try:
+            counter = int(self.editCounter.text())
+
+            if counter == 1:
+                print('xdd')
+                self.rbtnChongFu.setEnabled(False)
+                self.rbtnSingle.setEnabled(False)
+                #setEnabled(False)
+                #if self.single_radioButton.isChecked():
+            else:
+                self.rbtnChongFu.setEnabled(True)
+                self.rbtnSingle.setEnabled(True)
+        except:
+            pass
 
 
 if __name__ == '__main__':
