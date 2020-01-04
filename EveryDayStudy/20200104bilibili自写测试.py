@@ -30,16 +30,8 @@ class Crawl():
     def download_video(self,video_url,titlename):
         # 下载视频的网络请求
         response = requests.get(video_url, headers=self.headers, stream=True)
-        '''
-        file = open('vedioUrl.txt','a')
-        file.writelines(video_url)
-        file.writelines('\n')
-        file.close()
-        '''
-
-
-        if not os.path.exists('video'):  # 如果video目录不存在时
-            os.mkdir('video')             # 创建该目录
+        if not os.path.exists('videoXdd'):  # 如果video目录不存在时
+            os.mkdir('videoXdd')             # 创建该目录
         if response.status_code == 200:   # 判断请求是否成功
             if os.path.exists('video'):
                 with open('video/'+titlename+'.mp4', 'wb')as f:                     # 将视频写入指定位置
