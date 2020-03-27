@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eaea9bdc-1847-4024-a6ca-b2f6d0df4c5e" name="Default Changelist" comment="new up">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/下载图片/11.py" beforeDir="false" afterPath="$PROJECT_DIR$/下载图片/11.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -184,6 +185,8 @@
       <workItem from="1584619790496" duration="1287000" />
       <workItem from="1584761590741" duration="5144000" />
       <workItem from="1584789351737" duration="705000" />
+      <workItem from="1584874035554" duration="112000" />
+      <workItem from="1584874375146" duration="29000" />
     </task>
     <task id="LOCAL-00001" summary="新文件">
       <created>1583046881924</created>

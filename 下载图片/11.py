@@ -18,7 +18,7 @@ for ii in range(1,500,1):
     piclist.append(url)
 print(piclist)
 
-#------------主程序---------------
+#------------主程序-------xdd--------
 x = 1
 for http in piclist:
     print(http)
