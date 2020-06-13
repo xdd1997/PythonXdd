@@ -1,1 +1,3 @@
-print("xdd")
+ennn....
+This is the code I wrote when I was learning Python.
+You can Email me xdd2026@qq.com
