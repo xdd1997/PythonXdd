@@ -35,27 +35,41 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
 
 
         #----------信号连接自定义的槽---------
-        self.pushButton_start1.clicked.connect(self.StartTime)
+        self.pushButton_start1.clicked.connect(self.btn_start1_click)
         self.pushButton_clean1.clicked.connect(self.btn_clean1_click)
         self.pushButton_cleanAndStart1.clicked.connect(self.btn_cleanAndStart1_click)
 
         self.pushButton_start2.clicked.connect(self.btn_start2_click)
+      #  self.pushButton_pause2.clicked.connect(self.btn_pause2_click)
         self.pushButton_clean2.clicked.connect(self.btn_clean2_click)
         self.pushButton_cleanAndStart2.clicked.connect(self.btn_cleanAndStart2_click)
         # ---------- 文本框限制只能输入整数 -----------
         self.lineEdit.setValidator(QIntValidator(0, 622))
+
+        # ---------- 设置初始状态 ----------
+        self.lineEdit.setText('10')
+        self.pushButton_pause1.setEnabled(False)
+        self.pushButton_pause2.setEnabled(False)
+
     # ----------  在此处定义函数（槽）  ----------
-    def StartTime(self):
+    def btn_start1_click(self):
         self.textBrowser_jishi.setText('ILOVEYOU')
+
+        # self.lineEdit.setReadOnly(True)  # 设置为只读
+        print(self.count)
 
 
     def btn_clean1_click(self):
+        self.time.stop()
         self.textBrowser_jishi.setText("")
-        self.pushButton_start1.setEnabled(True)
+
+
 
     def btn_cleanAndStart1_click(self):
         self.textBrowser_jishi.setText("")
-        self.pushButton_start1.setEnabled(True)
+        self.time.stop()
+        #self.pushButton_start2.setEnabled(True)
+        self.btn_start1_click()
 
     # -----------  倒计时的自定义槽  -----------
 
@@ -89,25 +103,39 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             '''
         self.textBrowser_daojishi.setText('ILOVEYOU')
         self.count = int(self.lineEdit.text() )* 60
-        self.lineEdit.setReadOnly(True)  # 设置为只读
+        #self.lineEdit.setReadOnly(True)  # 设置为只读
         print(self.count)
 
         if self.pushButton_start2.isEnabled():
             self.time.start()
-            self.pushButton_start2.setEnabled(False)
+         #   self.pushButton_start2.setEnabled(False)
+
+    '''
+    def btn_pause2_click(self):
+
+        if self.pushButton_start2.isEnable():
+            print('此时可用')
+        else:
+            print('此时不可用')
+
+        print('xdd')
+       # self.time.stop()
+    '''
 
     def btn_clean2_click(self):
         self.time.stop()
         self.textBrowser_daojishi.setText("")
-        self.pushButton_start2.setEnabled(True)
-        self.lineEdit.setReadOnly(False)  # 设置为只读
+        #self.textBrowser_daojishi.setEnabled(True)
+        #self.pushButton_start2.setEnabled(True)
+        #self.lineEdit.setReadOnly(False)  # 设置为只读
+
     def btn_cleanAndStart2_click(self):
         self.textBrowser_daojishi.setText("")
         self.time.stop()
-        self.pushButton_start2.setEnabled(True)
+        #self.pushButton_start2.setEnabled(True)
         self.lineEdit.setReadOnly(False)  # 设置为只读
         self.btn_start2_click()
-
+'''
     #获取当前时间数字 修饰成00:00:00 格式以写入计时器文本框
     def num2hms(self):
         sec = self.count
@@ -127,7 +155,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
     def restart_program():
         python = sys.executable
         os.execl(python, python, *sys.argv)
-
+'''
 
 
 
