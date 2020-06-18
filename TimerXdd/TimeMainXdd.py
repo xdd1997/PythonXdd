@@ -1,10 +1,12 @@
 import sys
 import time as t
-from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import QDialog,QDesktopWidget
 from PyQt5.QtGui import QIcon
 from TimerXdd import Ui_Form  # TimerXdd为ui对于py文件的名字
 from PyQt5.QtCore import QTimer
 from PyQt5.QtGui import QIntValidator
+from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 
 
@@ -30,8 +32,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
 
         # ---------- 设置窗口标题 图标(未成功） ---------
         self.setWindowTitle('Xdd Timer')
-        #self.setWindowIcon(QIcon('https://images.cnblogs.com/cnblogs_com/xdd1997/1555655/t_myu.jpg?a=1592404473552'))  # 设置窗体标题图标
-        #self.setWindowIcon(QIcon('/视频水印2.png'))
+        self.setWindowIcon(QIcon('Timer.ico')) # 设置窗体标题图标
 
 
         #----------信号连接自定义的槽---------
@@ -50,6 +51,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         self.lineEdit.setText('10')
         self.pushButton_pause1.setEnabled(False)
         self.pushButton_pause2.setEnabled(False)
+        self.move(50,50)
 
     # ----------  在此处定义函数（槽）  ----------
     def btn_start1_click(self):
@@ -92,6 +94,8 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             self.time.stop()
             self.pushButton_start2.setEnabled(True)
             self.textBrowser_daojishi.setText('00:00:00')
+            self.moveQtWidgets()
+
 
 
     def btn_start2_click(self):
@@ -135,6 +139,35 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         #self.pushButton_start2.setEnabled(True)
         self.lineEdit.setReadOnly(False)  # 设置为只读
         self.btn_start2_click()
+
+    def moveQtWidgets(self):
+
+         # 获取屏幕坐标系
+        screen = QDesktopWidget().screenGeometry()
+        #获取窗口坐标系
+        size = self.geometry()
+
+        newleft = (screen.width()-size.width())/4
+        newtop = (screen.height() - size.height())/4
+        self.move(newleft,newtop)
+        t.sleep(1)
+        newleft = (screen.width()-size.width())/3
+        newtop = (screen.height() - size.height())/3
+        self.move(newleft,newtop)
+        t.sleep(1)
+        newleft = (screen.width()-size.width())/2
+        newtop = (screen.height() - size.height())/2
+        self.move(newleft,newtop)
+
+'''
+    def showDialog(self):
+        dialog = QDialog()
+        btn = QPushButton('ok', dialog)
+        btn.move(50, 50)
+        dialog.setWindowTitle('Dialog')
+        dialog.setWindowModality(Qt.ApplicationModal)
+        dialog.exec_()
+'''
 '''
     #获取当前时间数字 修饰成00:00:00 格式以写入计时器文本框
     def num2hms(self):
@@ -162,5 +195,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     main_form = MyPyQT_Form()  #实例化,类的名字
+    main_form.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
+    w = QDialog()
     main_form.show()
     sys.exit(app.exec_())
