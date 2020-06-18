@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eaea9bdc-1847-4024-a6ca-b2f6d0df4c5e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/TimerXdd/12.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TimerXdd/13.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TimerXdd/TimeMainXdd.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TimerXdd/TimerXdd.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TimerXdd/TimerXdd.ui" afterDir="false" />
+    <list default="true" id="eaea9bdc-1847-4024-a6ca-b2f6d0df4c5e" name="Default Changelist" comment="new up">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TimerXdd/12.py" beforeDir="false" afterPath="$PROJECT_DIR$/TimerXdd/12.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TimerXdd/13.py" beforeDir="false" afterPath="$PROJECT_DIR$/TimerXdd/13.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TimerXdd/TimeMainXdd.py" beforeDir="false" afterPath="$PROJECT_DIR$/TimerXdd/TimeMainXdd.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TimerXdd/TimerXdd.py" beforeDir="false" afterPath="$PROJECT_DIR$/TimerXdd/TimerXdd.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TimerXdd/TimerXdd.ui" beforeDir="false" afterPath="$PROJECT_DIR$/TimerXdd/TimerXdd.ui" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,6 +36,8 @@
     <setting file="file://$PROJECT_DIR$/EveryDayStudy/20200224燃烧你的卡路里.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/下载图片/11.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/EveryDayStudy/20200225燃烧卡路里动态显示剩余时间.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/TimerXdd/12.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/TimerXdd/13.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/破解压缩包密码/PoJieZip.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/TimerXdd/TimeMainXdd.py" root0="SKIP_INSPECTION" />
   </component>
@@ -62,7 +64,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.TimeMainXdd">
-    <configuration name="11" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="12" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="PythonXdd" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -70,12 +72,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/破解压缩包密码" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TimerXdd" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/破解压缩包密码/11.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TimerXdd/12.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -84,7 +86,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="PoJieMain" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="13" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="PythonXdd" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -92,12 +94,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/破解压缩包密码" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TimerXdd" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="D:\File_Git\PythonXdd\破解压缩包密码\PoJieZip.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TimerXdd/13.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -175,10 +177,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.TimeMainXdd" />
+        <item itemvalue="Python.12" />
+        <item itemvalue="Python.13" />
         <item itemvalue="Python.PoJieRar" />
         <item itemvalue="Python.PoJieZip" />
-        <item itemvalue="Python.11" />
-        <item itemvalue="Python.PoJieMain" />
       </list>
     </recent_temporary>
   </component>
@@ -211,6 +213,7 @@
       <workItem from="1592154219770" duration="123000" />
       <workItem from="1592301210217" duration="869000" />
       <workItem from="1592401491404" duration="3288000" />
+      <workItem from="1592449606152" duration="13999000" />
     </task>
     <task id="LOCAL-00001" summary="新文件">
       <created>1583046881924</created>
@@ -274,16 +277,18 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/PythonXdd$1.coverage" NAME="1 Coverage Results" MODIFIED="1583044108463" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EveryDayStudy" />
-    <SUITE FILE_PATH="coverage/PythonXdd$PoJieMain.coverage" NAME="PoJieMain Coverage Results" MODIFIED="1585497893121" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/破解压缩包密码" />
-    <SUITE FILE_PATH="coverage/PythonXdd$TimeMainXdd.coverage" NAME="TimeMainXdd Coverage Results" MODIFIED="1592404782464" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TimerXdd" />
-    <SUITE FILE_PATH="coverage/PythonXdd$20200225.coverage" NAME="20200225燃烧卡路里动态显示剩余时间 Coverage Results" MODIFIED="1583045155846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EveryDayStudy" />
     <SUITE FILE_PATH="coverage/PythonXdd$PoJieRar.coverage" NAME="PoJieRar Coverage Results" MODIFIED="1585664370883" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/破解压缩包密码" />
-    <SUITE FILE_PATH="coverage/PythonXdd$20200104bilibili.coverage" NAME="20200104bilibili自写测试 Coverage Results" MODIFIED="1583047478319" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EveryDayStudy" />
+    <SUITE FILE_PATH="coverage/PythonXdd$12.coverage" NAME="12 Coverage Results" MODIFIED="1592473496236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TimerXdd" />
     <SUITE FILE_PATH="coverage/PythonXdd$DownloadPicChaoXing.coverage" NAME="DownloadPicChaoXing Coverage Results" MODIFIED="1584780373912" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/下载图片" />
-    <SUITE FILE_PATH="coverage/PythonXdd$CreatPassword.coverage" NAME="CreatPassword Coverage Results" MODIFIED="1585483025336" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/破解压缩包密码" />
     <SUITE FILE_PATH="coverage/PythonXdd$20200224.coverage" NAME="20200224燃烧你的卡路里 Coverage Results" MODIFIED="1583043264856" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EveryDayStudy" />
-    <SUITE FILE_PATH="coverage/PythonXdd$11.coverage" NAME="11 Coverage Results" MODIFIED="1585661782524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/破解压缩包密码" />
+    <SUITE FILE_PATH="coverage/PythonXdd$13.coverage" NAME="13 Coverage Results" MODIFIED="1592467161032" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TimerXdd" />
     <SUITE FILE_PATH="coverage/PythonXdd$PoJieZip.coverage" NAME="PoJieZip Coverage Results" MODIFIED="1585662898640" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/破解压缩包密码" />
     <SUITE FILE_PATH="coverage/PythonXdd$20191218bilibili__json.coverage" NAME="20191218bilibili_下载视频_json动态加载 Coverage Results" MODIFIED="1584621081406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EveryDayStudy" />
+    <SUITE FILE_PATH="coverage/PythonXdd$PoJieMain.coverage" NAME="PoJieMain Coverage Results" MODIFIED="1585497893121" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/破解压缩包密码" />
+    <SUITE FILE_PATH="coverage/PythonXdd$TimeMainXdd.coverage" NAME="TimeMainXdd Coverage Results" MODIFIED="1592478695221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TimerXdd" />
+    <SUITE FILE_PATH="coverage/PythonXdd$20200225.coverage" NAME="20200225燃烧卡路里动态显示剩余时间 Coverage Results" MODIFIED="1583045155846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EveryDayStudy" />
+    <SUITE FILE_PATH="coverage/PythonXdd$20200104bilibili.coverage" NAME="20200104bilibili自写测试 Coverage Results" MODIFIED="1583047478319" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EveryDayStudy" />
+    <SUITE FILE_PATH="coverage/PythonXdd$CreatPassword.coverage" NAME="CreatPassword Coverage Results" MODIFIED="1585483025336" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/破解压缩包密码" />
+    <SUITE FILE_PATH="coverage/PythonXdd$11.coverage" NAME="11 Coverage Results" MODIFIED="1585661782524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/破解压缩包密码" />
   </component>
 </project>
