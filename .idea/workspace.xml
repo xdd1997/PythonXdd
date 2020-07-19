@@ -19,12 +19,15 @@
       <change beforePath="$PROJECT_DIR$/.idea/PythonXdd.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PythonXdd.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/PythonXdd.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/TimerXdd/TimeMainXdd.py" beforeDir="false" afterPath="$PROJECT_DIR$/TimerXdd/TimeMainXdd.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TimerXdd/TimerDiag.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/TimerXdd/TimerXdd.py" beforeDir="false" afterPath="$PROJECT_DIR$/TimerXdd/TimerXdd.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TimerXdd/TimerXdd.ui" beforeDir="false" afterPath="$PROJECT_DIR$/TimerXdd/TimerXdd.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/默认.py" beforeDir="false" afterPath="$PROJECT_DIR$/默认.py" afterDir="false" />
+=======
+>>>>>>> c88d12ae4d0c3db8491e5c3e8c8825c2ef915cba
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -373,6 +376,7 @@
       <workItem from="1592301210217" duration="869000" />
       <workItem from="1592401491404" duration="3288000" />
       <workItem from="1592449606152" duration="25879000" />
+<<<<<<< HEAD
       <workItem from="1593494225980" duration="4242000" />
       <workItem from="1593498595411" duration="1073000" />
       <workItem from="1593752299366" duration="374000" />
@@ -385,6 +389,9 @@
       <workItem from="1593947371167" duration="2564000" />
       <workItem from="1594710936041" duration="3621000" />
       <workItem from="1595078678461" duration="2473000" />
+=======
+      <workItem from="1593260667417" duration="1196000" />
+>>>>>>> c88d12ae4d0c3db8491e5c3e8c8825c2ef915cba
     </task>
     <task id="LOCAL-00001" summary="新文件">
       <created>1583046881924</created>
