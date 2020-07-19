@@ -16,6 +16,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
     def __init__(self):
         super(MyPyQT_Form,self).__init__()
         self.setupUi(self)
+
         self.initUI()   ## 此处给出了调用一般函数的方法
 
     def initUI(self):  # 定义初始化界面的方法
@@ -49,9 +50,20 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
 
         # ---------- 设置初始状态 ----------
         self.lineEdit.setText('10')
+        self.pushButton_start1.setEnabled(False)
         self.pushButton_pause1.setEnabled(False)
+        self.pushButton_clean1.setEnabled(False)
+        self.pushButton_cleanAndStart1.setEnabled(False)
         self.pushButton_pause2.setEnabled(False)
-        self.move(50,50)
+        # -------- 设置初始位置 --------
+        # 获取屏幕坐标系
+        screen = QDesktopWidget().screenGeometry()
+        # 获取窗口坐标系
+        size = self.geometry()
+        newleft = (screen.width() - size.width()) / 10 * 9.5
+        newtop = (screen.height() - size.height()) / 10 *0.5
+        self.move(newleft, newtop)
+
 
     # ----------  在此处定义函数（槽）  ----------
     def btn_start1_click(self):
@@ -114,17 +126,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             self.time.start()
          #   self.pushButton_start2.setEnabled(False)
 
-    '''
-    def btn_pause2_click(self):
 
-        if self.pushButton_start2.isEnable():
-            print('此时可用')
-        else:
-            print('此时不可用')
-
-        print('xdd')
-       # self.time.stop()
-    '''
 
     def btn_clean2_click(self):
         self.time.stop()
@@ -159,16 +161,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         newtop = (screen.height() - size.height())/2
         self.move(newleft,newtop)
 
-'''
-    def showDialog(self):
-        dialog = QDialog()
-        btn = QPushButton('ok', dialog)
-        btn.move(50, 50)
-        dialog.setWindowTitle('Dialog')
-        dialog.setWindowModality(Qt.ApplicationModal)
-        dialog.exec_()
-'''
-'''
+    '''
     #获取当前时间数字 修饰成00:00:00 格式以写入计时器文本框
     def num2hms(self):
         sec = self.count
@@ -188,6 +181,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
     def restart_program():
         python = sys.executable
         os.execl(python, python, *sys.argv)
+
 '''
 
 

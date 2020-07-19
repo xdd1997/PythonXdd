@@ -2,13 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eaea9bdc-1847-4024-a6ca-b2f6d0df4c5e" name="Default Changelist" comment="new up">
+      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/11.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EveryDayStudy/可视化数据分析图表的实现/11.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EveryDayStudy/可视化数据分析图表的实现/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EveryDayStudy/可视化数据分析图表的实现/双Y轴可视化数据分析图表的实现.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EveryDayStudy/可视化数据分析图表的实现/堆叠柱形图可视化数据分析图表.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/在众多文件中查找字符串所在的文件/11.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/在众多文件中查找字符串所在的文件/FindChar.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/将文件夹下所有子文件夹的文件转移到另一个文件夹.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/轮播彼岸网的图片/11.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/轮播彼岸网的图片/BeautifulSoupWeiXin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/轮播彼岸网的图片/DownloadPicChaoXing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/轮播彼岸网的图片/Re.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/轮播彼岸网的图片/下载彼岸桌面某一张照片.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/PythonXdd.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PythonXdd.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PythonXdd.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/TimerXdd/TimeMainXdd.py" beforeDir="false" afterPath="$PROJECT_DIR$/TimerXdd/TimeMainXdd.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TimerXdd/TimerDiag.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/TimerXdd/TimerXdd.py" beforeDir="false" afterPath="$PROJECT_DIR$/TimerXdd/TimerXdd.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TimerXdd/TimerXdd.ui" beforeDir="false" afterPath="$PROJECT_DIR$/TimerXdd/TimerXdd.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TimerXdd/视频水印2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/默认.py" beforeDir="false" afterPath="$PROJECT_DIR$/默认.py" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,38 +49,59 @@
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/EveryDayStudy/20200224燃烧你的卡路里.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/下载图片/11.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/EveryDayStudy/20200225燃烧卡路里动态显示剩余时间.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/TimerXdd/12.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/TimerXdd/13.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/破解压缩包密码/PoJieZip.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/TimerXdd/13.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/TimerXdd/12.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/EveryDayStudy/20200225燃烧卡路里动态显示剩余时间.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/下载图片/11.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/EveryDayStudy/可视化数据分析图表的实现/双Y轴可视化数据分析图表的实现.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/EveryDayStudy/20200224燃烧你的卡路里.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/在众多文件中查找字符串所在的文件/FindChar.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TimerXdd/TimeMainXdd.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectId" id="1YTuyaH4C1e4uXXpq4zAaf4m3ZJ" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="C:/Program Files/Git/bin/git.exe" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Git\PythonXdd" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python.TimeMainXdd">
-    <configuration name="12" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.下载彼岸桌面某一张照片">
+    <configuration name="下载彼岸桌面某一张照片" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="PythonXdd" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/轮播彼岸网的图片" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="D:\Git\PythonXdd\轮播彼岸网的图片\下载彼岸桌面某一张照片.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="11" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PythonXdd" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -71,12 +109,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TimerXdd" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TimerXdd/12.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/11.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -85,7 +123,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="13" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="BeautifulSoupWeiXin" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PythonXdd" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -93,12 +131,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TimerXdd" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/轮播彼岸网的图片" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TimerXdd/13.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/轮播彼岸网的图片/BeautifulSoupWeiXin.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -107,7 +145,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="PoJieRar" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="默认" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PythonXdd" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -115,12 +153,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/破解压缩包密码" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/破解压缩包密码/PoJieRar.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/默认.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -129,7 +167,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="PoJieZip" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="将文件夹下所有子文件夹的文件转移到另一个文件夹" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PythonXdd" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -137,12 +175,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/破解压缩包密码" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/破解压缩包密码/PoJieZip.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/将文件夹下所有子文件夹的文件转移到另一个文件夹.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -151,7 +189,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="TimeMainXdd" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="默认" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PythonXdd" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -159,12 +197,122 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TimerXdd" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TimerXdd/TimeMainXdd.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/默认.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="默认" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="PythonXdd" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/默认.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="默认" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="PythonXdd" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/默认.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="PythonXdd" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="import_request_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="PythonXdd" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/import_request_test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="timecounter" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="PythonXdd" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="D:/桌面" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="D:/桌面/timecounter.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -175,13 +323,25 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.TimeMainXdd" />
-        <item itemvalue="Python.12" />
-        <item itemvalue="Python.13" />
-        <item itemvalue="Python.PoJieRar" />
-        <item itemvalue="Python.PoJieZip" />
+        <item itemvalue="Python.下载彼岸桌面某一张照片" />
+        <item itemvalue="Python.BeautifulSoupWeiXin" />
+        <item itemvalue="Python.timecounter" />
+        <item itemvalue="Python.11" />
+        <item itemvalue="Python.import_request_test" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -213,6 +373,18 @@
       <workItem from="1592301210217" duration="869000" />
       <workItem from="1592401491404" duration="3288000" />
       <workItem from="1592449606152" duration="25879000" />
+      <workItem from="1593494225980" duration="4242000" />
+      <workItem from="1593498595411" duration="1073000" />
+      <workItem from="1593752299366" duration="374000" />
+      <workItem from="1593752839843" duration="4589000" />
+      <workItem from="1593759313607" duration="1397000" />
+      <workItem from="1593765589083" duration="934000" />
+      <workItem from="1593766551380" duration="656000" />
+      <workItem from="1593844502745" duration="3030000" />
+      <workItem from="1593946203410" duration="537000" />
+      <workItem from="1593947371167" duration="2564000" />
+      <workItem from="1594710936041" duration="3621000" />
+      <workItem from="1595078678461" duration="2473000" />
     </task>
     <task id="LOCAL-00001" summary="新文件">
       <created>1583046881924</created>
@@ -274,20 +446,121 @@
     <MESSAGE value="new up" />
     <option name="LAST_COMMIT_MESSAGE" value="new up" />
   </component>
+  <component name="WindowStateProjectService">
+    <state x="619" y="129" key="#11" timestamp="1593495877745">
+      <screen x="0" y="0" width="1831" height="1080" />
+    </state>
+    <state x="619" y="129" key="#11/0.0.1831.1080/1920.34.1680.1010@0.0.1831.1080" timestamp="1593495877745" />
+    <state x="619" y="129" key="#FindChar" timestamp="1593494837358">
+      <screen x="0" y="0" width="1831" height="1080" />
+    </state>
+    <state x="619" y="129" key="#FindChar/0.0.1831.1080/1920.34.1680.1010@0.0.1831.1080" timestamp="1593494837358" />
+    <state x="503" y="175" key="#Inspections" timestamp="1593496675778">
+      <screen x="0" y="0" width="1831" height="1080" />
+    </state>
+    <state x="503" y="175" key="#Inspections/0.0.1831.1080/1920.34.1680.1010@0.0.1831.1080" timestamp="1593496675778" />
+    <state x="365" y="171" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594014208098">
+      <screen x="0" y="0" width="1831" height="1080" />
+    </state>
+    <state x="365" y="171" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1831.1080/1920.34.1680.1010@0.0.1831.1080" timestamp="1594014208098" />
+    <state x="619" y="129" key="#双Y轴可视化数据分析图表的实现" timestamp="1593753066275">
+      <screen x="0" y="0" width="1831" height="1080" />
+    </state>
+    <state x="619" y="129" key="#双Y轴可视化数据分析图表的实现/0.0.1831.1080/1920.34.1680.1010@0.0.1831.1080" timestamp="1593753066275" />
+    <state x="578" y="137" key="#双Y轴可视化数据分析图表的实现_(1)" timestamp="1593753834779">
+      <screen x="0" y="0" width="1831" height="1080" />
+    </state>
+    <state x="578" y="137" key="#双Y轴可视化数据分析图表的实现_(1)/0.0.1831.1080/1920.34.1680.1010@0.0.1831.1080" timestamp="1593753834779" />
+    <state width="1789" height="248" key="GridCell.Tab.0.bottom" timestamp="1595080207992">
+      <screen x="0" y="0" width="1832" height="1080" />
+    </state>
+    <state width="1788" height="248" key="GridCell.Tab.0.bottom/0.0.1831.1080/1920.34.1680.1010@0.0.1831.1080" timestamp="1594014413466" />
+    <state width="1663" height="248" key="GridCell.Tab.0.bottom/0.0.1831.1080/1920.34.1680.1010@1920.34.1680.1010" timestamp="1593758122005" />
+    <state width="1789" height="248" key="GridCell.Tab.0.bottom/0.0.1832.1080/1920.0.1920.1040@0.0.1832.1080" timestamp="1594727317087" />
+    <state width="1789" height="248" key="GridCell.Tab.0.bottom/0.0.1832.1080/1920.0.1920.1050@0.0.1832.1080" timestamp="1595080207992" />
+    <state width="1789" height="248" key="GridCell.Tab.0.center" timestamp="1595080207992">
+      <screen x="0" y="0" width="1832" height="1080" />
+    </state>
+    <state width="1788" height="248" key="GridCell.Tab.0.center/0.0.1831.1080/1920.34.1680.1010@0.0.1831.1080" timestamp="1594014413453" />
+    <state width="1663" height="248" key="GridCell.Tab.0.center/0.0.1831.1080/1920.34.1680.1010@1920.34.1680.1010" timestamp="1593758122005" />
+    <state width="1789" height="248" key="GridCell.Tab.0.center/0.0.1832.1080/1920.0.1920.1040@0.0.1832.1080" timestamp="1594727317082" />
+    <state width="1789" height="248" key="GridCell.Tab.0.center/0.0.1832.1080/1920.0.1920.1050@0.0.1832.1080" timestamp="1595080207992" />
+    <state width="1789" height="248" key="GridCell.Tab.0.left" timestamp="1595080207992">
+      <screen x="0" y="0" width="1832" height="1080" />
+    </state>
+    <state width="1788" height="248" key="GridCell.Tab.0.left/0.0.1831.1080/1920.34.1680.1010@0.0.1831.1080" timestamp="1594014413453" />
+    <state width="1663" height="248" key="GridCell.Tab.0.left/0.0.1831.1080/1920.34.1680.1010@1920.34.1680.1010" timestamp="1593758122005" />
+    <state width="1789" height="248" key="GridCell.Tab.0.left/0.0.1832.1080/1920.0.1920.1040@0.0.1832.1080" timestamp="1594727317082" />
+    <state width="1789" height="248" key="GridCell.Tab.0.left/0.0.1832.1080/1920.0.1920.1050@0.0.1832.1080" timestamp="1595080207992" />
+    <state width="1789" height="248" key="GridCell.Tab.0.right" timestamp="1595080207992">
+      <screen x="0" y="0" width="1832" height="1080" />
+    </state>
+    <state width="1788" height="248" key="GridCell.Tab.0.right/0.0.1831.1080/1920.34.1680.1010@0.0.1831.1080" timestamp="1594014413458" />
+    <state width="1663" height="248" key="GridCell.Tab.0.right/0.0.1831.1080/1920.34.1680.1010@1920.34.1680.1010" timestamp="1593758122005" />
+    <state width="1789" height="248" key="GridCell.Tab.0.right/0.0.1832.1080/1920.0.1920.1040@0.0.1832.1080" timestamp="1594727317086" />
+    <state width="1789" height="248" key="GridCell.Tab.0.right/0.0.1832.1080/1920.0.1920.1050@0.0.1832.1080" timestamp="1595080207992" />
+    <state width="1789" height="362" key="GridCell.Tab.1.bottom" timestamp="1595079091966">
+      <screen x="0" y="0" width="1832" height="1080" />
+    </state>
+    <state width="1663" height="304" key="GridCell.Tab.1.bottom/0.0.1831.1080/1920.34.1680.1010@0.0.1831.1080" timestamp="1593946740978" />
+    <state width="1789" height="362" key="GridCell.Tab.1.bottom/0.0.1832.1080/1920.0.1920.1050@0.0.1832.1080" timestamp="1595079091966" />
+    <state width="1789" height="362" key="GridCell.Tab.1.center" timestamp="1595079091965">
+      <screen x="0" y="0" width="1832" height="1080" />
+    </state>
+    <state width="1663" height="304" key="GridCell.Tab.1.center/0.0.1831.1080/1920.34.1680.1010@0.0.1831.1080" timestamp="1593946740965" />
+    <state width="1789" height="362" key="GridCell.Tab.1.center/0.0.1832.1080/1920.0.1920.1050@0.0.1832.1080" timestamp="1595079091965" />
+    <state width="1789" height="362" key="GridCell.Tab.1.left" timestamp="1595079091965">
+      <screen x="0" y="0" width="1832" height="1080" />
+    </state>
+    <state width="1663" height="304" key="GridCell.Tab.1.left/0.0.1831.1080/1920.34.1680.1010@0.0.1831.1080" timestamp="1593946740955" />
+    <state width="1789" height="362" key="GridCell.Tab.1.left/0.0.1832.1080/1920.0.1920.1050@0.0.1832.1080" timestamp="1595079091965" />
+    <state width="1789" height="362" key="GridCell.Tab.1.right" timestamp="1595079091965">
+      <screen x="0" y="0" width="1832" height="1080" />
+    </state>
+    <state width="1663" height="304" key="GridCell.Tab.1.right/0.0.1831.1080/1920.34.1680.1010@0.0.1831.1080" timestamp="1593946740975" />
+    <state width="1789" height="362" key="GridCell.Tab.1.right/0.0.1832.1080/1920.0.1920.1050@0.0.1832.1080" timestamp="1595079091965" />
+    <state x="412" y="158" key="SettingsEditor" timestamp="1594014298101">
+      <screen x="0" y="0" width="1831" height="1080" />
+    </state>
+    <state x="412" y="158" key="SettingsEditor/0.0.1831.1080/1920.34.1680.1010@0.0.1831.1080" timestamp="1594014298101" />
+    <state x="574" y="249" width="672" height="678" key="search.everywhere.popup" timestamp="1593494597838">
+      <screen x="0" y="0" width="1831" height="1080" />
+    </state>
+    <state x="574" y="249" width="672" height="678" key="search.everywhere.popup/0.0.1831.1080/1920.34.1680.1010@0.0.1831.1080" timestamp="1593494597838" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/默认.py</url>
+          <line>9</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/PythonXdd$1.coverage" NAME="1 Coverage Results" MODIFIED="1583044108463" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EveryDayStudy" />
     <SUITE FILE_PATH="coverage/PythonXdd$PoJieRar.coverage" NAME="PoJieRar Coverage Results" MODIFIED="1585664370883" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/破解压缩包密码" />
     <SUITE FILE_PATH="coverage/PythonXdd$12.coverage" NAME="12 Coverage Results" MODIFIED="1592473496236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TimerXdd" />
-    <SUITE FILE_PATH="coverage/PythonXdd$DownloadPicChaoXing.coverage" NAME="DownloadPicChaoXing Coverage Results" MODIFIED="1584780373912" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/下载图片" />
+    <SUITE FILE_PATH="coverage/PythonXdd$TimeMainXdd.coverage" NAME="TimeMainXdd Coverage Results" MODIFIED="1593948631805" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TimerXdd" />
+    <SUITE FILE_PATH="coverage/PythonXdd$20200104bilibili.coverage" NAME="20200104bilibili自写测试 Coverage Results" MODIFIED="1583047478319" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EveryDayStudy" />
+    <SUITE FILE_PATH="coverage/PythonXdd$Y__1_.coverage" NAME="双Y轴可视化数据分析图表的实现 (1) Coverage Results" MODIFIED="1593758064236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EveryDayStudy/可视化数据分析图表的实现" />
     <SUITE FILE_PATH="coverage/PythonXdd$20200224.coverage" NAME="20200224燃烧你的卡路里 Coverage Results" MODIFIED="1583043264856" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EveryDayStudy" />
     <SUITE FILE_PATH="coverage/PythonXdd$13.coverage" NAME="13 Coverage Results" MODIFIED="1592467161032" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TimerXdd" />
-    <SUITE FILE_PATH="coverage/PythonXdd$PoJieZip.coverage" NAME="PoJieZip Coverage Results" MODIFIED="1585662898640" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/破解压缩包密码" />
-    <SUITE FILE_PATH="coverage/PythonXdd$20191218bilibili__json.coverage" NAME="20191218bilibili_下载视频_json动态加载 Coverage Results" MODIFIED="1584621081406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EveryDayStudy" />
-    <SUITE FILE_PATH="coverage/PythonXdd$PoJieMain.coverage" NAME="PoJieMain Coverage Results" MODIFIED="1585497893121" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/破解压缩包密码" />
-    <SUITE FILE_PATH="coverage/PythonXdd$TimeMainXdd.coverage" NAME="TimeMainXdd Coverage Results" MODIFIED="1592492633761" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TimerXdd" />
-    <SUITE FILE_PATH="coverage/PythonXdd$20200225.coverage" NAME="20200225燃烧卡路里动态显示剩余时间 Coverage Results" MODIFIED="1583045155846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EveryDayStudy" />
-    <SUITE FILE_PATH="coverage/PythonXdd$20200104bilibili.coverage" NAME="20200104bilibili自写测试 Coverage Results" MODIFIED="1583047478319" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EveryDayStudy" />
     <SUITE FILE_PATH="coverage/PythonXdd$CreatPassword.coverage" NAME="CreatPassword Coverage Results" MODIFIED="1585483025336" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/破解压缩包密码" />
-    <SUITE FILE_PATH="coverage/PythonXdd$11.coverage" NAME="11 Coverage Results" MODIFIED="1585661782524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/破解压缩包密码" />
+    <SUITE FILE_PATH="coverage/PythonXdd$.coverage" NAME="默认 Coverage Results" MODIFIED="1594014064525" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PythonXdd$timecounter.coverage" NAME="timecounter Coverage Results" MODIFIED="1594727317062" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="D:/桌面" />
+    <SUITE FILE_PATH="coverage/PythonXdd$BeautifulSoupWeiXin.coverage" NAME="BeautifulSoupWeiXin Coverage Results" MODIFIED="1595080194196" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/轮播彼岸网的图片" />
+    <SUITE FILE_PATH="coverage/PythonXdd$PoJieZip.coverage" NAME="PoJieZip Coverage Results" MODIFIED="1585662898640" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/破解压缩包密码" />
+    <SUITE FILE_PATH="coverage/PythonXdd$FindChar.coverage" NAME="FindChar Coverage Results" MODIFIED="1593498625402" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/在众多文件中查找字符串所在的文件" />
+    <SUITE FILE_PATH="coverage/PythonXdd$20200225.coverage" NAME="20200225燃烧卡路里动态显示剩余时间 Coverage Results" MODIFIED="1583045155846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EveryDayStudy" />
+    <SUITE FILE_PATH="coverage/PythonXdd$11__1_.coverage" NAME="11 (1) Coverage Results" MODIFIED="1593766559473" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EveryDayStudy/可视化数据分析图表的实现" />
+    <SUITE FILE_PATH="coverage/PythonXdd$1.coverage" NAME="1 Coverage Results" MODIFIED="1583044108463" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EveryDayStudy" />
+    <SUITE FILE_PATH="coverage/PythonXdd$DownloadPicChaoXing.coverage" NAME="DownloadPicChaoXing Coverage Results" MODIFIED="1584780373912" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/下载图片" />
+    <SUITE FILE_PATH="coverage/PythonXdd$Y.coverage" NAME="双Y轴可视化数据分析图表的实现 Coverage Results" MODIFIED="1593753345673" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EveryDayStudy/双Y轴可视化数据分析图表的实现" />
+    <SUITE FILE_PATH="coverage/PythonXdd$import_request_test.coverage" NAME="import_request_test Coverage Results" MODIFIED="1594014376188" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PythonXdd$PoJieMain.coverage" NAME="PoJieMain Coverage Results" MODIFIED="1585497893121" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/破解压缩包密码" />
+    <SUITE FILE_PATH="coverage/PythonXdd$11.coverage" NAME="11 Coverage Results" MODIFIED="1594711406372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PythonXdd$20191218bilibili__json.coverage" NAME="20191218bilibili_下载视频_json动态加载 Coverage Results" MODIFIED="1584621081406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EveryDayStudy" />
   </component>
 </project>
