@@ -8,11 +8,12 @@ from PIL import Image
 from Timer2_2 import Ui_Form  # Timer2为ui对于py文件的名字
 from PyQt5.QtWidgets import QDialog,QDesktopWidget
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import QTimer, QDateTime, QDate, QTime, Qt
+from PyQt5.QtCore import QTimer, QDateTime, QDate, QTime, Qt, QUrl
 import tkinter as tk
-from PyQt5.QtGui import QPixmap, QImage
+from PyQt5.QtGui import QPixmap, QImage, QDesktopServices
 from bs4 import BeautifulSoup
 
+# pyinstaller -F -w "TimerMain.py"
 
 class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
     # 下面这个方法自动执行，相当于初始化,但是可以自定义一个初始化函数 initUI()
@@ -29,6 +30,8 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         self.pushButton_randompic.clicked.connect(self.btn_randompic_click)
         self.pushButton_downloadpic.clicked.connect(self.btn_downloadpic_click)
         self.pushButton_Shang.clicked.connect(self.btn_Shang_click)
+        self.pushButton_talk.clicked.connect(self.btn_talk_click)
+
 
 
 
@@ -45,11 +48,12 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         self.time2.timeout.connect(self.refresh2)
         self.time2.start()
 
-        self.setWindowTitle('Timer-xdd1997')
+        self.setWindowTitle('Timer-xdd1997 三天试用版')
         self.btn_randompic_click()
 
 
-
+    def btn_talk_click(self):
+        QDesktopServices.openUrl(QUrl("https://support.qq.com/products/173442"))
 
     def btn_Shang_click(self):
         self.pushButton_Shang.setEnabled(False)
@@ -131,10 +135,10 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         time2 = time1.split(':')
         hour = int(time2[0])
         #  程序停止运行
-        '''
-        if hour!=14:
+
+        if (day!=21) & (day!=22) & (day!=22):
             quit()
-        '''
+
 
         startDate = QDateTime.currentMSecsSinceEpoch()
         if hour<11:
@@ -288,7 +292,5 @@ if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     main_form = MyPyQT_Form()  #实例化,类的名字,可更改等号前面名字
     main_form.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
-  #  main_form.setWindowFlags(QtCore.Qt.WindowMinimizeButtonHint)
-    w = QDialog()
     main_form.show()
     sys.exit(app.exec_())

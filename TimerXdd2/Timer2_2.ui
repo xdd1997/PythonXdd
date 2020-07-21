@@ -290,9 +290,9 @@
   <widget class="QWidget" name="horizontalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>280</x>
+     <x>250</x>
      <y>230</y>
-     <width>239</width>
+     <width>333</width>
      <height>31</height>
     </rect>
    </property>
@@ -315,6 +315,13 @@
      <widget class="QPushButton" name="pushButton_downloadpic">
       <property name="text">
        <string>下载此图</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_talk">
+      <property name="text">
+       <string>产品交流</string>
       </property>
      </widget>
     </item>
