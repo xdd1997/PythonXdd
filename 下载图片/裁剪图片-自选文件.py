@@ -17,7 +17,7 @@ img = Image.open(Filepath)
 #img = Image.open('F:\desktop\爬取的图片\pic.jpg')
 (picW,picH) = img.size
 # 欲裁剪为4*3
-bili = 4/3
+bili = 16/9
 if picW/picH>=bili:
     print('weight pic')
     picW2 = picH*bili
@@ -36,3 +36,4 @@ else:
     lower = upper + picW / bili
     cropped = img.crop((left, upper, right, lower))  # (left, upper, right, lower)
 cropped.save(Filepath)
+img.show()

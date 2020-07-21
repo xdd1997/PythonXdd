@@ -8,6 +8,8 @@ import urllib.request
 from bs4 import BeautifulSoup
 from PIL import Image
 
+
+
 # 获取桌面路径
 def desktop_path():
     key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, r'Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders')
