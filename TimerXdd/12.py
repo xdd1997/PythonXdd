@@ -15,3 +15,6 @@ def num2hms(sec):
 
 a = num2hms(72)
 print(a)
+
+
+pyinstaller -F -w "TimerMain.py"

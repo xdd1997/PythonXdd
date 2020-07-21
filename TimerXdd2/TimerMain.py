@@ -3,14 +3,12 @@ import random
 import sys
 import urllib
 import winreg
-#from tkinter import filedialog
 import requests
 from PIL import Image
 from Timer2_2 import Ui_Form  # Timer2为ui对于py文件的名字
 from PyQt5.QtWidgets import QDialog,QDesktopWidget
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import QTimer, QDateTime, QDate, QTime
-#import time
+from PyQt5.QtCore import QTimer, QDateTime, QDate, QTime, Qt
 import tkinter as tk
 from PyQt5.QtGui import QPixmap, QImage
 from bs4 import BeautifulSoup
@@ -42,17 +40,19 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         self.time.setInterval(1000)
         self.time.timeout.connect(self.Refresh)
 
-        time2 = QTimer(self)
-        time2.setInterval(1000)
-        time2.timeout.connect(self.refresh2)
-        time2.start()
+        self.time2 = QTimer(self)
+        self.time2.setInterval(1000)
+        self.time2.timeout.connect(self.refresh2)
+        self.time2.start()
 
+        self.setWindowTitle('Timer-xdd1997')
         self.btn_randompic_click()
-    def showEatTime(self):
-        pass
+
+
+
 
     def btn_Shang_click(self):
-        pass
+        self.pushButton_Shang.setEnabled(False)
 
 
     def btn_downloadpic_click(self):
@@ -66,6 +66,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         tt = self.label_img.setPixmap(QPixmap.fromImage(img))
         '''
         global filesavepath
+    #    self.pushButton_Shang.setEnabled(True)
         self.download_img()
         self.pic_cut()
         self.pic_SuoFang()
@@ -109,23 +110,70 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
 
             window = tk.Tk()
             window.title('My Window')
-            l = tk.Label(window, text='你好,计时时间到了!', bg='blue', font=('Arial', 12), width=30, height=2)
+            l = tk.Label(window, text='你好,计时时间到了!', bg='green', font=('Arial', 12), width=30, height=2)
+            screenwidth = window.winfo_screenwidth()
+            screenheight = window.winfo_screenheight()
+            width = 300;height = 200
+            alignstr = '%dx%d+%d+%d' % (width, height, (screenwidth - width) / 2, (screenheight - height) / 2)
+            window.geometry(alignstr)
+            window.wm_attributes('-topmost', 1)  # 窗口置顶
             l.pack()
             window.mainloop()
 
     def refresh2(self):
+        now = QDate.currentDate()
+        nowtxt = now.toString(Qt.ISODate)
+        date = nowtxt.split('-')
+        year = int(date[0]); mount = int(date[1]); day = int(date[2])
+
+        time = QTime.currentTime()
+        time1 = time.toString(Qt.DefaultLocaleLongDate)
+        time2 = time1.split(':')
+        hour = int(time2[0])
+        #  程序停止运行
+        '''
+        if hour!=14:
+            quit()
+        '''
+
         startDate = QDateTime.currentMSecsSinceEpoch()
-        endDate = QDateTime(QDate(2020, 2, 4), QTime(0, 0, 0)).toMSecsSinceEpoch()
+        if hour<11:
+            endDate = QDateTime(QDate(year,mount,day), QTime(11, 0, 0)).toMSecsSinceEpoch()
+        elif hour<17:
+            endDate = QDateTime(QDate(year, mount, day), QTime(17, 0, 0)).toMSecsSinceEpoch()
+            self.label_eatTxt.setText('距离吃晚饭还有')
+        else:
+            endDate = QDateTime(QDate(year, mount, day), QTime(22, 0, 0)).toMSecsSinceEpoch()
+            self.label_eatTxt.setText('距离下班还有')
         interval = endDate - startDate
+
         if interval > 0:
             days = interval // (24 * 60 * 60 * 1000)
             hour = (interval - days * 24 * 60 * 60 * 1000) // (60 * 60 * 1000)
             min = (interval - days * 24 * 60 * 60 * 1000 - hour * 60 * 60 * 1000) // (60 * 1000)
             sec = (interval - days * 24 * 60 * 60 * 1000 - hour * 60 * 60 * 1000 - min * 60 * 1000) // 1000
-            intervals = str(days) + ':' + str(hour) + ':' + str(min) + ':' + str(sec)
-           # self.lcd.display(intervals)
-            self.label_time.setText(stringTime)
-            print(days,hour)
+            intervals =  str(hour) + ':' + str(min) + ':' + str(sec)
+            self.lcd.display(intervals)
+        else:
+            self.time2.stop()
+            intervals = '00:00:00'
+            self.lcd.display(intervals)
+
+            window = tk.Tk()
+            width = 300
+            height = 100
+            window.title('My Window')
+            l = tk.Label(window, text='吃饭时间到了!', bg='green', font=('Arial', 12), width=30, height=2)
+
+            screenwidth = window.winfo_screenwidth()
+            screenheight = window.winfo_screenheight()
+            alignstr = '%dx%d+%d+%d' % (width, height, (screenwidth - width) / 2, (screenheight - height) / 2)
+            window.geometry(alignstr)
+            window.wm_attributes('-topmost', 1)   #窗口置顶
+            l.pack()
+            window.mainloop()
+            #self.label_timeEat.setText(str(intervals))
+
 
 
 
@@ -184,6 +232,12 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         window = tk.Tk()
         window.title('My Window')
         l = tk.Label(window, text='图片已下载到桌面 TimerXdd', bg='green', font=('Arial', 12), width=30, height=2)
+        screenwidth = window.winfo_screenwidth()
+        screenheight = window.winfo_screenheight()
+        width = 300; height = 100
+        alignstr = '%dx%d+%d+%d' % (width, height, (screenwidth - width) / 2, (screenheight - height) / 2)
+        window.geometry(alignstr)
+        window.wm_attributes('-topmost', 1)  # 窗口置顶
         l.pack()
         window.mainloop()
 
@@ -234,6 +288,7 @@ if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     main_form = MyPyQT_Form()  #实例化,类的名字,可更改等号前面名字
     main_form.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
+  #  main_form.setWindowFlags(QtCore.Qt.WindowMinimizeButtonHint)
     w = QDialog()
     main_form.show()
     sys.exit(app.exec_())

@@ -10,6 +10,11 @@
     <height>292</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>11</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
@@ -32,7 +37,7 @@
     <widget class="QLabel" name="label_time">
      <property name="geometry">
       <rect>
-       <x>72</x>
+       <x>80</x>
        <y>10</y>
        <width>131</width>
        <height>31</height>
@@ -161,6 +166,62 @@
     <attribute name="title">
      <string>正计时</string>
     </attribute>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>10</y>
+       <width>203</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>捐款开发</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>支付宝：1837990190@qq.com</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit_2">
+        <property name="text">
+         <string>联系方式：xdd2026@qq.com</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QTextBrowser" name="textBrowser">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>160</y>
+       <width>171</width>
+       <height>21</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QLabel" name="label_img">
@@ -215,6 +276,9 @@
      <italic>true</italic>
      <stylestrategy>PreferDefault</stylestrategy>
     </font>
+   </property>
+   <property name="lineWidth">
+    <number>0</number>
    </property>
    <property name="text">
     <string>你的网络可能有问题</string>
@@ -274,12 +338,12 @@
     <string>距离吃午饭还有</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_timeEat">
+  <widget class="QLCDNumber" name="lcd">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>200</y>
-     <width>201</width>
+     <x>30</x>
+     <y>210</y>
+     <width>151</width>
      <height>61</height>
     </rect>
    </property>
@@ -298,45 +362,45 @@
       <colorrole role="Button">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>170</red>
+         <red>0</red>
          <green>170</green>
-         <blue>127</blue>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Light">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>255</red>
+         <red>0</red>
          <green>255</green>
-         <blue>191</blue>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Midlight">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>212</red>
+         <red>0</red>
          <green>212</green>
-         <blue>159</blue>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Dark">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>85</red>
+         <red>0</red>
          <green>85</green>
-         <blue>63</blue>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Mid">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>113</red>
+         <red>0</red>
          <green>113</green>
-         <blue>84</blue>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
@@ -379,9 +443,9 @@
       <colorrole role="Window">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>170</red>
+         <red>0</red>
          <green>170</green>
-         <blue>127</blue>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
@@ -397,9 +461,9 @@
       <colorrole role="AlternateBase">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>212</red>
+         <red>127</red>
          <green>212</green>
-         <blue>191</blue>
+         <blue>127</blue>
         </color>
        </brush>
       </colorrole>
@@ -444,45 +508,45 @@
       <colorrole role="Button">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>170</red>
+         <red>0</red>
          <green>170</green>
-         <blue>127</blue>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Light">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>255</red>
+         <red>0</red>
          <green>255</green>
-         <blue>191</blue>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Midlight">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>212</red>
+         <red>0</red>
          <green>212</green>
-         <blue>159</blue>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Dark">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>85</red>
+         <red>0</red>
          <green>85</green>
-         <blue>63</blue>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Mid">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>113</red>
+         <red>0</red>
          <green>113</green>
-         <blue>84</blue>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
@@ -525,9 +589,9 @@
       <colorrole role="Window">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>170</red>
+         <red>0</red>
          <green>170</green>
-         <blue>127</blue>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
@@ -543,9 +607,9 @@
       <colorrole role="AlternateBase">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>212</red>
+         <red>127</red>
          <green>212</green>
-         <blue>191</blue>
+         <blue>127</blue>
         </color>
        </brush>
       </colorrole>
@@ -581,63 +645,63 @@
       <colorrole role="WindowText">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>85</red>
+         <red>0</red>
          <green>85</green>
-         <blue>63</blue>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Button">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>170</red>
+         <red>0</red>
          <green>170</green>
-         <blue>127</blue>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Light">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>255</red>
+         <red>0</red>
          <green>255</green>
-         <blue>191</blue>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Midlight">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>212</red>
+         <red>0</red>
          <green>212</green>
-         <blue>159</blue>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Dark">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>85</red>
+         <red>0</red>
          <green>85</green>
-         <blue>63</blue>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Mid">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>113</red>
+         <red>0</red>
          <green>113</green>
-         <blue>84</blue>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Text">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>85</red>
+         <red>0</red>
          <green>85</green>
-         <blue>63</blue>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
@@ -653,27 +717,27 @@
       <colorrole role="ButtonText">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>85</red>
+         <red>0</red>
          <green>85</green>
-         <blue>63</blue>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Base">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>170</red>
+         <red>0</red>
          <green>170</green>
-         <blue>127</blue>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Window">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>170</red>
+         <red>0</red>
          <green>170</green>
-         <blue>127</blue>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
@@ -689,9 +753,9 @@
       <colorrole role="AlternateBase">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>170</red>
+         <red>0</red>
          <green>170</green>
-         <blue>127</blue>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
@@ -725,33 +789,11 @@
      </disabled>
     </palette>
    </property>
-   <property name="font">
-    <font>
-     <pointsize>26</pointsize>
-     <stylestrategy>PreferDefault</stylestrategy>
-    </font>
+   <property name="lineWidth">
+    <number>0</number>
    </property>
-   <property name="text">
-    <string>00:00:00</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-   <property name="margin">
-    <number>1</number>
-   </property>
-   <property name="textInteractionFlags">
-    <set>Qt::NoTextInteraction</set>
-   </property>
-  </widget>
-  <widget class="QLCDNumber" name="lcd">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>250</y>
-     <width>64</width>
-     <height>23</height>
-    </rect>
+   <property name="digitCount">
+    <number>8</number>
    </property>
   </widget>
  </widget>

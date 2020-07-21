@@ -1,2 +1,6 @@
-import  datetime
-print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+i = 0
+while True:
+    print(i)
+    if i==10:
+
+    i=i+1
