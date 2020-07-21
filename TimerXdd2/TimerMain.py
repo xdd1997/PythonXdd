@@ -31,8 +31,8 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         self.pushButton_downloadpic.clicked.connect(self.btn_downloadpic_click)
         self.pushButton_Shang.clicked.connect(self.btn_Shang_click)
         self.pushButton_talk.clicked.connect(self.btn_talk_click)
-
-
+        self.pushButton_showpic.clicked.connect(self.btn_showPic_click)
+        self.pushButton_ZhiDing.clicked.connect(self.btn_ZhiDing_click)
 
 
         self.pushButton_pause.setEnabled(False)
@@ -50,7 +50,28 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
 
         self.setWindowTitle('Timer-xdd1997 三天试用版')
         self.btn_randompic_click()
+        self.pushButton_ZhiDing.setText('取消置顶')
 
+
+
+    def btn_ZhiDing_click(self):
+        btnTxt = self.pushButton_ZhiDing.text()
+        if btnTxt=='取消置顶':
+
+            self.setWindowFlags(QtCore.Qt.Widget)  # 取消置顶
+            self.pushButton_ZhiDing.setText('置顶')
+        else:
+            self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)  # 置顶
+            self.pushButton_ZhiDing.setText('取消置顶')
+        self.show()
+
+    def btn_showPic_click(self):
+        global filesavepath
+        global http
+        path = "c:\\timerXdd"
+        urllib.request.urlretrieve(http, filesavepath)
+        img = Image.open(filesavepath)
+        img.show()
 
     def btn_talk_click(self):
         QDesktopServices.openUrl(QUrl("https://support.qq.com/products/173442"))
@@ -158,29 +179,35 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             sec = (interval - days * 24 * 60 * 60 * 1000 - hour * 60 * 60 * 1000 - min * 60 * 1000) // 1000
             intervals =  str(hour) + ':' + str(min) + ':' + str(sec)
             self.lcd.display(intervals)
+            print(interval)
+
+            if   interval<121000 and interval>120000 : # 两分钟提醒
+                self.txtShow = '收拾下东西吧，还有2分钟'
+                self.showLast2min()
+
         else:
             self.time2.stop()
             intervals = '00:00:00'
             self.lcd.display(intervals)
 
-            window = tk.Tk()
-            width = 300
-            height = 100
-            window.title('My Window')
-            l = tk.Label(window, text='吃饭时间到了!', bg='green', font=('Arial', 12), width=30, height=2)
+            self.txtShow = '下班时间到了！'
+            self.showLast2min()
 
-            screenwidth = window.winfo_screenwidth()
-            screenheight = window.winfo_screenheight()
-            alignstr = '%dx%d+%d+%d' % (width, height, (screenwidth - width) / 2, (screenheight - height) / 2)
-            window.geometry(alignstr)
-            window.wm_attributes('-topmost', 1)   #窗口置顶
-            l.pack()
-            window.mainloop()
-            #self.label_timeEat.setText(str(intervals))
+    def showLast2min(self):
+        print('-----------------')
+        window = tk.Tk()
+        width = 300
+        height = 100
+        window.title('My Window')
+        l = tk.Label(window, text=self.txtShow, bg='green', font=('Arial', 12), width=30, height=2)
 
-
-
-
+        screenwidth = window.winfo_screenwidth()
+        screenheight = window.winfo_screenheight()
+        alignstr = '%dx%d+%d+%d' % (width, height, (screenwidth - width) / 2, (screenheight - height) / 2)
+        window.geometry(alignstr)
+        window.wm_attributes('-topmost', 1)  # 窗口置顶
+        l.pack()
+        window.mainloop()
 
     def download_img(self):
         # 微信下载图片的网址
@@ -288,9 +315,10 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         new_im.close()
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  # 四句话：继承-实例化-显示-退出
     app = QtWidgets.QApplication(sys.argv)
     main_form = MyPyQT_Form()  #实例化,类的名字,可更改等号前面名字
-    main_form.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
+    main_form.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)   # 窗口置顶
+
     main_form.show()
     sys.exit(app.exec_())
