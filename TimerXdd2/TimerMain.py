@@ -49,7 +49,17 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         self.time2.start()
 
         self.setWindowTitle('Timer-xdd1997 三天试用版')
-        self.btn_randompic_click()
+        try:
+            self.btn_randompic_click()
+        except:  #若没有网，禁用除置顶外所有的按钮
+            self.pushButton_randompic.setEnabled(False)
+            self.pushButton_downloadpic.setEnabled(False)
+            self.pushButton_Shang.setEnabled(False)
+            self.pushButton_talk.setEnabled(False)
+            self.pushButton_showpic.setEnabled(False)
+
+
+
         self.pushButton_ZhiDing.setText('取消置顶')
 
 
@@ -66,12 +76,15 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         self.show()
 
     def btn_showPic_click(self):
-        global filesavepath
-        global http
-        path = "c:\\timerXdd"
-        urllib.request.urlretrieve(http, filesavepath)
-        img = Image.open(filesavepath)
-        img.show()
+        try:
+            global filesavepath
+            global http
+            path = "c:\\timerXdd"
+            urllib.request.urlretrieve(http, filesavepath)
+            img = Image.open(filesavepath)
+            img.show()
+        except:
+            pass
 
     def btn_talk_click(self):
         QDesktopServices.openUrl(QUrl("https://support.qq.com/products/173442"))
