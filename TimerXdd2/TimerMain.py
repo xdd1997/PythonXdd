@@ -49,7 +49,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         self.time2.start()
 
         self.setWindowTitle('Timer-xdd1997 三天试用版')
-        try:
+        try:      #若有网，下载图片
             self.btn_randompic_click()
         except:  #若没有网，禁用除置顶外所有的按钮
             self.pushButton_randompic.setEnabled(False)
@@ -180,9 +180,12 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         elif hour<17:
             endDate = QDateTime(QDate(year, mount, day), QTime(17, 0, 0)).toMSecsSinceEpoch()
             self.label_eatTxt.setText('距离吃晚饭还有')
-        else:
+        elif hour<22:
             endDate = QDateTime(QDate(year, mount, day), QTime(22, 0, 0)).toMSecsSinceEpoch()
             self.label_eatTxt.setText('距离下班还有')
+        else:
+            endDate = QDateTime(QDate(year, mount, day), QTime(24, 0, 0)).toMSecsSinceEpoch()
+            self.label_eatTxt.setText('距离吃午饭还有')
         interval = endDate - startDate
 
         if interval > 0:
@@ -199,13 +202,15 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
                 self.showLast2min()
 
         else:
-            self.time2.stop()
+            pass
+            '''
+            #self.time2.stop()
             intervals = '00:00:00'
             self.lcd.display(intervals)
 
             self.txtShow = '下班时间到了！'
             self.showLast2min()
-
+            '''
     def showLast2min(self):
         print('-----------------')
         window = tk.Tk()
