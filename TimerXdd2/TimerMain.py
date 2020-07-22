@@ -6,7 +6,6 @@ import winreg
 import requests
 from PIL import Image
 from Timer2_2 import Ui_Form  # Timer2为ui对于py文件的名字
-from PyQt5.QtWidgets import QDialog,QDesktopWidget
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QTimer, QDateTime, QDate, QTime, Qt, QUrl
 import tkinter as tk
@@ -35,22 +34,22 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         self.pushButton_ZhiDing.clicked.connect(self.btn_ZhiDing_click)
 
 
-        self.pushButton_pause.setEnabled(False)
+        self.pushButton_pause.setEnabled(False)        # 设置倒计时的暂停标签不可用
         self.pushButton_Shang.setEnabled(False)
 
 
-        self.time = QTimer(self)
-        self.time.setInterval(1000)
-        self.time.timeout.connect(self.Refresh)
+        self.time = QTimer(self)                           # 设置第一个计时器用以倒计时
+        self.time.setInterval(1000)                       # 每隔1000毫秒发射一次信号（即执行一次timeout)
+        self.time.timeout.connect(self.Refresh)         # timeout事件的绑定
 
         self.time2 = QTimer(self)
         self.time2.setInterval(1000)
         self.time2.timeout.connect(self.refresh2)
         self.time2.start()
 
-        self.setWindowTitle('Timer-xdd1997 三天试用版')
+        self.setWindowTitle('Timer-xdd1997 三天试用版')   #设置窗口标题
         try:      #若有网，下载图片
-            self.btn_randompic_click()
+            self.btn_randompic_click()                      # 执行随机显示照片
         except:  #若没有网，禁用除置顶外所有的按钮
             self.pushButton_randompic.setEnabled(False)
             self.pushButton_downloadpic.setEnabled(False)
@@ -60,8 +59,9 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
 
 
 
-        self.pushButton_ZhiDing.setText('取消置顶')
+        self.pushButton_ZhiDing.setText('取消置顶')  #默认置顶（在if __main__设置的），此处设置置顶按钮默认显示文字
 
+        self.tabWidget.setCurrentIndex(0)   #设置默认tab显示
 
 
     def btn_ZhiDing_click(self):
@@ -87,7 +87,10 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             pass
 
     def btn_talk_click(self):
-        QDesktopServices.openUrl(QUrl("https://support.qq.com/products/173442"))
+        try:
+            QDesktopServices.openUrl(QUrl("https://support.qq.com/products/173442"))
+        except:
+            self.tabWidget.setCurrentIndex(1)
 
     def btn_Shang_click(self):
         self.pushButton_Shang.setEnabled(False)
@@ -159,6 +162,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             window.mainloop()
 
     def refresh2(self):
+        """左下角的时间显示，限制三天"""
         now = QDate.currentDate()
         nowtxt = now.toString(Qt.ISODate)
         date = nowtxt.split('-')
@@ -170,7 +174,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         hour = int(time2[0])
         #  程序停止运行
 
-        if (day!=21) & (day!=22) & (day!=22):
+        if (day!=22) & (day!=23) & (day!=24):
             quit()
 
 
@@ -256,14 +260,14 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
                     piclist.append(link_list)
             http = piclist[2]
 
-        print(http)
+
         # -------------递归创建的目录-----------
         path = "c:\\timerXdd"
         if not os.path.exists(path):
             os.makedirs(path)
         filesavepath = os.path.join(path, 'pic.jpg')
         urllib.request.urlretrieve(http, filesavepath)
-        print('暂存完成')
+        print('下载模块 downloadpic 正常')
 
     def download_img_desktop(self):
         # 获取桌面路径
@@ -289,6 +293,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         window.wm_attributes('-topmost', 1)  # 窗口置顶
         l.pack()
         window.mainloop()
+        print('下载到桌面模块 downloadpic_desktop 正常')
 
     def pic_cut(self):
         global filesavepath
@@ -313,6 +318,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             lower = upper + picW / bili
             cropped = img.crop((left, upper, right, lower))  # (left, upper, right, lower)
         cropped.save(filesavepath)
+        print('裁剪模块 pic_cut 正常')
 
     def pic_SuoFang(self):
         global filesavepath
@@ -331,6 +337,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             new_im = image.resize((int(w / scale), int(h / scale)), Image.ANTIALIAS)
         new_im.save(filesavepath)
         new_im.close()
+        print('缩放模块 SuoFang 正常')
 
 
 if __name__ == '__main__':  # 四句话：继承-实例化-显示-退出
