@@ -58,6 +58,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             self.pushButton_talk.setEnabled(False)
             self.pushButton_showpic.setEnabled(False)
 
+        self.pushButton_pause.setEnabled(False)
         self.pushButton_Shang.setEnabled(False)     #启动时上一张按钮不可用
         self.pushButton_ZhiDing.setText('取消置顶')  #默认置顶（在if __main__设置的），此处设置置顶按钮默认显示文字
         self.tabWidget.setCurrentIndex(0)   #设置默认tab显示
@@ -119,7 +120,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
     def btn_start_click(self):
         #self.label_time.setText('ILOVEYOU')
         self.count = int(self.spinBox.text()) * 60
-
+        self.pushButton_pause.setEnabled(True)
         print(self.count)
 
         if self.pushButton_start.isEnabled():
