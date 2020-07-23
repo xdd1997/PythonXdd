@@ -139,7 +139,7 @@
       <item>
        <widget class="QPushButton" name="pushButton_stop">
         <property name="text">
-         <string>停止</string>
+         <string>清零</string>
         </property>
        </widget>
       </item>
@@ -183,10 +183,10 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit">
+       <widget class="QLineEdit" name="lineEdit_zhifubao">
         <property name="font">
          <font>
-          <pointsize>9</pointsize>
+          <pointsize>11</pointsize>
          </font>
         </property>
         <property name="text">
@@ -195,12 +195,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_2">
-        <property name="font">
-         <font>
-          <pointsize>9</pointsize>
-         </font>
-        </property>
+       <widget class="QLineEdit" name="lineEdit_lianxi">
         <property name="text">
          <string>联系方式：xdd2026@qq.com</string>
         </property>

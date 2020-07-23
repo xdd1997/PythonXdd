@@ -24,6 +24,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
     def initUI(self):  # 定义初始化界面的方法
         # ----------信号连接自定义的槽---------
         self.pushButton_start.clicked.connect(self.btn_start_click)
+        self.pushButton_pause.clicked.connect(self.btn_pause_click)
         self.pushButton_stop.clicked.connect(self.btn_stop_click)
         self.pushButton_stopAndStart.clicked.connect(self.btn_stopAndStart_click)
         self.pushButton_randompic.clicked.connect(self.btn_randompic_click)
@@ -34,8 +35,8 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         self.pushButton_ZhiDing.clicked.connect(self.btn_ZhiDing_click)
 
 
-        self.pushButton_pause.setEnabled(False)        # 设置倒计时的暂停标签不可用
-        self.pushButton_Shang.setEnabled(False)
+
+
 
 
         self.time = QTimer(self)                           # 设置第一个计时器用以倒计时
@@ -57,11 +58,12 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             self.pushButton_talk.setEnabled(False)
             self.pushButton_showpic.setEnabled(False)
 
-
-
+        self.pushButton_Shang.setEnabled(False)     #启动时上一张按钮不可用
         self.pushButton_ZhiDing.setText('取消置顶')  #默认置顶（在if __main__设置的），此处设置置顶按钮默认显示文字
-
         self.tabWidget.setCurrentIndex(0)   #设置默认tab显示
+
+        self.lineEdit_zhifubao.setReadOnly(True)  # 设置为只读
+        self.lineEdit_lianxi.setReadOnly(True)
 
 
     def btn_ZhiDing_click(self):
@@ -115,21 +117,34 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         self.label_img.setPixmap(pix)
 
     def btn_start_click(self):
-        self.label_time.setText('ILOVEYOU')
+        #self.label_time.setText('ILOVEYOU')
         self.count = int(self.spinBox.text()) * 60
-        # self.lineEdit.setReadOnly(True)  # 设置为只读
+
         print(self.count)
 
         if self.pushButton_start.isEnabled():
             self.time.start()
 
+    def btn_pause_click(self):
+
+        btnTxt = self.pushButton_pause.text()
+        if btnTxt == '暂停':
+            self.time.stop()
+            self.pushButton_pause.setText('继续')
+        else:
+            self.time.start()
+            self.pushButton_pause.setText('暂停')
+
+
     def btn_stop_click(self):
         self.time.stop()
+        self.label_time.setText('LOVE YU')
 
     def btn_stopAndStart_click(self):
         self.btn_stop_click()
         self.btn_start_click()
 
+    # 第一个计时器每一秒发射的信号
     def Refresh(self):
         if self.count > 0:
 
@@ -159,8 +174,9 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             window.geometry(alignstr)
             window.wm_attributes('-topmost', 1)  # 窗口置顶
             l.pack()
-            window.mainloop()
+            window.mainloop()   # 第一个计时器
 
+    # 第2个计时器每一秒发射的信号
     def refresh2(self):
         """左下角的时间显示，限制三天"""
         now = QDate.currentDate()
@@ -180,7 +196,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
 
         startDate = QDateTime.currentMSecsSinceEpoch()
         if hour<11:
-            endDate = QDateTime(QDate(year,mount,day), QTime(11, 0, 0)).toMSecsSinceEpoch()
+            endDate = QDateTime(QDate(year, mount, day), QTime(11, 0, 0)).toMSecsSinceEpoch()
         elif hour<17:
             endDate = QDateTime(QDate(year, mount, day), QTime(17, 0, 0)).toMSecsSinceEpoch()
             self.label_eatTxt.setText('距离吃晚饭还有')
@@ -189,7 +205,8 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             self.label_eatTxt.setText('距离下班还有')
         else:
             endDate = QDateTime(QDate(year, mount, day), QTime(24, 0, 0)).toMSecsSinceEpoch()
-            self.label_eatTxt.setText('距离吃午饭还有')
+            self.label_eatTxt.setText('距离吃明天午饭')
+
         interval = endDate - startDate
 
         if interval > 0:
@@ -199,7 +216,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             sec = (interval - days * 24 * 60 * 60 * 1000 - hour * 60 * 60 * 1000 - min * 60 * 1000) // 1000
             intervals =  str(hour) + ':' + str(min) + ':' + str(sec)
             self.lcd.display(intervals)
-            print(interval)
+
 
             if   interval<121000 and interval>120000 : # 两分钟提醒
                 self.txtShow = '收拾下东西吧，还有2分钟'
@@ -215,6 +232,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             self.txtShow = '下班时间到了！'
             self.showLast2min()
             '''
+
     def showLast2min(self):
         print('-----------------')
         window = tk.Tk()
