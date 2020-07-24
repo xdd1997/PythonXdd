@@ -427,18 +427,18 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         # 第3步，设定窗口的大小(长 * 宽)
         window.geometry('300x200')  # 这里的乘是小x
         window.wm_attributes('-topmost', 1)  # 置顶
-        tk.Label(window, text='注册窗口', font=('微软雅黑', 16)).place(x=80, y=5)
-        tk.Label(window, text='注册ID:', font=('微软雅黑', 14)).place(x=10, y=37)
-        tk.Label(window, text='注册码:', font=('微软雅黑', 14)).place(x=10, y=80)
-        tk.Label(window, bg='lightblue', text='发送ID至 xdd2026@qq.com 获取激活码', font=('微软雅黑', 10)).place(x=20, y=120)
+        tk.Label(window, text='注册窗口', font=('微软雅黑', 14)).place(x=90, y=4)
+        tk.Label(window, text='注册ID:', font=('微软雅黑', 12)).place(x=10, y=37)
+        tk.Label(window, text='注册码:', font=('微软雅黑', 12)).place(x=10, y=80)
+        tk.Label(window, bg='lightblue', text='发送ID至 xdd2026@qq.com 获取激活码', font=('微软雅黑', 8)).place(x=20, y=120)
         e1 = tk.Entry(window, show=None)
         e1.place(x=120, y=40)  # 显示成明文形式    输入框
 
         e2 = tk.Entry(window, show=None)
         e2.place(x=120, y=85)  # 显示成明文形式    输入框
 
-        b1 = tk.Button(window, text='注册', width=7, height=1,font=('微软雅黑', 14) ,command=self.ZhuCeBtn).place(x=50, y=150)  # 方法要在这条语句前面
-        b2 = tk.Button(window, text='清空', width=7, height=1,font=('微软雅黑', 14), command=self.ZhuCeclean).place(x=160, y=150)  # 方法要在这条语句前面
+        b1 = tk.Button(window, text='注册', width=7, height=1,font=('微软雅黑', 12) ,command=self.ZhuCeBtn).place(x=50, y=150)  # 方法要在这条语句前面
+        b2 = tk.Button(window, text='清空', width=7, height=1,font=('微软雅黑', 12), command=self.ZhuCeclean).place(x=160, y=150)  # 方法要在这条语句前面
         macID = self.get_ZhuCeId()
         e1.insert(0, macID)
 
