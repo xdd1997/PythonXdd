@@ -1,7 +1,6 @@
 import os
 import random
 import sys
-
 import urllib
 import winreg
 import requests
