@@ -87,6 +87,10 @@ def ShowZhuCeFig():
     macID = get_ZhuCeId()
     e1.insert(0, macID)
 
+    screenwidth = window.winfo_screenwidth()
+    screenheight = window.winfo_screenheight()
+    alignstr = '%dx%d+%d+%d' % (300, 200, (screenwidth - 300) / 2, (screenheight - 200) / 2)
+    window.geometry(alignstr)
     window.mainloop()
 def OpenZhuCe():
     global flag

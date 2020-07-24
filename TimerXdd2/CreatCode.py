@@ -54,6 +54,11 @@ def ShowZhuCeFig():
     e2.place(x=120, y=85)  # 显示成明文形式    输入框
     b1 = tk.Button(window, text='生成', width=10, height=2, command=ZhuCeBtn).place(x=60, y=120)  # 方法要在这条语句前面
     b2 = tk.Button(window, text='清空', width=10, height=2, command=ZhuCeclean).place(x=180, y=120)  # 方法要在这条语句前面
+
+    screenwidth = window.winfo_screenwidth()
+    screenheight = window.winfo_screenheight()
+    alignstr = '%dx%d+%d+%d' % (300, 200, (screenwidth - 300) / 2, (screenheight - 200) / 2)
+    window.geometry(alignstr)
     window.mainloop()
 
 ShowZhuCeFig()
