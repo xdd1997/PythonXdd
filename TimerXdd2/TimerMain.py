@@ -1,6 +1,7 @@
 import os
 import random
 import sys
+
 import urllib
 import winreg
 import requests
@@ -11,6 +12,11 @@ from PyQt5.QtCore import QTimer, QDateTime, QDate, QTime, Qt, QUrl
 import tkinter as tk
 from PyQt5.QtGui import QPixmap, QImage, QDesktopServices
 from bs4 import BeautifulSoup
+import uuid
+from Cryptodome.Cipher import DES
+import binascii
+import tkinter.messagebox
+
 
 # pyinstaller -F -w "TimerMain.py"
 
@@ -34,6 +40,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         self.pushButton_showpic.clicked.connect(self.btn_showPic_click)
         self.pushButton_ZhiDing.clicked.connect(self.btn_ZhiDing_click)
 
+        self.OpenZhuCe()
 
 
 
@@ -48,7 +55,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         self.time2.timeout.connect(self.refresh2)
         self.time2.start()
 
-        self.setWindowTitle('Timer-xdd1997 三天试用版')   #设置窗口标题
+        self.setWindowTitle('Timer-xdd1997 ')   #设置窗口标题
         try:      #若有网，下载图片
             self.btn_randompic_click()                      # 执行随机显示照片
         except:  #若没有网，禁用除置顶外所有的按钮
@@ -190,10 +197,10 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         time2 = time1.split(':')
         hour = int(time2[0])
         #  程序停止运行
-
+        '''
         if (day!=22) & (day!=23) & (day!=24):
             quit()
-
+        '''
 
         startDate = QDateTime.currentMSecsSinceEpoch()
         if hour<11:
@@ -358,8 +365,116 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         new_im.close()
         print('缩放模块 SuoFang 正常')
 
+    def get_ZhuCeId(self):
+        # 获取本机 Mac  加密Mac
+        mac = uuid.UUID(int=uuid.getnode()).hex[-12:]
+        mac = ":".join([mac[e:e + 2] for e in range(0, 11, 2)])
+        # 对 Mac 加密
+        mac2 = mac.replace(":", '6')
+        if len(mac2) == 17:
+            mac3 = mac2[0:17:2]
+            mac3 = mac2[0:8]
+        else:
+            if len(mac2) % 8 != 0:
+                mac3 = mac2 + "+" * (8 - len(mac2) % 8)
+        macID = mac3
+        return macID
+
+    def get_ZhuCeCode(self):
+        macID = self.get_ZhuCeId()
+        if len(macID) % 8 != 0:
+            macID = macID + "+" * (8 - len(macID) % 8)
+        print('注册ID：',macID)
+        # 密钥：必须为8字节
+        key = b'xdd19976'
+        # 使用 key 初始化 DES 对象，使用 DES.MODE_ECB 模式
+        des = DES.new(key, DES.MODE_ECB)
+        # 加密
+        result = des.encrypt(macID.encode())
+        # 转为十六进制    binascii 的 b2a_hex 或者 hexlify 方法
+        tt = binascii.b2a_hex(result)
+        # 转为字符串
+        zhuceCode = str(tt, 'utf-8')
+        return zhuceCode
+
+    def ZhuCeBtn(self):
+        global e1
+        global e2
+        global flag
+        flag = 0
+        txt = e2.get()
+        macCode = self.get_ZhuCeCode()
+        if txt == macCode:
+            tkinter.messagebox.showinfo('提示', '注册成功,请关闭注册窗口')
+            flag = 1
+            with open("c:\\timerXdd\\code.txt", mode='w', encoding='utf-8') as ff:
+                ff.write(macCode)
+        else:
+            tkinter.messagebox.showinfo('提示', '注册码错误')
+            flag = 0
+
+    def ZhuCeclean(self):
+
+        global e2
+        e2.delete(0, 'end')
+
+    def ShowZhuCeFig(self):
+        global e1
+        global e2
+        # 第1步，实例化object，建立窗口window
+        window = tk.Tk()
+        # 第2步，给窗口的可视化起名字
+        window.title('欢迎来到注册世界')
+        # 第3步，设定窗口的大小(长 * 宽)
+        window.geometry('300x200')  # 这里的乘是小x
+        window.wm_attributes('-topmost', 1)  # 置顶
+        tk.Label(window, text='注册窗口', font=('微软雅黑', 16)).place(x=80, y=5)
+        tk.Label(window, text='注册ID:', font=('微软雅黑', 14)).place(x=10, y=37)
+        tk.Label(window, text='注册码:', font=('微软雅黑', 14)).place(x=10, y=80)
+        tk.Label(window, bg='lightblue', text='发送ID至 xdd2026@qq.com 获取激活码', font=('微软雅黑', 10)).place(x=20, y=120)
+        e1 = tk.Entry(window, show=None)
+        e1.place(x=120, y=40)  # 显示成明文形式    输入框
+
+        e2 = tk.Entry(window, show=None)
+        e2.place(x=120, y=85)  # 显示成明文形式    输入框
+
+        b1 = tk.Button(window, text='注册', width=7, height=1,font=('微软雅黑', 14) ,command=self.ZhuCeBtn).place(x=50, y=150)  # 方法要在这条语句前面
+        b2 = tk.Button(window, text='清空', width=7, height=1,font=('微软雅黑', 14), command=self.ZhuCeclean).place(x=160, y=150)  # 方法要在这条语句前面
+        macID = self.get_ZhuCeId()
+        e1.insert(0, macID)
+
+        screenwidth = window.winfo_screenwidth()
+        screenheight = window.winfo_screenheight()
+        alignstr = '%dx%d+%d+%d' % (300, 200, (screenwidth - 300) / 2, (screenheight - 200) / 2)
+        window.geometry(alignstr)
+        window.mainloop()
+
+    def OpenZhuCe(self):
+        global flag
+        flag = 0
+        if os.path.exists('c:\\timerXdd\\code.txt'):
+            with open('c:\\timerXdd\\code.txt', mode='r', encoding='utf-8') as ff:
+                codeRead = ff.readline()
+                realCode = self.get_ZhuCeCode()
+                if codeRead == realCode:
+                    print('配对成功')
+                else:
+                    self.ShowZhuCeFig()
+                    if flag != 1:
+                        os._exit(0)
+        else:
+            folder = os.path.exists("c:\\timerXdd")
+            if not folder:  # 判断是否存在文件夹如果不存在则创建为文件夹
+                os.makedirs("c:\\timerXdd")  # makedirs 创建文件时如果路径不存在会创建这个路径
+            with open("c:\\timerXdd\\code.txt", mode='w', encoding='utf-8') as ff:
+                print("文件创建成功！")
+            self.ShowZhuCeFig()
+            if flag != 1:
+                os._exit(0)
+
 
 if __name__ == '__main__':  # 四句话：继承-实例化-显示-退出
+
     app = QtWidgets.QApplication(sys.argv)
     main_form = MyPyQT_Form()  #实例化,类的名字,可更改等号前面名字
     main_form.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)   # 窗口置顶

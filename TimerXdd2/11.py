@@ -1,6 +1,4 @@
-i = 0
-while True:
-    print(i)
-    if i==10:
 
-    i=i+1
+with open('C:\\timerXdd\\log4.txt', mode='r', encoding='utf-8') as ff:
+    codeRead = ff.readlines()
+print(codeRead)
