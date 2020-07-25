@@ -1,5 +1,3 @@
-import time
+import pygame
 
-
-print(name)
-print(type(name))
+pygame.init()
