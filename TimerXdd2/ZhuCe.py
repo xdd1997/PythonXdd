@@ -95,7 +95,7 @@ def ShowZhuCeFig():
 
     b1 = tk.Button(window, text='注册', bg='lightblue', width=7, height=1, font=('微软雅黑', 12), command=ZhuCeBtn).place(x=30, y=150)  # 方法要在这条语句前面
     b2 = tk.Button(window, text='清空', bg='lightblue', width=7, height=1, font=('微软雅黑', 12),command=ZhuCeclean).place(x=120, y=150)  # 方法要在这条语句前面
-    b3 = tk.Button(window, text='帮助', bg='lightblue', width=7, height=1, font=('微软雅黑', 12), command=sZhuCehelp).place(x=210, y=150)  # 方法要在这条语句前面
+    b3 = tk.Button(window, text='帮助', bg='lightblue', width=7, height=1, font=('微软雅黑', 12), command=ZhuCehelp).place(x=210, y=150)  # 方法要在这条语句前面
 
 
     macID = get_ZhuCeId()

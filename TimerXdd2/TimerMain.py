@@ -1,15 +1,16 @@
 import os
 import random
 import sys
+import time
 import urllib
 import winreg
 import requests
 from PIL import Image
 from Timer2_2 import Ui_Form  # Timer2为ui对于py文件的名字
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtCore import QTimer, QDateTime, QDate, QTime, Qt, QUrl
 import tkinter as tk
-from PyQt5.QtGui import QPixmap, QImage, QDesktopServices
+from PyQt5.QtGui import QPixmap,  QDesktopServices
 from bs4 import BeautifulSoup
 import uuid
 from Cryptodome.Cipher import DES
@@ -248,7 +249,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         window = tk.Tk()
         width = 300
         height = 100
-        window.title('My Window')
+        window.title('温馨提示')
         l = tk.Label(window, text=self.txtShow, bg='green', font=('Arial', 12), width=30, height=2)
 
         screenwidth = window.winfo_screenwidth()
@@ -307,7 +308,10 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         path = os.path.join(path.replace('/', '\\'), 'TimerXdd')
         if not os.path.exists(path):
             os.makedirs(path)
-        filesavepath = os.path.join(path, 'pic.jpg')
+
+        name0 = time.strftime("%Y%m%d%H%M%S", time.localtime())
+        name = name0 + '.jpg'
+        filesavepath = os.path.join(path, name)
         urllib.request.urlretrieve(http, filesavepath)
 
         window = tk.Tk()
@@ -487,8 +491,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
 if __name__ == '__main__':  # 四句话：继承-实例化-显示-退出
 
     app = QtWidgets.QApplication(sys.argv)
-    main_form = MyPyQT_Form()  #实例化,类的名字,可更改等号前面名字
+    main_form = MyPyQT_Form()  #实例化,类的名字,可更改等号前面名字 MyPyQT_Form()继承自Ui_Form
     main_form.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)   # 窗口置顶
-
     main_form.show()
     sys.exit(app.exec_())
