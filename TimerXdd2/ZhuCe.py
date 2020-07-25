@@ -5,6 +5,9 @@ import uuid
 from Cryptodome.Cipher import DES
 import binascii
 
+from PyQt5.QtCore import QUrl
+from PyQt5.QtGui import QDesktopServices
+
 
 def get_ZhuCeId():
    # 获取本机 Mac  加密Mac
@@ -56,6 +59,12 @@ def ZhuCeBtn():
         tkinter.messagebox.showinfo('提示', '注册码错误')
         flag = 0
 
+def ZhuCehelp():
+    try:
+        QDesktopServices.openUrl(QUrl("https://support.qq.com/products/173442"))
+        print('正在打开帮助网站')
+    except:
+        tkinter.messagebox.showinfo('提示', '无网络，请联网')
 
 def ZhuCeclean():
 
@@ -82,12 +91,13 @@ def ShowZhuCeFig():
     e2 = tk.Entry(window, show=None)
     e2.place(x=120, y=85)  # 显示成明文形式    输入框
 
-    b1 = tk.Button(window, text='注册', width=10, height=2, command=ZhuCeBtn).place(x=60, y=150)  # 方法要在这条语句前面
-    b2 = tk.Button(window, text='清空', width=10, height=2, command=ZhuCeclean).place(x=160, y=150)  # 方法要在这条语句前面
+    b1 = tk.Button(window, text='注册',bg='lightblue', width=10, height=2, command=ZhuCeBtn).place(x=30, y=150)  # 方法要在这条语句前面
+    b2 = tk.Button(window, text='清空',bg='lightblue', width=10, height=2, command=ZhuCeclean).place(x=120, y=150)  # 方法要在这条语句前面
+    b2 = tk.Button(window, text='帮助', bg='lightblue',width=10, height=2, command=ZhuCehelp).place(x=210, y=150)  # 方法要在这条语句前面
     macID = get_ZhuCeId()
     e1.insert(0, macID)
 
-    screenwidth = window.winfo_screenwidth()
+    screenwidth = window.winfo_screenwidth()     # 窗口居中
     screenheight = window.winfo_screenheight()
     alignstr = '%dx%d+%d+%d' % (300, 200, (screenwidth - 300) / 2, (screenheight - 200) / 2)
     window.geometry(alignstr)
