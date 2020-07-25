@@ -194,7 +194,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         time = QTime.currentTime()
         time1 = time.toString(Qt.DefaultLocaleLongDate)
         time2 = time1.split(':')
-        hour = int(time2[0])
+        hour = int(time2[0]);minute = int(time2[1])
         #  程序停止运行
         '''
         if (day!=22) & (day!=23) & (day!=24):
@@ -207,7 +207,10 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         elif hour<17:
             endDate = QDateTime(QDate(year, mount, day), QTime(17, 0, 0)).toMSecsSinceEpoch()
             self.label_eatTxt.setText('距离吃晚饭还有')
-        elif hour<22:
+        elif  (day % 2) == 0 & hour < 21 & minute<30:
+            endDate = QDateTime(QDate(year, mount, day), QTime(20, 30, 0)).toMSecsSinceEpoch()
+            self.label_eatTxt.setText('距离8:30跑步还有')
+        elif hour < 22 :
             endDate = QDateTime(QDate(year, mount, day), QTime(22, 0, 0)).toMSecsSinceEpoch()
             self.label_eatTxt.setText('距离下班还有')
         else:
