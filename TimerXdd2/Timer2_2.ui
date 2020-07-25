@@ -186,7 +186,7 @@
        <widget class="QLineEdit" name="lineEdit_zhifubao">
         <property name="font">
          <font>
-          <pointsize>11</pointsize>
+          <pointsize>9</pointsize>
          </font>
         </property>
         <property name="text">
@@ -196,6 +196,11 @@
       </item>
       <item>
        <widget class="QLineEdit" name="lineEdit_lianxi">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>联系方式：xdd2026@qq.com</string>
         </property>

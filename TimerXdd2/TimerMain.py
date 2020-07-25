@@ -444,9 +444,9 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         e2 = tk.Entry(window, show=None)
         e2.place(x=120, y=85)  # 显示成明文形式    输入框
 
-        b1 = tk.Button(window, text='注册', bg='lightblue', width=7, height=1,font=('微软雅黑', 12) ,command=self.ZhuCeBtn).place(x=30, y=150)  # 方法要在这条语句前面
-        b2 = tk.Button(window, text='清空', bg='lightblue', width=7, height=1,font=('微软雅黑', 12), command=self.ZhuCeclean).place(x=120, y=150)  # 方法要在这条语句前面
-        b3 = tk.Button(window, text='帮助', bg='lightblue', width=7, height=1, font=('微软雅黑', 12),command=self.ZhuCehelp).place(x=210,y=150)  # 方法要在这条语句前面
+        b1 = tk.Button(window, text='注册', bg='lightblue', width=7, height=1,font=('微软雅黑', 10) ,command=self.ZhuCeBtn).place(x=30, y=150)  # 方法要在这条语句前面
+        b2 = tk.Button(window, text='清空', bg='lightblue', width=7, height=1,font=('微软雅黑', 10), command=self.ZhuCeclean).place(x=120, y=150)  # 方法要在这条语句前面
+        b3 = tk.Button(window, text='帮助', bg='lightblue', width=7, height=1, font=('微软雅黑', 10),command=self.ZhuCehelp).place(x=210,y=150)  # 方法要在这条语句前面
 
         macID = self.get_ZhuCeId()
         e1.insert(0, macID)
