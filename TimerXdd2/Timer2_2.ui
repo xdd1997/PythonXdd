@@ -28,7 +28,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -144,9 +144,9 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_stopAndStart">
+       <widget class="QPushButton" name="pushButton_Ready">
         <property name="text">
-         <string>复位并开始</string>
+         <string>待开发</string>
         </property>
        </widget>
       </item>

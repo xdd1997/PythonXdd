@@ -32,7 +32,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         self.pushButton_start.clicked.connect(self.btn_start_click)
         self.pushButton_pause.clicked.connect(self.btn_pause_click)
         self.pushButton_stop.clicked.connect(self.btn_stop_click)
-        self.pushButton_stopAndStart.clicked.connect(self.btn_stopAndStart_click)
+      #  self.pushButton_stopAndStart.clicked.connect(self.btn_stopAndStart_click)
         self.pushButton_randompic.clicked.connect(self.btn_randompic_click)
         self.pushButton_downloadpic.clicked.connect(self.btn_downloadpic_click)
         self.pushButton_Shang.clicked.connect(self.btn_Shang_click)
@@ -65,8 +65,10 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             self.pushButton_talk.setEnabled(False)
             self.pushButton_showpic.setEnabled(False)
 
+
         self.pushButton_pause.setEnabled(False)
         self.pushButton_Shang.setEnabled(False)     #启动时上一张按钮不可用
+        self.pushButton_Ready.setEnabled(False)
         self.pushButton_ZhiDing.setText('取消置顶')  #默认置顶（在if __main__设置的），此处设置置顶按钮默认显示文字
         self.tabWidget.setCurrentIndex(0)   #设置默认tab显示
 
@@ -147,11 +149,11 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
     def btn_stop_click(self):
         self.time.stop()
         self.label_time.setText('LOVE YU')
-
+    '''
     def btn_stopAndStart_click(self):
         self.btn_stop_click()
         self.btn_start_click()
-
+    '''
     # 第一个计时器每一秒发射的信号
     def Refresh(self):
         if self.count > 0:
