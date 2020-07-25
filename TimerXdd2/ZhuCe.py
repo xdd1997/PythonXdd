@@ -5,6 +5,8 @@ import uuid
 from Cryptodome.Cipher import DES
 import binascii
 
+
+
 from PyQt5.QtCore import QUrl
 from PyQt5.QtGui import QDesktopServices
 
@@ -91,12 +93,13 @@ def ShowZhuCeFig():
     e2 = tk.Entry(window, show=None)
     e2.place(x=120, y=85)  # 显示成明文形式    输入框
 
-    b1 = tk.Button(window, text='注册',bg='lightblue', width=10, height=2, command=ZhuCeBtn).place(x=30, y=150)  # 方法要在这条语句前面
-    b2 = tk.Button(window, text='清空',bg='lightblue', width=10, height=2, command=ZhuCeclean).place(x=120, y=150)  # 方法要在这条语句前面
-    b2 = tk.Button(window, text='帮助', bg='lightblue',width=10, height=2, command=ZhuCehelp).place(x=210, y=150)  # 方法要在这条语句前面
+    b1 = tk.Button(window, text='注册', bg='lightblue', width=7, height=1, font=('微软雅黑', 12), command=ZhuCeBtn).place(x=30, y=150)  # 方法要在这条语句前面
+    b2 = tk.Button(window, text='清空', bg='lightblue', width=7, height=1, font=('微软雅黑', 12),command=ZhuCeclean).place(x=120, y=150)  # 方法要在这条语句前面
+    b3 = tk.Button(window, text='帮助', bg='lightblue', width=7, height=1, font=('微软雅黑', 12), command=sZhuCehelp).place(x=210, y=150)  # 方法要在这条语句前面
+
+
     macID = get_ZhuCeId()
     e1.insert(0, macID)
-
     screenwidth = window.winfo_screenwidth()     # 窗口居中
     screenheight = window.winfo_screenheight()
     alignstr = '%dx%d+%d+%d' % (300, 200, (screenwidth - 300) / 2, (screenheight - 200) / 2)

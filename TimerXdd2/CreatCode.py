@@ -3,6 +3,8 @@
 import tkinter as tk  # 使用Tkinter前需要先导入
 from Cryptodome.Cipher import DES
 import binascii
+import pyperclip
+import tkinter.messagebox
 
 
 def get_ZhuCeCode():
@@ -31,6 +33,8 @@ def ZhuCeBtn():
     macCode = get_ZhuCeCode()
     e2.delete(0, 'end')
     e2.insert(0, macCode)
+    pyperclip.copy(macCode)
+    tkinter.messagebox.showinfo('提示', '注册码已经复制到粘贴板')
 
 def ZhuCeclean():
     global e2
