@@ -207,6 +207,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         startDate = QDateTime.currentMSecsSinceEpoch()
         if hour<11:
             endDate = QDateTime(QDate(year, mount, day), QTime(11, 0, 0)).toMSecsSinceEpoch()
+            self.label_eatTxt.setText('距离吃午饭还有')
         elif hour<17:
             endDate = QDateTime(QDate(year, mount, day), QTime(17, 0, 0)).toMSecsSinceEpoch()
             self.label_eatTxt.setText('距离吃晚饭还有')
