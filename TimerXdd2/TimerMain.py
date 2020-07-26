@@ -198,10 +198,11 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         time1 = time.toString(Qt.DefaultLocaleLongDate)
         time2 = time1.split(':')
         hour = int(time2[0]);minute = int(time2[1])
-        #  程序停止运行
+        #  程序停止运行，用于三天试用
         '''
         if (day!=22) & (day!=23) & (day!=24):
             quit()
+            
         '''
 
         startDate = QDateTime.currentMSecsSinceEpoch()
