@@ -28,7 +28,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -216,6 +216,24 @@
        <width>171</width>
        <height>21</height>
       </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_3">
+    <attribute name="title">
+     <string>设置</string>
+    </attribute>
+    <widget class="QPushButton" name="pushButton_setupMore">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>90</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>更多》</string>
      </property>
     </widget>
    </widget>

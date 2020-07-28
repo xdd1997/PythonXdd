@@ -7,6 +7,7 @@ import winreg
 import requests
 from PIL import Image
 from Timer2 import Ui_Form  # Timer2为ui对于py文件的名字
+from TimerSetup import Ui_Form as UISetup  # Timer2为ui对于py文件的名字
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtCore import QTimer, QDateTime, QDate, QTime, Qt, QUrl
 import tkinter as tk
@@ -39,11 +40,10 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         self.pushButton_talk.clicked.connect(self.btn_talk_click)
         self.pushButton_showpic.clicked.connect(self.btn_showPic_click)
         self.pushButton_ZhiDing.clicked.connect(self.btn_ZhiDing_click)
+        self.pushButton_setupMore.clicked.connect(self.btn_setupMore_click)
+
 
         self.OpenZhuCe()
-
-
-
 
 
         self.time = QTimer(self)                           # 设置第一个计时器用以倒计时
@@ -74,6 +74,17 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
 
         self.lineEdit_zhifubao.setReadOnly(True)  # 设置为只读
         self.lineEdit_lianxi.setReadOnly(True)
+
+    def btn_setupMore_click(self):
+
+        self.mySetup = winSetup()
+        self.mySetup.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)  # 窗口置顶
+        self.mySetup.show()
+        self.close
+
+
+
+
 
 
     def btn_ZhiDing_click(self):
@@ -197,30 +208,199 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         time = QTime.currentTime()
         time1 = time.toString(Qt.DefaultLocaleLongDate)
         time2 = time1.split(':')
-        hour = int(time2[0]);minute = int(time2[1])
+        hour = int(time2[0]);minute = int(time2[1]);sec = int(time2[2])
         #  程序停止运行，用于三天试用
         '''
         if (day!=22) & (day!=23) & (day!=24):
             quit()
             
         '''
+        if  (hour!=11) & (hour!=17) & (hour>8) & (hour<22) & (minute==0) & (sec==0):
+
+            self.txtShow = '学习1个小时，喝口水，休息下眼睛吧'
+            self.showLast2min()
 
         startDate = QDateTime.currentMSecsSinceEpoch()
-        if hour<11:
-            endDate = QDateTime(QDate(year, mount, day), QTime(11, 0, 0)).toMSecsSinceEpoch()
-            self.label_eatTxt.setText('距离吃午饭还有')
-        elif hour<17:
-            endDate = QDateTime(QDate(year, mount, day), QTime(17, 0, 0)).toMSecsSinceEpoch()
-            self.label_eatTxt.setText('距离吃晚饭还有')
-        elif  (day % 2) == 0 & hour < 21 & minute<30:
-            endDate = QDateTime(QDate(year, mount, day), QTime(20, 30, 0)).toMSecsSinceEpoch()
-            self.label_eatTxt.setText('距离8:30跑步还有')
-        elif hour < 22 :
-            endDate = QDateTime(QDate(year, mount, day), QTime(22, 0, 0)).toMSecsSinceEpoch()
-            self.label_eatTxt.setText('距离下班还有')
+
+        if os.path.exists('c:\\timerXdd\\setupcheckbox1.txt'):
+
+            with open('c:\\timerXdd\\setupcheckbox1.txt', mode='r', encoding='utf-8') as ff:
+                checkbox1val = ff.readline()
+
         else:
-            endDate = QDateTime(QDate(year, mount, day), QTime(24, 0, 0)).toMSecsSinceEpoch()
-            self.label_eatTxt.setText('距离吃明天午饭')
+            checkbox1val='1'
+
+        if checkbox1val=='1':    # 勾选了默认窗口
+
+            if hour<11:
+                endDate = QDateTime(QDate(year, mount, day), QTime(11, 0, 0)).toMSecsSinceEpoch()
+                self.label_eatTxt.setText('距离吃午饭还有')
+            elif hour<17:
+                endDate = QDateTime(QDate(year, mount, day), QTime(17, 0, 0)).toMSecsSinceEpoch()
+                self.label_eatTxt.setText('距离吃晚饭还有')
+            elif  ((day % 2) == 0) & (hour < 20) & (minute<30):
+                endDate = QDateTime(QDate(year, mount, day), QTime(20, 30, 0)).toMSecsSinceEpoch()
+                self.label_eatTxt.setText('距离8:30跑步还有')
+
+            elif hour < 22 :
+                endDate = QDateTime(QDate(year, mount, day), QTime(22, 0, 0)).toMSecsSinceEpoch()
+                self.label_eatTxt.setText('距离下班还有')
+            else:
+                endDate = QDateTime(QDate(year, mount, day), QTime(24, 0, 0)).toMSecsSinceEpoch()
+                self.label_eatTxt.setText('距离今天结束')
+        else: # 没有勾选了默认窗口
+
+            if os.path.exists('c:\\timerXdd\\setupTime.txt'):
+                with open('c:\\timerXdd\\setupTime.txt', mode='r', encoding='utf-8') as ff:
+                    timetxt = ff.readlines()
+            L = len(timetxt)
+            hmTPlist = []
+
+            for tt in timetxt:
+                tth = (tt.split('***')[0]).split(':')[0]
+                ttm = (tt.split('***')[0]).split(':')[1]
+                ttTxt = tt.split('***')[1]
+                ttPin = tt.split('***')[2].replace('\n', '')
+                hmTPlist.append((tth, ttm, ttTxt, ttPin))
+
+            #  设置
+            if L == 0:
+                endDate = QDateTime(QDate(year, mount, day), QTime(23, 59, 59)).toMSecsSinceEpoch()
+                self.label_eatTxt.setText('距离今天结束')
+            if L == 1:
+                h1 = int(hmTPlist[0][0]);
+                m1 = int(hmTPlist[0][1]);
+                if ((hour == h1) & (minute < m1)) | (hour < h1):
+                    endDate = QDateTime(QDate(year, mount, day), QTime(h1, m1, 0)).toMSecsSinceEpoch()
+                    str1 = '距离' + hmTPlist[0][2] + '还有'
+                    self.label_eatTxt.setText(str1)
+                else:
+                    endDate = QDateTime(QDate(year, mount, day), QTime(23, 59, 59)).toMSecsSinceEpoch()
+                    self.label_eatTxt.setText('距离今天结束')
+            if L == 2:
+                h1 = int(hmTPlist[0][0]);h2 = int(hmTPlist[1][0]);
+                m1 = int(hmTPlist[0][1]);m2 = int(hmTPlist[1][1]);
+                if ((hour == h1) & (minute < m1)) | (hour < h1):
+                    endDate = QDateTime(QDate(year, mount, day), QTime(h1, m1, 0)).toMSecsSinceEpoch()
+                    str1 = '距离' + hmTPlist[0][2] + '还有'
+                    self.label_eatTxt.setText(str1)
+                elif ((hour == h2) & (minute < m2)) | (hour < h2):
+                    endDate = QDateTime(QDate(year, mount, day), QTime(h2,m2, 0)).toMSecsSinceEpoch()
+                    str1 = '距离' + hmTPlist[1][2] + '还有'
+                    self.label_eatTxt.setText(str1)
+                else:
+                    endDate = QDateTime(QDate(year, mount, day), QTime(23, 59, 59)).toMSecsSinceEpoch()
+                    self.label_eatTxt.setText('距离今天结束')
+
+            if L == 3:  # 有三件事
+                h1 = int(hmTPlist[0][0]);h2 = int(hmTPlist[1][0]);h3 = int(hmTPlist[2][0])
+                m1 = int(hmTPlist[0][1]);m2 = int(hmTPlist[1][1]);m3 = int(hmTPlist[2][1])
+
+                if ((hour == h1) & (minute < m1)) | (hour < h1):
+                    endDate = QDateTime(QDate(year, mount, day), QTime(h1, m1, 0)).toMSecsSinceEpoch()
+                    str1 = '距离'+ hmTPlist[0][2] + '还有'
+                    self.label_eatTxt.setText(str1)
+                elif ((hour == h2) & (minute < m2)) | (hour < h2):
+                    endDate = QDateTime(QDate(year, mount, day), QTime(h2,m2, 0)).toMSecsSinceEpoch()
+                    str1 = '距离' + hmTPlist[1][2] + '还有'
+                    self.label_eatTxt.setText(str1)
+                elif ((hour == h3) & (minute < m3)) | (hour < h3):
+                    endDate = QDateTime(QDate(year, mount, day), QTime(h3, m3, 0)).toMSecsSinceEpoch()
+                    str1 = '距离' + hmTPlist[2][2] + '还有'
+                    self.label_eatTxt.setText(str1)
+                else:
+                    endDate = QDateTime(QDate(year, mount, day), QTime(23, 59, 59)).toMSecsSinceEpoch()
+                    self.label_eatTxt.setText('距离今天结束')
+
+            if L == 4:
+                h1 = int(hmTPlist[0][0]);h2 = int(hmTPlist[1][0]);h3 = int(hmTPlist[2][0]);h4 = int(hmTPlist[3][0])
+                m1 = int(hmTPlist[0][1]);m2 = int(hmTPlist[1][1]);m3 = int(hmTPlist[2][1]);m4 = int(hmTPlist[3][1]);
+
+                if ((hour == h1) & (minute < m1)) | (hour < h1):
+                    endDate = QDateTime(QDate(year, mount, day), QTime(h1, m1, 0)).toMSecsSinceEpoch()
+                    str1 = '距离' + hmTPlist[0][2] + '还有'
+                    self.label_eatTxt.setText(str1)
+                elif ((hour == h2) & (minute < m2)) | (hour < h2):
+                    endDate = QDateTime(QDate(year, mount, day), QTime(h2, m2, 0)).toMSecsSinceEpoch()
+                    str1 = '距离' + hmTPlist[1][2] + '还有'
+                    self.label_eatTxt.setText(str1)
+                elif ((hour == h3) & (minute < m3)) | (hour < h3):
+                    endDate = QDateTime(QDate(year, mount, day), QTime(h3, m3, 0)).toMSecsSinceEpoch()
+                    str1 = '距离' + hmTPlist[2][2] + '还有'
+                    self.label_eatTxt.setText(str1)
+                elif ((hour == h4) & (minute < m4)) | (hour < h4):
+                    endDate = QDateTime(QDate(year, mount, day), QTime(h4, m4, 0)).toMSecsSinceEpoch()
+                    str1 = '距离' + hmTPlist[3][2] + '还有'
+                    self.label_eatTxt.setText(str1)
+                else:
+                    endDate = QDateTime(QDate(year, mount, day), QTime(23, 59, 59)).toMSecsSinceEpoch()
+                    self.label_eatTxt.setText('距离今天结束')
+            if L == 5:
+                h1 = int(hmTPlist[0][0]);h2 = int(hmTPlist[1][0]);h3 = int(hmTPlist[2][0]);
+                h4 = int(hmTPlist[3][0]);h5 = int(hmTPlist[4][0]);
+                m1 = int(hmTPlist[0][1]);m2 = int(hmTPlist[1][1]);m3 = int(hmTPlist[2][1]);
+                m4 = int(hmTPlist[3][1]);m5 = int(hmTPlist[4][1]);
+
+                if ((hour == h1) & (minute < m1)) | (hour < h1):
+                    endDate = QDateTime(QDate(year, mount, day), QTime(h1, m1, 0)).toMSecsSinceEpoch()
+                    str1 = '距离' + hmTPlist[0][2] + '还有'
+                    self.label_eatTxt.setText(str1)
+                elif ((hour == h2) & (minute < m2)) | (hour < h2):
+                    endDate = QDateTime(QDate(year, mount, day), QTime(h2, m2, 0)).toMSecsSinceEpoch()
+                    str1 = '距离' + hmTPlist[1][2] + '还有'
+                    self.label_eatTxt.setText(str1)
+                elif ((hour == h3) & (minute < m3)) | (hour < h3):
+                    endDate = QDateTime(QDate(year, mount, day), QTime(h3, m3, 0)).toMSecsSinceEpoch()
+                    str1 = '距离' + hmTPlist[2][2] + '还有'
+                    self.label_eatTxt.setText(str1)
+                elif ((hour == h4) & (minute < m4)) | (hour < h4):
+                    endDate = QDateTime(QDate(year, mount, day), QTime(h4, m4, 0)).toMSecsSinceEpoch()
+                    str1 = '距离' + hmTPlist[3][2] + '还有'
+                    self.label_eatTxt.setText(str1)
+                elif ((hour == h5) & (minute < m5)) | (hour < h5):
+                    endDate = QDateTime(QDate(year, mount, day), QTime(h5, m5, 0)).toMSecsSinceEpoch()
+                    str1 = '距离' + hmTPlist[4][2] + '还有'
+                    self.label_eatTxt.setText(str1)
+                else:
+                    endDate = QDateTime(QDate(year, mount, day), QTime(23, 59, 59)).toMSecsSinceEpoch()
+                    self.label_eatTxt.setText('距离今天结束')
+            if L == 6:
+                h1 = int(hmTPlist[0][0]);h2 = int(hmTPlist[1][0]);h3 = int(hmTPlist[2][0]);
+                h4 = int(hmTPlist[3][0]);h5 = int(hmTPlist[4][0]);h6 = int(hmTPlist[5][0]);
+                m1 = int(hmTPlist[0][1]);m2 = int(hmTPlist[1][1]);m3 = int(hmTPlist[2][1]);
+                m4 = int(hmTPlist[3][1]);m5 = int(hmTPlist[4][1]);h6 = int(hmTPlist[5][0]);
+
+                if ((hour == h1) & (minute < m1)) | (hour < h1):
+                    endDate = QDateTime(QDate(year, mount, day), QTime(h1, m1, 0)).toMSecsSinceEpoch()
+                    str1 = '距离' + hmTPlist[0][2] + '还有'
+                    self.label_eatTxt.setText(str1)
+                elif ((hour == h2) & (minute < m2)) | (hour < h2):
+                    endDate = QDateTime(QDate(year, mount, day), QTime(h2, m2, 0)).toMSecsSinceEpoch()
+                    str1 = '距离' + hmTPlist[1][2] + '还有'
+                    self.label_eatTxt.setText(str1)
+                elif ((hour == h3) & (minute < m3)) | (hour < h3):
+                    endDate = QDateTime(QDate(year, mount, day), QTime(h3, m3, 0)).toMSecsSinceEpoch()
+                    str1 = '距离' + hmTPlist[2][2] + '还有'
+                    self.label_eatTxt.setText(str1)
+                elif ((hour == h4) & (minute < m4)) | (hour < h4):
+                    endDate = QDateTime(QDate(year, mount, day), QTime(h4, m4, 0)).toMSecsSinceEpoch()
+                    str1 = '距离' + hmTPlist[3][2] + '还有'
+                    self.label_eatTxt.setText(str1)
+                elif ((hour == h5) & (minute < m5)) | (hour < h5):
+                    endDate = QDateTime(QDate(year, mount, day), QTime(h5, m5, 0)).toMSecsSinceEpoch()
+                    str1 = '距离' + hmTPlist[4][2] + '还有'
+                    self.label_eatTxt.setText(str1)
+                elif ((hour == h6) & (minute < m6)) | (hour < h6):
+                    endDate = QDateTime(QDate(year, mount, day), QTime(h6, m6, 0)).toMSecsSinceEpoch()
+                    str1 = '距离' + hmTPlist[5][2] + '还有'
+                    self.label_eatTxt.setText(str1)
+                else:
+                    endDate = QDateTime(QDate(year, mount, day), QTime(23, 59, 59)).toMSecsSinceEpoch()
+                    self.label_eatTxt.setText('距离今天结束')
+
+
+
+
 
         interval = endDate - startDate
 
@@ -249,7 +429,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             '''
 
     def showLast2min(self):
-        print('-----------------')
+
         window = tk.Tk()
         width = 300
         height = 100
@@ -491,7 +671,175 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             if flag != 1:
                 os._exit(0)
 
+class winSetup(QtWidgets.QWidget, UISetup):
+    def  __init__ (self):
+        super(winSetup, self).__init__()
+        self.setupUi(self)
+        self.initUI()
 
+    def initUI(self):
+        self.makecomboxBox()
+        self.pushButton_save.clicked.connect(self.btn_save_click)
+        self.checkBox_1.stateChanged.connect(self.checkBox_1_choose)
+        self.setTimeTxt()
+    def setTimeTxt(self):
+        if os.path.exists('c:\\timerXdd\\setupTime.txt'):
+            with open('c:\\timerXdd\\setupTime.txt', mode='r', encoding='utf-8') as ff:
+                timetxt = ff.readlines()
+        L = len(timetxt)
+        hmTPlist = []
+        for tt in timetxt:
+            tth = tt.split('***')[0].split(':')[0]
+            ttm = (tt.split('***')[0]).split(':')[1]
+            ttTxt = tt.split('***')[1]
+            ttPin = tt.split('***')[2].replace('\n', '')
+            hmTPlist.append((tth, ttm, ttTxt, ttPin))
+        if L==1:
+            self.lineEdit_set1.setText(hmTPlist[0][2])
+            self.timeEdit_1.setTime( QtCore.QTime(int(hmTPlist[0][0]), int(hmTPlist[0][1])))
+        elif L==2:
+            self.lineEdit_set1.setText(hmTPlist[0][2])
+            self.timeEdit_1.setTime(QtCore.QTime(int(hmTPlist[0][0]), int(hmTPlist[0][1])))
+            self.lineEdit_set2.setText(hmTPlist[1][2])
+            self.timeEdit_2.setTime( QtCore.QTime(int(hmTPlist[1][0]), int(hmTPlist[1][1])))
+        elif L==3:
+            self.lineEdit_set1.setText(hmTPlist[0][2])
+            self.timeEdit_1.setTime(QtCore.QTime(int(hmTPlist[0][0]), int(hmTPlist[0][1])))
+            self.lineEdit_set2.setText(hmTPlist[1][2])
+            self.timeEdit_2.setTime(QtCore.QTime(int(hmTPlist[1][0]), int(hmTPlist[1][1])))
+            self.lineEdit_set3.setText(hmTPlist[2][2])
+            self.timeEdit_3.setTime(QtCore.QTime(int(hmTPlist[2][0]), int(hmTPlist[2][1])))
+        elif L==4:
+            self.lineEdit_set1.setText(hmTPlist[0][2])
+            self.timeEdit_1.setTime(QtCore.QTime(int(hmTPlist[0][0]), int(hmTPlist[0][1])))
+            self.lineEdit_set2.setText(hmTPlist[1][2])
+            self.timeEdit_2.setTime(QtCore.QTime(int(hmTPlist[1][0]), int(hmTPlist[1][1])))
+            self.lineEdit_set3.setText(hmTPlist[2][2])
+            self.timeEdit_3.setTime(QtCore.QTime(int(hmTPlist[2][0]), int(hmTPlist[2][1])))
+            self.lineEdit_set4.setText(hmTPlist[3][2])
+            self.timeEdit_4.setTime(QtCore.QTime(int(hmTPlist[3][0]), int(hmTPlist[3][1])))
+        elif L==5:
+            self.lineEdit_set1.setText(hmTPlist[0][2])
+            self.timeEdit_1.setTime(QtCore.QTime(int(hmTPlist[0][0]), int(hmTPlist[0][1])))
+            self.lineEdit_set2.setText(hmTPlist[1][2])
+            self.timeEdit_2.setTime(QtCore.QTime(int(hmTPlist[1][0]), int(hmTPlist[1][1])))
+            self.lineEdit_set3.setText(hmTPlist[2][2])
+            self.timeEdit_3.setTime(QtCore.QTime(int(hmTPlist[2][0]), int(hmTPlist[2][1])))
+            self.lineEdit_set4.setText(hmTPlist[3][2])
+            self.timeEdit_4.setTime(QtCore.QTime(int(hmTPlist[3][0]), int(hmTPlist[3][1])))
+            self.lineEdit_set5.setText(hmTPlist[4][2])
+            self.timeEdit_5.setTime(QtCore.QTime(int(hmTPlist[4][0]), int(hmTPlist[4][1])))
+        elif L == 6:
+            self.lineEdit_set1.setText(hmTPlist[0][2])
+            self.timeEdit_1.setTime(QtCore.QTime(int(hmTPlist[0][0]), int(hmTPlist[0][1])))
+            self.lineEdit_set2.setText(hmTPlist[1][2])
+            self.timeEdit_2.setTime(QtCore.QTime(int(hmTPlist[1][0]), int(hmTPlist[1][1])))
+            self.lineEdit_set3.setText(hmTPlist[2][2])
+            self.timeEdit_3.setTime(QtCore.QTime(int(hmTPlist[2][0]), int(hmTPlist[2][1])))
+            self.lineEdit_set4.setText(hmTPlist[3][2])
+            self.timeEdit_4.setTime(QtCore.QTime(int(hmTPlist[3][0]), int(hmTPlist[3][1])))
+            self.lineEdit_set5.setText(hmTPlist[4][2])
+            self.timeEdit_5.setTime(QtCore.QTime(int(hmTPlist[4][0]), int(hmTPlist[4][1])))
+            self.lineEdit_set6.setText(hmTPlist[5][2])
+            self.timeEdit_6.setTime(QtCore.QTime(int(hmTPlist[5][0]), int(hmTPlist[5][1])))
+        else:
+            pass
+    def makecomboxBox(self):
+        self.comboBox_1.addItem("每天")  # 先添加一个下拉菜单空位
+        self.comboBox_1.addItem("每小时")  # 先添加一个下拉菜单空位
+        self.comboBox_1.addItem("仅一次")  # 先添加一个下拉菜单空位
+        self.comboBox_1.addItem("奇数日")  # 先添加一个下拉菜单空位
+        self.comboBox_1.addItem("偶数日")  # 先添加一个下拉菜单空位
+        self.comboBox_1.currentIndexChanged.connect(self.comboBoxChange)
+
+        self.comboBox_2.addItem("每天")  # 先添加一个下拉菜单空位
+        self.comboBox_2.addItem("每小时")  # 先添加一个下拉菜单空位
+        self.comboBox_2.addItem("仅一次")  # 先添加一个下拉菜单空位
+        self.comboBox_2.addItem("奇数日")  # 先添加一个下拉菜单空位
+        self.comboBox_2.addItem("偶数日")  # 先添加一个下拉菜单空位
+
+        self.comboBox_3.addItem("每天")  # 先添加一个下拉菜单空位
+        self.comboBox_3.addItem("每小时")  # 先添加一个下拉菜单空位
+        self.comboBox_3.addItem("仅一次")  # 先添加一个下拉菜单空位
+        self.comboBox_3.addItem("奇数日")  # 先添加一个下拉菜单空位
+        self.comboBox_3.addItem("偶数日")  # 先添加一个下拉菜单空位
+
+        self.comboBox_4.addItem("每天")  # 先添加一个下拉菜单空位
+        self.comboBox_4.addItem("每小时")  # 先添加一个下拉菜单空位
+        self.comboBox_4.addItem("仅一次")  # 先添加一个下拉菜单空位
+        self.comboBox_4.addItem("奇数日")  # 先添加一个下拉菜单空位
+        self.comboBox_4.addItem("偶数日")  # 先添加一个下拉菜单空位
+
+        self.comboBox_5.addItem("每天")  # 先添加一个下拉菜单空位
+        self.comboBox_5.addItem("每小时")  # 先添加一个下拉菜单空位
+        self.comboBox_5.addItem("仅一次")  # 先添加一个下拉菜单空位
+        self.comboBox_5.addItem("奇数日")  # 先添加一个下拉菜单空位
+        self.comboBox_5.addItem("偶数日")  # 先添加一个下拉菜单空位
+
+        self.comboBox_6.addItem("每天")  # 先添加一个下拉菜单空位
+        self.comboBox_6.addItem("每小时")  # 先添加一个下拉菜单空位
+        self.comboBox_6.addItem("仅一次")  # 先添加一个下拉菜单空位
+        self.comboBox_6.addItem("奇数日")  # 先添加一个下拉菜单空位
+        self.comboBox_6.addItem("偶数日")  # 先添加一个下拉菜单空位
+
+    def btn_save_click(self):
+
+        txt1 = self.lineEdit_set1.text(); time1 = self.timeEdit_1.text(); box1 = self.comboBox_1.currentText()
+        txt2 = self.lineEdit_set2.text(); time2 = self.timeEdit_2.text(); box2 = self.comboBox_2.currentText()
+        txt3 = self.lineEdit_set3.text(); time3 = self.timeEdit_3.text(); box3 = self.comboBox_3.currentText()
+        txt4 = self.lineEdit_set4.text(); time4 = self.timeEdit_4.text(); box4 = self.comboBox_4.currentText()
+        txt5 = self.lineEdit_set5.text(); time5 = self.timeEdit_5.text(); box5 = self.comboBox_5.currentText()
+        txt6 = self.lineEdit_set6.text(); time6 = self.timeEdit_6.text(); box6 = self.comboBox_6.currentText()
+        list1 = [time1, '***',txt1 , '***', box1];list2 = [time2,'***',txt2,'***',box2];list3 = [time3,'***',txt3,'***',box3];
+        list4 = [time4, '***',txt4, '***', box4];list5 = [time5,'***',txt5,'***',box5];list6 = [time6,'***',txt6,'***',box6];
+        list=[list1,list2,list3,list4,list5,list6]
+        listReal = []
+        for li in list:
+            print(li)
+            if li[2] not in ['',' ','  ']:
+                listReal.append(li)
+        listWrite = sorted(listReal, key=lambda l: (int(l[0].split(':')[0]), int(l[0].split(':')[1])))
+        with open("c:\\timerXdd\\setupTime.txt", mode='w', encoding='utf-8') as ff:
+            for li in listWrite:
+                ff.writelines(li)
+                ff.writelines('\n')
+        self.showInformation('已经保存成功')
+
+
+    def showInformation(self,txtShow):
+
+        window = tk.Tk()
+        print('-----------------')
+        width = 300
+        height = 100
+        window.title('温馨提示')
+        l = tk.Label(window, text=txtShow, bg='green', font=('Arial', 12), width=30, height=2)
+
+        screenwidth = window.winfo_screenwidth()
+        screenheight = window.winfo_screenheight()
+        alignstr = '%dx%d+%d+%d' % (width, height, (screenwidth - width) / 2, (screenheight - height) / 2)
+        window.geometry(alignstr)
+        window.wm_attributes('-topmost', 1)  # 窗口置顶
+        l.pack()
+        window.mainloop()
+
+    def panDuan(self):
+        pass
+    def checkBox_1_choose(self):
+        if self.checkBox_1.isChecked():
+            with open("c:\\timerXdd\\setupcheckbox1.txt", mode='w', encoding='utf-8') as ff:
+                ff.writelines('1')
+        else:
+            with open("c:\\timerXdd\\setupcheckbox1.txt", mode='w', encoding='utf-8') as ff:
+                ff.writelines('0')
+
+
+
+
+    def comboBoxChange(self):
+        box1 = self.comboBox_1.currentText()
+        print(self.comboBox_1.currentText())
+        return box1
 if __name__ == '__main__':  # 四句话：继承-实例化-显示-退出
 
     app = QtWidgets.QApplication(sys.argv)

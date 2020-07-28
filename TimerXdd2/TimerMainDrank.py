@@ -6,7 +6,7 @@ import urllib
 import winreg
 import requests
 from PIL import Image
-from Timer2_2 import Ui_Form  # Timer2为ui对于py文件的名字
+from Timer2 import Ui_Form  # Timer2为ui对于py文件的名字
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtCore import QTimer, QDateTime, QDate, QTime, Qt, QUrl
 import tkinter as tk
@@ -495,6 +495,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             self.ShowZhuCeFig()
             if flag != 1:
                 os._exit(0)
+
 
 
 if __name__ == '__main__':  # 四句话：继承-实例化-显示-退出

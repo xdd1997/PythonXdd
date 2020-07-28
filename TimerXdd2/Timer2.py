@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'Timer2_2.ui'
+# Form implementation generated from reading ui file 'Timer2.ui'
 #
 # Created by: PyQt5 UI code generator 5.13.2
 #
@@ -103,6 +103,12 @@ class Ui_Form(object):
         self.textBrowser.setGeometry(QtCore.QRect(180, 160, 171, 21))
         self.textBrowser.setObjectName("textBrowser")
         self.tabWidget.addTab(self.tab_2, "")
+        self.tab_3 = QtWidgets.QWidget()
+        self.tab_3.setObjectName("tab_3")
+        self.pushButton_setupMore = QtWidgets.QPushButton(self.tab_3)
+        self.pushButton_setupMore.setGeometry(QtCore.QRect(80, 90, 75, 23))
+        self.pushButton_setupMore.setObjectName("pushButton_setupMore")
+        self.tabWidget.addTab(self.tab_3, "")
         self.label_img = QtWidgets.QLabel(Form)
         self.label_img.setGeometry(QtCore.QRect(203, -10, 360, 211))
         palette = QtGui.QPalette()
@@ -319,7 +325,7 @@ class Ui_Form(object):
         self.horizontalLayout_2.addWidget(self.pushButton_talk)
 
         self.retranslateUi(Form)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
@@ -335,6 +341,8 @@ class Ui_Form(object):
         self.lineEdit_zhifubao.setText(_translate("Form", "支付宝：1837990190@qq.com"))
         self.lineEdit_lianxi.setText(_translate("Form", "联系方式：xdd2026@qq.com"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("Form", "正计时"))
+        self.pushButton_setupMore.setText(_translate("Form", "更多》"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("Form", "设置"))
         self.label_img.setText(_translate("Form", "你的网络可能有问题"))
         self.label_eatTxt.setText(_translate("Form", "距离吃午饭还有"))
         self.pushButton_randompic.setText(_translate("Form", "换一张"))
