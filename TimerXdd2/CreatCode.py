@@ -63,6 +63,7 @@ def ShowZhuCeFig():
     screenheight = window.winfo_screenheight()
     alignstr = '%dx%d+%d+%d' % (300, 200, (screenwidth - 300) / 2, (screenheight - 200) / 2)
     window.geometry(alignstr)
+    window.wm_attributes('-topmost', 1)  # 窗口置顶
     window.mainloop()
 
 ShowZhuCeFig()

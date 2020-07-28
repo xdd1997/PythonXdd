@@ -6,7 +6,7 @@ import urllib
 import winreg
 import requests
 from PIL import Image
-from Timer2_2 import Ui_Form  # Timer2为ui对于py文件的名字
+from Timer2 import Ui_Form  # Timer2为ui对于py文件的名字
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtCore import QTimer, QDateTime, QDate, QTime, Qt, QUrl
 import tkinter as tk
