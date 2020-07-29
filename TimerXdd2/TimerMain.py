@@ -1425,10 +1425,13 @@ class winSetup(QtWidgets.QWidget, UISetup):
         if self.checkBox_1.isChecked():
             with open("c:\\timerXdd\\setupcheckbox1.txt", mode='w', encoding='utf-8') as ff:
                 ff.writelines('1')
+
+            print('勾选')
         else:
             with open("c:\\timerXdd\\setupcheckbox1.txt", mode='w', encoding='utf-8') as ff:
                 ff.writelines('0')
 
+            print('未勾选')
 
 
     '''
