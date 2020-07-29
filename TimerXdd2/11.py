@@ -1,5 +1,15 @@
+# switch = {"valueA":functionA,"valueB":functionB,"valueC":functionC}
+# try:
+#　　switch["value"]() #执行相应的方法。
+# except KeyError as e:
+#       pass 或 functionX #执行default部分
 
-str2 = 'xxxx'
-
-str1 = str2 + '\033[41;1m str2\033[0m'
-print(str1)
+switch = {
+    "a":lambda x:x*2,
+    "b":lambda x:x*3,
+    "c":lambda x:x**x
+}
+try:
+    swtich["c"](6)
+except KeyError as e:
+    pass
