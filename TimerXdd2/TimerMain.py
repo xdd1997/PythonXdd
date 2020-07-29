@@ -75,6 +75,10 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         self.lineEdit_zhifubao.setReadOnly(True)  # 设置为只读
         self.lineEdit_lianxi.setReadOnly(True)
 
+        with open("c:\\timerXdd\\此文件夹重要，请阅读.txt", mode='w', encoding='utf-8') as ff:
+            ff.writelines('此文件夹为TimerXDD软件的缓存目录，请勿随意改动文件名名及内容！\n')
+            ff.writelines('如果改错，请删除本文件夹timerXdd,可重新注册使用.\n code.txt文件的内容为本机注册码')
+
     def btn_setupMore_click(self):
 
         self.mySetup = winSetup()
@@ -224,13 +228,13 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             self.checkBox_drank.setChecked(True)
 
         if self.checkBox_drank.isChecked():
-            with open("c:\\timerXdd\\setupTime.txt", mode='w', encoding='utf-8') as ff:
+            with open("c:\\timerXdd\\setupcheckboxDrank.txt", mode='w', encoding='utf-8') as ff:
                 ff.writelines('1')
             if  (hour > 8) & (hour < 22) & (minute == 0) & (sec == 0):
                 self.txtShow = '学习1个小时，喝口水，休息下眼睛吧'
                 self.showLast2min()
         else:
-            with open("c:\\timerXdd\\setupTime.txt", mode='w', encoding='utf-8') as ff:
+            with open("c:\\timerXdd\\setupcheckboxDrank.txt", mode='w', encoding='utf-8') as ff:
                 ff.writelines('0')
 
 
@@ -1145,7 +1149,7 @@ class winSetup(QtWidgets.QWidget, UISetup):
         except:
             print('002')
     def setTimeTxt(self):
-
+        print('0001')
         if os.path.exists('c:\\timerXdd\\setupTime.txt'):
             with open('c:\\timerXdd\\setupTime.txt', mode='r', encoding='utf-8') as ff:
                 timetxt = ff.readlines()
@@ -1157,6 +1161,7 @@ class winSetup(QtWidgets.QWidget, UISetup):
                 ttTxt = tt.split('***')[1]
                 ttPin = tt.split('***')[2].replace('\n', '')
                 hmTPlist.append((tth, ttm, ttTxt, ttPin))
+            print('0002')
             if L==1:
                 self.lineEdit_set1.setText(hmTPlist[0][2])
                 self.timeEdit_1.setTime( QtCore.QTime(int(hmTPlist[0][0]), int(hmTPlist[0][1])))
@@ -1356,7 +1361,7 @@ class winSetup(QtWidgets.QWidget, UISetup):
                 pass
         else:
             pass
-
+        print('0005')
     def makecomboxBox(self):
 
         showList = ["每天","奇数日","偶数日"]
