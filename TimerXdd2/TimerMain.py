@@ -290,8 +290,11 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             if L == 1:
                 h1 = int(hmTPlist[0][0]);
                 m1 = int(hmTPlist[0][1]);
+                p1 = hmTPlist[0][3];
                 if (((hour == h1) & (minute < m1)) | (hour < h1)):
+
                     if p1 == '每天':
+
                         endDate = QDateTime(QDate(year, mount, day), QTime(h1, m1, 0)).toMSecsSinceEpoch()
                         str1 = '距离' + hmTPlist[0][2] + '还有'
                         self.label_eatTxt.setText(str1)
@@ -1147,7 +1150,7 @@ class winSetup(QtWidgets.QWidget, UISetup):
             self.label_setimg.setPixmap(pix)
 
         except:
-            print('002')
+            print('无网络吧')
     def setTimeTxt(self):
         print('0001')
         if os.path.exists('c:\\timerXdd\\setupTime.txt'):
@@ -1395,6 +1398,8 @@ class winSetup(QtWidgets.QWidget, UISetup):
             for li in listWrite:
                 ff.writelines(li)
                 ff.writelines('\n')
+        with open("c:\\timerXdd\\setupcheckbox1.txt", mode='w', encoding='utf-8') as ff:
+            ff.writelines('0')
         self.showInformation('已经保存成功')
 
 
