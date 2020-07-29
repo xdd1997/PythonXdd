@@ -211,10 +211,28 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             quit()
             
         '''
-        if  (hour!=11) & (hour!=17) & (hour>8) & (hour<22) & (minute==0) & (sec==0):
+        # 判断是否启用喝水1提醒
+        if os.path.exists('c:\\timerXdd\\setupcheckboxDrank.txt'):
 
-            self.txtShow = '学习1个小时，喝口水，休息下眼睛吧'
-            self.showLast2min()
+            with open('c:\\timerXdd\\setupcheckboxDrank.txt', mode='r', encoding='utf-8') as ff:
+                checkbox2val = ff.readline()
+                if checkbox2val =='1':
+                    self.checkBox_drank.setChecked(True)
+                else:
+                    self.checkBox_drank.setChecked(False)
+        else:
+            self.checkBox_drank.setChecked(True)
+
+        if self.checkBox_drank.isChecked():
+            with open("c:\\timerXdd\\setupTime.txt", mode='w', encoding='utf-8') as ff:
+                ff.writelines('1')
+            if  (hour > 8) & (hour < 22) & (minute == 0) & (sec == 0):
+                self.txtShow = '学习1个小时，喝口水，休息下眼睛吧'
+                self.showLast2min()
+        else:
+            with open("c:\\timerXdd\\setupTime.txt", mode='w', encoding='utf-8') as ff:
+                ff.writelines('0')
+
 
         startDate = QDateTime.currentMSecsSinceEpoch()
 
@@ -1131,211 +1149,211 @@ class winSetup(QtWidgets.QWidget, UISetup):
         if os.path.exists('c:\\timerXdd\\setupTime.txt'):
             with open('c:\\timerXdd\\setupTime.txt', mode='r', encoding='utf-8') as ff:
                 timetxt = ff.readlines()
-        L = len(timetxt)
-        hmTPlist = []
-        for tt in timetxt:
-            tth = tt.split('***')[0].split(':')[0]
-            ttm = (tt.split('***')[0]).split(':')[1]
-            ttTxt = tt.split('***')[1]
-            ttPin = tt.split('***')[2].replace('\n', '')
-            hmTPlist.append((tth, ttm, ttTxt, ttPin))
-        if L==1:
-            self.lineEdit_set1.setText(hmTPlist[0][2])
-            self.timeEdit_1.setTime( QtCore.QTime(int(hmTPlist[0][0]), int(hmTPlist[0][1])))
-            # 设置频次1显示
-            if hmTPlist[0][3] == '每天':
-                self.comboBox_1.setCurrentIndex(0)
-            elif hmTPlist[0][3] == '奇数日':
-                self.comboBox_1.setCurrentIndex(1)
+            L = len(timetxt)
+            hmTPlist = []
+            for tt in timetxt:
+                tth = tt.split('***')[0].split(':')[0]
+                ttm = (tt.split('***')[0]).split(':')[1]
+                ttTxt = tt.split('***')[1]
+                ttPin = tt.split('***')[2].replace('\n', '')
+                hmTPlist.append((tth, ttm, ttTxt, ttPin))
+            if L==1:
+                self.lineEdit_set1.setText(hmTPlist[0][2])
+                self.timeEdit_1.setTime( QtCore.QTime(int(hmTPlist[0][0]), int(hmTPlist[0][1])))
+                # 设置频次1显示
+                if hmTPlist[0][3] == '每天':
+                    self.comboBox_1.setCurrentIndex(0)
+                elif hmTPlist[0][3] == '奇数日':
+                    self.comboBox_1.setCurrentIndex(1)
+                else:
+                    self.comboBox_1.setCurrentIndex(2)
+            elif L==2:
+                self.lineEdit_set1.setText(hmTPlist[0][2])
+                self.timeEdit_1.setTime(QtCore.QTime(int(hmTPlist[0][0]), int(hmTPlist[0][1])))
+                self.lineEdit_set2.setText(hmTPlist[1][2])
+                self.timeEdit_2.setTime( QtCore.QTime(int(hmTPlist[1][0]), int(hmTPlist[1][1])))
+                # 设置频次1显示
+                if hmTPlist[0][3] == '每天':
+                    self.comboBox_1.setCurrentIndex(0)
+                elif hmTPlist[0][3] == '奇数日':
+                    self.comboBox_1.setCurrentIndex(1)
+                else:
+                    self.comboBox_1.setCurrentIndex(2)
+                # 2
+                if hmTPlist[1][3] == '每天':
+                    self.comboBox_2.setCurrentIndex(0)
+                elif hmTPlist[1][3] == '奇数日':
+                    self.comboBox_2.setCurrentIndex(1)
+                else:
+                    self.comboBox_2.setCurrentIndex(2)
+            elif L==3:
+                self.lineEdit_set1.setText(hmTPlist[0][2])
+                self.timeEdit_1.setTime(QtCore.QTime(int(hmTPlist[0][0]), int(hmTPlist[0][1])))
+                self.lineEdit_set2.setText(hmTPlist[1][2])
+                self.timeEdit_2.setTime(QtCore.QTime(int(hmTPlist[1][0]), int(hmTPlist[1][1])))
+                self.lineEdit_set3.setText(hmTPlist[2][2])
+                self.timeEdit_3.setTime(QtCore.QTime(int(hmTPlist[2][0]), int(hmTPlist[2][1])))
+                # 设置频次1显示
+                if hmTPlist[0][3] == '每天':
+                    self.comboBox_1.setCurrentIndex(0)
+                elif hmTPlist[0][3] == '奇数日':
+                    self.comboBox_1.setCurrentIndex(1)
+                else:
+                    self.comboBox_1.setCurrentIndex(2)
+                # 2
+                if hmTPlist[1][3] == '每天':
+                    self.comboBox_2.setCurrentIndex(0)
+                elif hmTPlist[1][3] == '奇数日':
+                    self.comboBox_2.setCurrentIndex(1)
+                else:
+                    self.comboBox_2.setCurrentIndex(2)
+                # 3
+                if hmTPlist[2][3] == '每天':
+                    self.comboBox_3.setCurrentIndex(0)
+                elif hmTPlist[2][3] == '奇数日':
+                    self.comboBox_3.setCurrentIndex(1)
+                else:
+                    self.comboBox_3.setCurrentIndex(2)
+            elif L==4:
+                self.lineEdit_set1.setText(hmTPlist[0][2])
+                self.timeEdit_1.setTime(QtCore.QTime(int(hmTPlist[0][0]), int(hmTPlist[0][1])))
+                self.lineEdit_set2.setText(hmTPlist[1][2])
+                self.timeEdit_2.setTime(QtCore.QTime(int(hmTPlist[1][0]), int(hmTPlist[1][1])))
+                self.lineEdit_set3.setText(hmTPlist[2][2])
+                self.timeEdit_3.setTime(QtCore.QTime(int(hmTPlist[2][0]), int(hmTPlist[2][1])))
+                self.lineEdit_set4.setText(hmTPlist[3][2])
+                self.timeEdit_4.setTime(QtCore.QTime(int(hmTPlist[3][0]), int(hmTPlist[3][1])))
+                # 设置频次1显示
+                if hmTPlist[0][3] == '每天':
+                    self.comboBox_1.setCurrentIndex(0)
+                elif hmTPlist[0][3] == '奇数日':
+                    self.comboBox_1.setCurrentIndex(1)
+                else:
+                    self.comboBox_1.setCurrentIndex(2)
+                # 2
+                if hmTPlist[1][3] == '每天':
+                    self.comboBox_2.setCurrentIndex(0)
+                elif hmTPlist[1][3] == '奇数日':
+                    self.comboBox_2.setCurrentIndex(1)
+                else:
+                    self.comboBox_2.setCurrentIndex(2)
+                # 3
+                if hmTPlist[2][3] == '每天':
+                    self.comboBox_3.setCurrentIndex(0)
+                elif hmTPlist[2][3] == '奇数日':
+                    self.comboBox_3.setCurrentIndex(1)
+                else:
+                    self.comboBox_3.setCurrentIndex(2)
+                # 4
+                if hmTPlist[3][3] == '每天':
+                    self.comboBox_4.setCurrentIndex(0)
+                elif hmTPlist[3][3] == '奇数日':
+                    self.comboBox_4.setCurrentIndex(1)
+                else:
+                    self.comboBox_4.setCurrentIndex(2)
+            elif L==5:
+                self.lineEdit_set1.setText(hmTPlist[0][2])
+                self.timeEdit_1.setTime(QtCore.QTime(int(hmTPlist[0][0]), int(hmTPlist[0][1])))
+                self.lineEdit_set2.setText(hmTPlist[1][2])
+                self.timeEdit_2.setTime(QtCore.QTime(int(hmTPlist[1][0]), int(hmTPlist[1][1])))
+                self.lineEdit_set3.setText(hmTPlist[2][2])
+                self.timeEdit_3.setTime(QtCore.QTime(int(hmTPlist[2][0]), int(hmTPlist[2][1])))
+                self.lineEdit_set4.setText(hmTPlist[3][2])
+                self.timeEdit_4.setTime(QtCore.QTime(int(hmTPlist[3][0]), int(hmTPlist[3][1])))
+                self.lineEdit_set5.setText(hmTPlist[4][2])
+                self.timeEdit_5.setTime(QtCore.QTime(int(hmTPlist[4][0]), int(hmTPlist[4][1])))
+                # 设置频次1显示
+                if hmTPlist[0][3] == '每天':
+                    self.comboBox_1.setCurrentIndex(0)
+                elif hmTPlist[0][3] == '奇数日':
+                    self.comboBox_1.setCurrentIndex(1)
+                else:
+                    self.comboBox_1.setCurrentIndex(2)
+                # 2
+                if hmTPlist[1][3] == '每天':
+                    self.comboBox_2.setCurrentIndex(0)
+                elif hmTPlist[1][3] == '奇数日':
+                    self.comboBox_2.setCurrentIndex(1)
+                else:
+                    self.comboBox_2.setCurrentIndex(2)
+                # 3
+                if hmTPlist[2][3] == '每天':
+                    self.comboBox_3.setCurrentIndex(0)
+                elif hmTPlist[2][3] == '奇数日':
+                    self.comboBox_3.setCurrentIndex(1)
+                else:
+                    self.comboBox_3.setCurrentIndex(2)
+                # 4
+                if hmTPlist[3][3] == '每天':
+                    self.comboBox_4.setCurrentIndex(0)
+                elif hmTPlist[3][3] == '奇数日':
+                    self.comboBox_4.setCurrentIndex(1)
+                else:
+                    self.comboBox_4.setCurrentIndex(2)
+                # 5
+                if hmTPlist[4][3] == '每天':
+                    self.comboBox_5.setCurrentIndex(0)
+                elif hmTPlist[4][3] == '奇数日':
+                    self.comboBox_5.setCurrentIndex(1)
+                else:
+                    self.comboBox_5.setCurrentIndex(2)
+            elif L == 6:
+                self.lineEdit_set1.setText(hmTPlist[0][2])
+                self.timeEdit_1.setTime(QtCore.QTime(int(hmTPlist[0][0]), int(hmTPlist[0][1])))
+                self.lineEdit_set2.setText(hmTPlist[1][2])
+                self.timeEdit_2.setTime(QtCore.QTime(int(hmTPlist[1][0]), int(hmTPlist[1][1])))
+                self.lineEdit_set3.setText(hmTPlist[2][2])
+                self.timeEdit_3.setTime(QtCore.QTime(int(hmTPlist[2][0]), int(hmTPlist[2][1])))
+                self.lineEdit_set4.setText(hmTPlist[3][2])
+                self.timeEdit_4.setTime(QtCore.QTime(int(hmTPlist[3][0]), int(hmTPlist[3][1])))
+                self.lineEdit_set5.setText(hmTPlist[4][2])
+                self.timeEdit_5.setTime(QtCore.QTime(int(hmTPlist[4][0]), int(hmTPlist[4][1])))
+                self.lineEdit_set6.setText(hmTPlist[5][2])
+                self.timeEdit_6.setTime(QtCore.QTime(int(hmTPlist[5][0]), int(hmTPlist[5][1])))
+                # 设置频次1显示
+                if hmTPlist[0][3]=='每天':
+                    self.comboBox_1.setCurrentIndex(0)
+                elif hmTPlist[0][3]=='奇数日':
+                    self.comboBox_1.setCurrentIndex(1)
+                else:
+                    self.comboBox_1.setCurrentIndex(2)
+                #2
+                if hmTPlist[1][3]=='每天':
+                    self.comboBox_2.setCurrentIndex(0)
+                elif hmTPlist[1][3]=='奇数日':
+                    self.comboBox_2.setCurrentIndex(1)
+                else:
+                    self.comboBox_2.setCurrentIndex(2)
+                #3
+                if hmTPlist[2][3] == '每天':
+                    self.comboBox_3.setCurrentIndex(0)
+                elif hmTPlist[2][3] == '奇数日':
+                    self.comboBox_3.setCurrentIndex(1)
+                else:
+                    self.comboBox_3.setCurrentIndex(2)
+                #4
+                if hmTPlist[3][3] == '每天':
+                    self.comboBox_4.setCurrentIndex(0)
+                elif hmTPlist[3][3] == '奇数日':
+                    self.comboBox_4.setCurrentIndex(1)
+                else:
+                    self.comboBox_4.setCurrentIndex(2)
+                #5
+                if hmTPlist[4][3] == '每天':
+                    self.comboBox_5.setCurrentIndex(0)
+                elif hmTPlist[4][3] == '奇数日':
+                    self.comboBox_5.setCurrentIndex(1)
+                else:
+                    self.comboBox_5.setCurrentIndex(2)
+                #6
+                if hmTPlist[5][3] == '每天':
+                    self.comboBox_6.setCurrentIndex(0)
+                elif hmTPlist[5][3] == '奇数日':
+                    self.comboBox_6.setCurrentIndex(1)
+                else:
+                    self.comboBox_6.setCurrentIndex(2)
             else:
-                self.comboBox_1.setCurrentIndex(2)
-        elif L==2:
-            self.lineEdit_set1.setText(hmTPlist[0][2])
-            self.timeEdit_1.setTime(QtCore.QTime(int(hmTPlist[0][0]), int(hmTPlist[0][1])))
-            self.lineEdit_set2.setText(hmTPlist[1][2])
-            self.timeEdit_2.setTime( QtCore.QTime(int(hmTPlist[1][0]), int(hmTPlist[1][1])))
-            # 设置频次1显示
-            if hmTPlist[0][3] == '每天':
-                self.comboBox_1.setCurrentIndex(0)
-            elif hmTPlist[0][3] == '奇数日':
-                self.comboBox_1.setCurrentIndex(1)
-            else:
-                self.comboBox_1.setCurrentIndex(2)
-            # 2
-            if hmTPlist[1][3] == '每天':
-                self.comboBox_2.setCurrentIndex(0)
-            elif hmTPlist[1][3] == '奇数日':
-                self.comboBox_2.setCurrentIndex(1)
-            else:
-                self.comboBox_2.setCurrentIndex(2)
-        elif L==3:
-            self.lineEdit_set1.setText(hmTPlist[0][2])
-            self.timeEdit_1.setTime(QtCore.QTime(int(hmTPlist[0][0]), int(hmTPlist[0][1])))
-            self.lineEdit_set2.setText(hmTPlist[1][2])
-            self.timeEdit_2.setTime(QtCore.QTime(int(hmTPlist[1][0]), int(hmTPlist[1][1])))
-            self.lineEdit_set3.setText(hmTPlist[2][2])
-            self.timeEdit_3.setTime(QtCore.QTime(int(hmTPlist[2][0]), int(hmTPlist[2][1])))
-            # 设置频次1显示
-            if hmTPlist[0][3] == '每天':
-                self.comboBox_1.setCurrentIndex(0)
-            elif hmTPlist[0][3] == '奇数日':
-                self.comboBox_1.setCurrentIndex(1)
-            else:
-                self.comboBox_1.setCurrentIndex(2)
-            # 2
-            if hmTPlist[1][3] == '每天':
-                self.comboBox_2.setCurrentIndex(0)
-            elif hmTPlist[1][3] == '奇数日':
-                self.comboBox_2.setCurrentIndex(1)
-            else:
-                self.comboBox_2.setCurrentIndex(2)
-            # 3
-            if hmTPlist[2][3] == '每天':
-                self.comboBox_3.setCurrentIndex(0)
-            elif hmTPlist[2][3] == '奇数日':
-                self.comboBox_3.setCurrentIndex(1)
-            else:
-                self.comboBox_3.setCurrentIndex(2)
-        elif L==4:
-            self.lineEdit_set1.setText(hmTPlist[0][2])
-            self.timeEdit_1.setTime(QtCore.QTime(int(hmTPlist[0][0]), int(hmTPlist[0][1])))
-            self.lineEdit_set2.setText(hmTPlist[1][2])
-            self.timeEdit_2.setTime(QtCore.QTime(int(hmTPlist[1][0]), int(hmTPlist[1][1])))
-            self.lineEdit_set3.setText(hmTPlist[2][2])
-            self.timeEdit_3.setTime(QtCore.QTime(int(hmTPlist[2][0]), int(hmTPlist[2][1])))
-            self.lineEdit_set4.setText(hmTPlist[3][2])
-            self.timeEdit_4.setTime(QtCore.QTime(int(hmTPlist[3][0]), int(hmTPlist[3][1])))
-            # 设置频次1显示
-            if hmTPlist[0][3] == '每天':
-                self.comboBox_1.setCurrentIndex(0)
-            elif hmTPlist[0][3] == '奇数日':
-                self.comboBox_1.setCurrentIndex(1)
-            else:
-                self.comboBox_1.setCurrentIndex(2)
-            # 2
-            if hmTPlist[1][3] == '每天':
-                self.comboBox_2.setCurrentIndex(0)
-            elif hmTPlist[1][3] == '奇数日':
-                self.comboBox_2.setCurrentIndex(1)
-            else:
-                self.comboBox_2.setCurrentIndex(2)
-            # 3
-            if hmTPlist[2][3] == '每天':
-                self.comboBox_3.setCurrentIndex(0)
-            elif hmTPlist[2][3] == '奇数日':
-                self.comboBox_3.setCurrentIndex(1)
-            else:
-                self.comboBox_3.setCurrentIndex(2)
-            # 4
-            if hmTPlist[3][3] == '每天':
-                self.comboBox_4.setCurrentIndex(0)
-            elif hmTPlist[3][3] == '奇数日':
-                self.comboBox_4.setCurrentIndex(1)
-            else:
-                self.comboBox_4.setCurrentIndex(2)
-        elif L==5:
-            self.lineEdit_set1.setText(hmTPlist[0][2])
-            self.timeEdit_1.setTime(QtCore.QTime(int(hmTPlist[0][0]), int(hmTPlist[0][1])))
-            self.lineEdit_set2.setText(hmTPlist[1][2])
-            self.timeEdit_2.setTime(QtCore.QTime(int(hmTPlist[1][0]), int(hmTPlist[1][1])))
-            self.lineEdit_set3.setText(hmTPlist[2][2])
-            self.timeEdit_3.setTime(QtCore.QTime(int(hmTPlist[2][0]), int(hmTPlist[2][1])))
-            self.lineEdit_set4.setText(hmTPlist[3][2])
-            self.timeEdit_4.setTime(QtCore.QTime(int(hmTPlist[3][0]), int(hmTPlist[3][1])))
-            self.lineEdit_set5.setText(hmTPlist[4][2])
-            self.timeEdit_5.setTime(QtCore.QTime(int(hmTPlist[4][0]), int(hmTPlist[4][1])))
-            # 设置频次1显示
-            if hmTPlist[0][3] == '每天':
-                self.comboBox_1.setCurrentIndex(0)
-            elif hmTPlist[0][3] == '奇数日':
-                self.comboBox_1.setCurrentIndex(1)
-            else:
-                self.comboBox_1.setCurrentIndex(2)
-            # 2
-            if hmTPlist[1][3] == '每天':
-                self.comboBox_2.setCurrentIndex(0)
-            elif hmTPlist[1][3] == '奇数日':
-                self.comboBox_2.setCurrentIndex(1)
-            else:
-                self.comboBox_2.setCurrentIndex(2)
-            # 3
-            if hmTPlist[2][3] == '每天':
-                self.comboBox_3.setCurrentIndex(0)
-            elif hmTPlist[2][3] == '奇数日':
-                self.comboBox_3.setCurrentIndex(1)
-            else:
-                self.comboBox_3.setCurrentIndex(2)
-            # 4
-            if hmTPlist[3][3] == '每天':
-                self.comboBox_4.setCurrentIndex(0)
-            elif hmTPlist[3][3] == '奇数日':
-                self.comboBox_4.setCurrentIndex(1)
-            else:
-                self.comboBox_4.setCurrentIndex(2)
-            # 5
-            if hmTPlist[4][3] == '每天':
-                self.comboBox_5.setCurrentIndex(0)
-            elif hmTPlist[4][3] == '奇数日':
-                self.comboBox_5.setCurrentIndex(1)
-            else:
-                self.comboBox_5.setCurrentIndex(2)
-        elif L == 6:
-            self.lineEdit_set1.setText(hmTPlist[0][2])
-            self.timeEdit_1.setTime(QtCore.QTime(int(hmTPlist[0][0]), int(hmTPlist[0][1])))
-            self.lineEdit_set2.setText(hmTPlist[1][2])
-            self.timeEdit_2.setTime(QtCore.QTime(int(hmTPlist[1][0]), int(hmTPlist[1][1])))
-            self.lineEdit_set3.setText(hmTPlist[2][2])
-            self.timeEdit_3.setTime(QtCore.QTime(int(hmTPlist[2][0]), int(hmTPlist[2][1])))
-            self.lineEdit_set4.setText(hmTPlist[3][2])
-            self.timeEdit_4.setTime(QtCore.QTime(int(hmTPlist[3][0]), int(hmTPlist[3][1])))
-            self.lineEdit_set5.setText(hmTPlist[4][2])
-            self.timeEdit_5.setTime(QtCore.QTime(int(hmTPlist[4][0]), int(hmTPlist[4][1])))
-            self.lineEdit_set6.setText(hmTPlist[5][2])
-            self.timeEdit_6.setTime(QtCore.QTime(int(hmTPlist[5][0]), int(hmTPlist[5][1])))
-            # 设置频次1显示
-            if hmTPlist[0][3]=='每天':
-                self.comboBox_1.setCurrentIndex(0)
-            elif hmTPlist[0][3]=='奇数日':
-                self.comboBox_1.setCurrentIndex(1)
-            else:
-                self.comboBox_1.setCurrentIndex(2)
-            #2
-            if hmTPlist[1][3]=='每天':
-                self.comboBox_2.setCurrentIndex(0)
-            elif hmTPlist[1][3]=='奇数日':
-                self.comboBox_2.setCurrentIndex(1)
-            else:
-                self.comboBox_2.setCurrentIndex(2)
-            #3
-            if hmTPlist[2][3] == '每天':
-                self.comboBox_3.setCurrentIndex(0)
-            elif hmTPlist[2][3] == '奇数日':
-                self.comboBox_3.setCurrentIndex(1)
-            else:
-                self.comboBox_3.setCurrentIndex(2)
-            #4
-            if hmTPlist[3][3] == '每天':
-                self.comboBox_4.setCurrentIndex(0)
-            elif hmTPlist[3][3] == '奇数日':
-                self.comboBox_4.setCurrentIndex(1)
-            else:
-                self.comboBox_4.setCurrentIndex(2)
-            #5
-            if hmTPlist[4][3] == '每天':
-                self.comboBox_5.setCurrentIndex(0)
-            elif hmTPlist[4][3] == '奇数日':
-                self.comboBox_5.setCurrentIndex(1)
-            else:
-                self.comboBox_5.setCurrentIndex(2)
-            #6
-            if hmTPlist[5][3] == '每天':
-                self.comboBox_6.setCurrentIndex(0)
-            elif hmTPlist[5][3] == '奇数日':
-                self.comboBox_6.setCurrentIndex(1)
-            else:
-                self.comboBox_6.setCurrentIndex(2)
-
-         #   self.comboBox_1.set(self.showList[1])
+                pass
         else:
             pass
 
@@ -1409,6 +1427,7 @@ class winSetup(QtWidgets.QWidget, UISetup):
         print(self.comboBox_1.currentText())
         return box1
     '''
+
 if __name__ == '__main__':  # 四句话：继承-实例化-显示-退出
 
     app = QtWidgets.QApplication(sys.argv)

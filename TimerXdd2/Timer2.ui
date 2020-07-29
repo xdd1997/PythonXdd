@@ -236,6 +236,22 @@
       <string>更多》</string>
      </property>
     </widget>
+    <widget class="QCheckBox" name="checkBox_drank">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>171</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>每小时喝水提醒</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QLabel" name="label_img">

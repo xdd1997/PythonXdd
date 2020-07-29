@@ -4,6 +4,7 @@ from Cryptodome.Cipher import DES
 import binascii
 import pyperclip
 import tkinter.messagebox
+import webbrowser
 
 # pyinstaller -F -w "CreatCodeTimerXDD.py"
 class App:
