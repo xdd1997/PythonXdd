@@ -12,4 +12,4 @@ for i in range(DARTS):
     if dist <= 1.0:
         hits = hits + 1
 pi = 4 * (hits/DARTS)
-print("{:.6f}".format(pi))
+print("{:.9f}".format(pi))
