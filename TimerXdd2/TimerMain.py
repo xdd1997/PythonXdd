@@ -240,6 +240,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
 
         startDate = QDateTime.currentMSecsSinceEpoch()
 
+
         if os.path.exists('c:\\timerXdd\\setupcheckbox1.txt'):
 
             with open('c:\\timerXdd\\setupcheckbox1.txt', mode='r', encoding='utf-8') as ff:
@@ -1151,8 +1152,8 @@ class winSetup(QtWidgets.QWidget, UISetup):
 
         except:
             print('无网络吧')
+
     def setTimeTxt(self):
-        print('0001')
         if os.path.exists('c:\\timerXdd\\setupTime.txt'):
             with open('c:\\timerXdd\\setupTime.txt', mode='r', encoding='utf-8') as ff:
                 timetxt = ff.readlines()
@@ -1364,7 +1365,6 @@ class winSetup(QtWidgets.QWidget, UISetup):
                 pass
         else:
             pass
-        print('0005')
     def makecomboxBox(self):
 
         showList = ["每天","奇数日","偶数日"]
@@ -1425,8 +1425,24 @@ class winSetup(QtWidgets.QWidget, UISetup):
         if self.checkBox_1.isChecked():
             with open("c:\\timerXdd\\setupcheckbox1.txt", mode='w', encoding='utf-8') as ff:
                 ff.writelines('1')
-
+            '''
+            with open("c:\\timerXdd\\setupTime.txt", mode='w', encoding='utf-8') as ff:
+                ff.write('11:00***吃午饭***每天\n17:00***吃晚饭***每天\n20:30***跑步***偶数日\n22:00***下班***奇数日')
             print('勾选')
+            '''
+            self.lineEdit_set1.setText('吃午饭')
+            self.lineEdit_set2.setText('吃晚饭')
+            self.lineEdit_set3.setText('跑步')
+            self.lineEdit_set4.setText('下班')
+            self.timeEdit_1.setTime(QtCore.QTime(11,0))
+            self.timeEdit_2.setTime(QtCore.QTime(17,0))
+            self.timeEdit_3.setTime(QtCore.QTime(20, 30))
+            self.timeEdit_4.setTime(QtCore.QTime(22,0))
+            self.comboBox_1.setCurrentIndex(0)
+            self.comboBox_2.setCurrentIndex(0)
+            self.comboBox_3.setCurrentIndex(2)
+            self.comboBox_4.setCurrentIndex(1)
+
         else:
             with open("c:\\timerXdd\\setupcheckbox1.txt", mode='w', encoding='utf-8') as ff:
                 ff.writelines('0')

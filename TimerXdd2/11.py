@@ -1,15 +1,2 @@
-# switch = {"valueA":functionA,"valueB":functionB,"valueC":functionC}
-# try:
-#　　switch["value"]() #执行相应的方法。
-# except KeyError as e:
-#       pass 或 functionX #执行default部分
-
-switch = {
-    "a":lambda x:x*2,
-    "b":lambda x:x*3,
-    "c":lambda x:x**x
-}
-try:
-    swtich["c"](6)
-except KeyError as e:
-    pass
+with open("c:\\timerXdd\\setupTime.txt", mode='w', encoding='utf-8') as ff:
+    ff.writelines('11:00***吃午饭***每天\n17:00***吃晚饭***每天\n20:30***跑步***偶数日\n22:00***下班***奇数日')
