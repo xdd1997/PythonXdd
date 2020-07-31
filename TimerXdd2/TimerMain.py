@@ -17,6 +17,7 @@ import uuid
 from Cryptodome.Cipher import DES
 import binascii
 import tkinter.messagebox
+import winsound
 
 
 # pyinstaller -F -w "TimerMain.py"
@@ -206,17 +207,11 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             self.pushButton_start.setEnabled(True)
             self.label_time.setText('00:00:00')
 
-            window = tk.Tk()
-            window.title('My Window')
-            l = tk.Label(window, text='你好,计时时间到了!', bg='green', font=('Arial', 12), width=30, height=2)
-            screenwidth = window.winfo_screenwidth()
-            screenheight = window.winfo_screenheight()
-            width = 300;height = 200
-            alignstr = '%dx%d+%d+%d' % (width, height, (screenwidth - width) / 2, (screenheight - height) / 2)
-            window.geometry(alignstr)
-            window.wm_attributes('-topmost', 1)  # 窗口置顶
-            l.pack()
-            window.mainloop()   # 第一个计时器
+            self.txtShow = '你好,计时时间到了!'
+            winsound.Beep(440, 1500)
+            self.showLast2min()
+
+
 
     # 第2个计时器每一秒发射的信号
     def refresh2(self):
@@ -893,7 +888,9 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
 
             if   interval<121000 and interval>120000 : # 两分钟提醒
                 self.txtShow = '收拾下东西吧，还有2分钟'
+                winsound.Beep(440, 1500)  # 440赫兹  2000豪秒
                 self.showLast2min()
+
 
         else:
             pass
