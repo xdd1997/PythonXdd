@@ -67,7 +67,6 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
 
         self.OpenZhuCe()
 
-
         self.time = QTimer(self)                           # 设置第一个计时器用以倒计时
         self.time.setInterval(1000)                       # 每隔1000毫秒发射一次信号（即执行一次timeout)
         self.time.timeout.connect(self.Refresh)         # timeout事件的绑定
