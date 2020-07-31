@@ -42,6 +42,28 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         self.pushButton_ZhiDing.clicked.connect(self.btn_ZhiDing_click)
         self.pushButton_setupMore.clicked.connect(self.btn_setupMore_click)
 
+        # ---------- 设置logo -------
+        '''
+        try:
+            if os.path.exists('c:\\timerXdd\\TimerLogo.jpg'):
+                print('001')
+                self.setWindowIcon(QIcon('C:\\timerXdd\\004.ico'))
+
+            else:
+                http = 'https://pic.downk.cc/item/5f237f5814195aa5946d1309.jpg'
+                path = "c:\\timerXdd"
+
+                if not os.path.exists(path):
+                    os.makedirs(path)
+                filesavepath = os.path.join(path, 'TimerLogo.jpg')
+                urllib.request.urlretrieve(http, filesavepath)
+                print('002')
+                self.setWindowIcon(QIcon(filesavepath))
+
+        except:
+            print('设置logo不成功')
+
+        '''
 
         self.OpenZhuCe()
 
@@ -1137,6 +1159,7 @@ class winSetup(QtWidgets.QWidget, UISetup):
     def initUI(self):
         self.makecomboxBox()
         self.pushButton_save.clicked.connect(self.btn_save_click)
+        self.pushButton_exit.clicked.connect(self.close)
         self.checkBox_1.stateChanged.connect(self.checkBox_1_choose)
         self.setTimeTxt()
         try:
@@ -1462,5 +1485,7 @@ if __name__ == '__main__':  # 四句话：继承-实例化-显示-退出
     app = QtWidgets.QApplication(sys.argv)
     main_form = MyPyQT_Form()  #实例化,类的名字,可更改等号前面名字 MyPyQT_Form()继承自Ui_Form
     main_form.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)   # 窗口置顶
+    main_form.setWindowFlags(QtCore.Qt.WindowCloseButtonHint | QtCore.Qt.WindowMinimizeButtonHint)  # 禁止窗口最大化
+    main_form.setFixedSize(main_form.width(), main_form.height());  # 禁止拉伸窗口
     main_form.show()
     sys.exit(app.exec_())
