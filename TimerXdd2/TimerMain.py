@@ -926,6 +926,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         global http_save
         try:
             num = random.randint(1, 22222)
+            #url = "http://pic.netbian.com/tupian/{}.html".format(num)
             url = "http://www.netbian.com/desk/{}.htm".format(num)
             r = requests.get(url)
             demo = r.text
@@ -960,8 +961,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
     def download_img_desktop(self):
         # 获取桌面路径
         global http
-        key = winreg.OpenKey(winreg.HKEY_CURRENT_USER,
-                             r'Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders')
+        key = winreg.OpenKey(winreg.HKEY_CURRENT_USER,r'Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders')
         path = winreg.QueryValueEx(key, "Desktop")[0]
         # -------------递归创建目录-----------
         path = os.path.join(path.replace('/', '\\'), 'TimerXdd')

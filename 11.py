@@ -1,3 +1,53 @@
-import numpy as np
-x=np.arange(0,float(la)/2-1.5*float(t),0.5)
-y=2.5*float(t)+float(a1)+float(a2)*np.sin(pi/2*x/(float(la)/2-1.5*float(t)))
+import sys
+from PyQt4.QtGui import *
+from PyQt4.QtCore import *
+
+
+class combo(QComboBox):
+
+    def __init__(self, title, parent):
+        super(combo, self).__init__(parent)
+
+        self.setAcceptDrops(True)
+
+    def dragEnterEvent(self, e):
+        print
+        e
+
+        if e.mimeData().hasText():
+            e.accept()
+        else:
+            e.ignore()
+
+    def dropEvent(self, e):
+        self.addItem(e.mimeData().text())
+
+
+class Example(QWidget):
+
+    def __init__(self):
+        super(Example, self).__init__()
+
+        self.initUI()
+
+    def initUI(self):
+        lo = QFormLayout()
+        lo.addRow(QLabel("Type some text in textbox and drag it into combo box"))
+
+        edit = QLineEdit()
+        edit.setDragEnabled(True)
+        com = combo("Button", self)
+        lo.addRow(edit, com)
+        self.setLayout(lo)
+        self.setWindowTitle('Simple drag & drop')
+
+
+def main():
+    app = QApplication(sys.argv)
+    ex = Example()
+    ex.show()
+    app.exec_()
+
+
+if __name__ == '__main__':
+    main()
