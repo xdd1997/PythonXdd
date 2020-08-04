@@ -9,3 +9,9 @@ TimerXdd2/__pycache__/Timer2.cpython-38.pyc
 *.toc
 TimerXdd2/build/TimerMain/Analysis-00.toc
 TimerXdd2/dist/TimerMain.exe
+*.spec
+*.html
+*.pyz
+TimerXdd2/TimerSimple/build/TimerMainSimple/PKG-00.pkg
+TimerXdd2/TimerSimple/build/TimerMainSimple/base_library.zip
+*.manifest
