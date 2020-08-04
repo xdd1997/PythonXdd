@@ -137,16 +137,16 @@
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_4">
       <item>
-       <widget class="QPushButton" name="pushButton_ZhiDing">
+       <widget class="QPushButton" name="pushButton_stop">
         <property name="text">
-         <string>置顶</string>
+         <string>清零</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_stop">
+       <widget class="QPushButton" name="pushButton_ZhiDing">
         <property name="text">
-         <string>清零</string>
+         <string>置顶</string>
         </property>
        </widget>
       </item>
