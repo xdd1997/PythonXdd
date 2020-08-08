@@ -28,11 +28,12 @@ class App:
         import requests
         import urllib.request
         from bs4 import BeautifulSoup
-        '''
         import shutil
-        shutil.rmtree("D:\桌面\校花贴吧图片")
-        '''
 
+
+        if os.path.exists("D:\桌面\校花贴吧图片"):
+            shutil.rmtree("D:\桌面\校花贴吧图片")
+            print('文件夹中文件已清除')
 
         # 获取桌面路径
         def desktop_path():
@@ -65,14 +66,15 @@ class App:
 
             for http in piclist:
                 print(http)
-                name = time.strftime("%Y%m%d%H%M%S", time.localtime())
+
+                name = time.strftime("%Y%m%d%H%M%S", time.localtime()) + str(time.perf_counter())
                 filesavepath = os.path.join(CreatPath(), name + '.jpg')
                 urllib.request.urlretrieve(http, filesavepath)
                 index = index + 1
                 str11 = '正在保存第{:.0f}/{}张图片（大致）'.format(index,len_Piclist) + '-->文件路径为：' + self.path
                 print(str11)
 
-                time.sleep(2)
+                time.sleep(0.2)
             print('下载完成')
 
 win = Tk()
