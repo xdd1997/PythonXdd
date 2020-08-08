@@ -15,9 +15,11 @@ Folderpath = filedialog.askdirectory() #获得选择好的文件夹
 str2 = Folderpath.replace('/','\\')
 
 #微信下载图片的网址
+
 num = random.randint(1,9999)
 url = "http://www.netbian.com/desk/{}.htm".format(num)
-#url = "http://www.netbian.com/desk/22152.htm"
+
+#url = "https://tieba.baidu.com/f?kw=%E6%A0%A1%E8%8A%B1&ie=utf-8&pn=0"
 r = requests.get(url)
 demo = r.text
 soup = BeautifulSoup(demo, "html.parser")
@@ -26,6 +28,8 @@ for link in soup.find_all('img'):
     link_list = link.get('src')
     if link_list != None:
         piclist.append(link_list)
+
+
 
 http = piclist[2]
 print(http)

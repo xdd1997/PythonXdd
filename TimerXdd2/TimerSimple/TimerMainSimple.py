@@ -189,8 +189,8 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             
         '''
         # 判断是否启用喝水1提醒
-        if os.path.exists('c:\\timerXdd\\setupcheckboxDrank.txt'):
 
+        if os.path.exists('c:\\timerXdd\\setupcheckboxDrank.txt'):
             with open('c:\\timerXdd\\setupcheckboxDrank.txt', mode='r', encoding='utf-8') as ff:
                 checkbox2val = ff.readline()
                 if checkbox2val =='1':
@@ -201,29 +201,24 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             self.checkBox_drank.setChecked(True)
 
         if self.checkBox_drank.isChecked():
+            '''
             with open("c:\\timerXdd\\setupcheckboxDrank.txt", mode='w', encoding='utf-8') as ff:
                 ff.writelines('1')
-            if  (hour > 8) & (hour < 22) & (minute == 0) & (sec == 0):
+            '''
+            if (hour > 8) & (hour < 22) & (minute == 0) & (sec == 0):
                 self.txtShow = '学习1个小时，喝口水，休息下眼睛吧'
                 self.showLast2min()
         else:
             with open("c:\\timerXdd\\setupcheckboxDrank.txt", mode='w', encoding='utf-8') as ff:
                 ff.writelines('0')
 
-
         startDate = QDateTime.currentMSecsSinceEpoch()
-
-
         if os.path.exists('c:\\timerXdd\\setupcheckbox1.txt'):
-
             with open('c:\\timerXdd\\setupcheckbox1.txt', mode='r', encoding='utf-8') as ff:
                 checkbox1val = ff.readline()
-
         else:
             checkbox1val='1'
-
         if checkbox1val=='1':    # 勾选了默认窗口
-
             if hour<11:
                 endDate = QDateTime(QDate(year, mount, day), QTime(11, 0, 0)).toMSecsSinceEpoch()
                 self.label_eatTxt.setText('距离吃午饭还有')
@@ -240,14 +235,11 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             else:
                 endDate = QDateTime(QDate(year, mount, day), QTime(24, 0, 0)).toMSecsSinceEpoch()
                 self.label_eatTxt.setText('距离今天结束')
-
         else: # 没有勾选了默认窗口
-
             if os.path.exists('c:\\timerXdd\\setupTime.txt'):
                 with open('c:\\timerXdd\\setupTime.txt', mode='r', encoding='utf-8') as ff:
                     timetxt = ff.readlines()
             L = len(timetxt)
-
             hmTPlist = []
 
             for tt in timetxt:
