@@ -9,10 +9,12 @@ class App:
 
         # 使用Frame添加容器
         frame2 = Frame(master)
-        btn_zhuce = Button(frame2, text=u'注册',padx=10, bg='light blue', font=('微软雅黑', 15, ), fg='white',command=self.ZhuCeBtn)
-        btn_zhuce.grid(row=2, column=1, sticky=W, pady=10)
-        btn_zhuce = Button(frame2, text=u'退出', padx=10, bg='light blue', font=('微软雅黑', 15,), fg='white',command=win.destroy)
-        btn_zhuce.grid(row=3, column=1, sticky=W, pady=10)
+        btn_zhuce = Button(frame2, text=u'下载',padx=10, bg='light blue', font=('微软雅黑', 15, ), fg='white',command=self.ZhuCeBtn)
+        btn_zhuce.grid(row=2, column=1, sticky=W,padx=60,pady=5)
+    #    btn_zhuce1 = Button(frame2, text=u'退出', padx=10, bg='light blue', font=('微软雅黑', 15,), fg='white',command=win.destroy)
+    #    btn_zhuce1.grid(row=3, column=1, sticky=W,padx=60, pady=5)
+        l1 = Label(frame2, text=u'可能要多点几次叉号才会退出', padx=10, bg='light pink', font=('微软雅黑', 10,), fg='black')
+        l1.grid(row=4, column=1, sticky=W, pady=10)
         frame2.pack(pady=0)
 
 
