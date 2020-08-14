@@ -82,12 +82,16 @@ TouchAction(driver).press(x=886, y=1264).release().perform()  # 点击小鸡，�
 print('----- 正在打开喂小鸡界面 -----')
 time.sleep(5)
 TouchAction(driver).press(x=931, y=1973).release().perform()    # 点击饲料
+time.sleep(1)
+TouchAction(driver).press(x=400, y=1477).release().perform()    # 点第一只鸡
+time.sleep(2)
+TouchAction(driver).press(x=237, y=1272).release().perform()    # 请走Ta
 time.sleep(5)
-TouchAction(driver).press(x=400, y=1477).release().perform()    # 赶小鸡 01
-time.sleep(5)
-TouchAction(driver).press(x=257, y=1267).release().perform()
-time.sleep(5)
-TouchAction(driver).press(x=518, y=1315).release().perform()
+TouchAction(driver).press(x=843, y=1478).release().perform()    # 点第二只鸡
+time.sleep(2)
+TouchAction(driver).press(x=686, y=1262).release().perform()    # 请走Ta
+
+
 
 
 
