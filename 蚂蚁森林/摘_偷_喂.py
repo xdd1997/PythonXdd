@@ -48,7 +48,7 @@ def raiseChicken():
     # 小鸡不在也不召回了，有没有粮食
     time.sleep(5)
     TouchAction(driver).press(x=886, y=1264).release().perform()  # 点击小鸡，进入喂小鸡界面
-    print('----- 正在打开喂小鸡界面 -----')
+    print('正在打开喂小鸡界面')
     time.sleep(5)
     TouchAction(driver).press(x=931, y=1973).release().perform()  # 点击饲料
     time.sleep(1)
@@ -79,6 +79,7 @@ def raiseChicken():
     TouchAction(driver).press(x=995, y=129).release().perform()     # 右上角退出喂小鸡界面，回到蚂蚁森林
     time.sleep(2)
     '''
+
 def stealFriendEnergy():
     ''' 在蚂蚁森林界面，向下滑，找到更多好友，点击 '''
     print('正在打开更多好友')
@@ -99,25 +100,25 @@ def stealFriendEnergy():
 
         name = driver.find_element_by_id('com.alipay.mobile.nebula:id/h5_tv_title').text
         print('正在查看{0}'.format(name))
-      #  print(name)
-        if name in ['陈欣的蚂蚁森林','崔鼎正的蚂蚁森林' ]:      # 填写最后一个好友昵称，程序不会遍历到最后一个，因为到最后的时候，界面不能滑动；可先填最后一个，看能遍历到哪一个好友，再修改即可.
+        if name in ['陈欣的蚂蚁森林','崔鼎正的蚂蚁森林']:      # 填写最后一个好友昵称，程序不会遍历到最后一个，因为到最后的时候，界面不能滑动；可先填最后一个，看能遍历到哪一个好友，再修改即可.
             break
 
         items = driver.find_elements_by_class_name("android.widget.Button")
-        print(items)
-        print(len(items))
+    #    print(len(items)，'\n',items)
         if len(items) > 5:
-            for i in items:
-                print(i.text)
-                if '能量' in i.text:
-                    # if ('能量' in i.text) | ('消失' in i.text):
-                    print('收取{0}的{1}'.format(name, i.text.replace('收集', '')))
-                    i.click()
-                    time.sleep(1)
+            try:
+                for i in items:
+                    if ('我的大树' not in i.text) & ('看林区' not in i.text) & ('成就' not in i.text) & ('发消息' not in i.text) & ('弹幕' not in i.text) & ('浇水' not in i.text):
+                  #      print('正在收/替{0}收能量'.format(name))
+                        i.click()
+                   #     print('我点了一下')
+                        time.sleep(0.2)
 
-            time.sleep(0.1)
-            driver.tap([(50, 130), (70, 150)], 100)  #
-            time.sleep(0.1)
+                time.sleep(0.2)
+                TouchAction(driver).press(x=69, y=138).release().perform()  # 左上角返回
+                time.sleep(0.2)
+            except:
+                pass
 
         start_x = 500
         start_y = 1910
@@ -125,7 +126,61 @@ def stealFriendEnergy():
         driver.swipe(start_x, start_y, start_x, start_y - distance)    # 向上滑动一个框的高度   # driver.swipe（分别表示滑动的起始和终点位置的 x/y 坐标）
         time.sleep(0.5)     # 系统反应也需要时间，此处sleep()不可省略
 
+    TouchAction(driver).press(x=995, y=129).release().perform()  # 右上角退出,蚂蚁森林
+    time.sleep(2)
+    print('正在打开蚂蚁森林')
+    TouchAction(driver).press(x=544, y=706).release().perform()
 
-getSelfEnergy()
-raiseChicken()
-stealFriendEnergy()
+
+def waterTogetherPlant():
+
+    items = driver.find_elements_by_class_name("android.widget.Button")
+    for i in items:
+        if '合种' in i.text:
+            i.click()
+            time.sleep(0.5)
+            break
+    time.sleep(1)
+    TouchAction(driver).press(x=942, y=1992).release().perform()  # 点击去浇水(2015064)
+    time.sleep(1)
+    for ii in range(1,52):
+        TouchAction(driver).press(x=330, y=1159).release().perform()  # 减号，到10克
+        time.sleep(0.1)
+    time.sleep(1)
+    TouchAction(driver).press(x=715, y=1356).release().perform()  # 确定浇水2015064
+    time.sleep(3)
+    TouchAction(driver).press(x=656, y=2017).release().perform()    # 下一个合种
+    time.sleep(2)
+    TouchAction(driver).press(x=942, y=1992).release().perform()    # 点击去浇水(小梦雨)
+    time.sleep(1)
+    for ii in range(1,52):
+        TouchAction(driver).press(x=750, y=1155).release().perform()    # 加号，加到520g
+        time.sleep(0.1)
+    time.sleep(1)
+    TouchAction(driver).press(x=715, y=1356).release().perform()    # 确定浇水（小梦雨）
+    time.sleep(3)
+    TouchAction(driver).press(x=69, y=138).release().perform()      # 左上角返回，退出合种界面
+
+''' -------------- 修改处 ------------- '''
+
+SelfEnergyID = 1        # 取自己能量
+FriendEnergy = 1        # 偷好友能量
+RaiseChicken = 1        # 给小鸡喂食
+WaterPlantHZ = 10        # 给合种浇水
+
+start = time.perf_counter()         # 计算程序运行时间
+
+if SelfEnergyID == 1:
+    getSelfEnergy()
+if FriendEnergy == 1:
+    stealFriendEnergy()
+if RaiseChicken == 1:
+    raiseChicken()
+if WaterPlantHZ == 1:
+    waterTogetherPlant()
+
+end = time.perf_counter()
+tim = end - start
+txtshow = '偷能量完成，运行这段代码用时：{:.6f}秒'.format(tim)
+print(txtshow)
+showinfo(title='提示', message=txtshow)
