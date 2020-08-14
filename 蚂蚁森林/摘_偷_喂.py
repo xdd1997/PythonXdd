@@ -30,17 +30,19 @@ TouchAction(driver).press(x=544, y=706).release().perform()     # 蚂蚁森林�
 time.sleep(5)
 def getSelfEnergy():
     ''' ---------- 收取自己的能量 ---------- '''
-    items = driver.find_elements_by_class_name("android.widget.Button")
- #   print(items)
-    name = driver.find_element_by_id('com.alipay.mobile.nebula:id/h5_tv_title').text
-    if len(items) > 14:
-        for i in items:
-    #        print(i.text)
-            if '能量' in i.text:
-                i.click()
-                print('收取{0}的{1}'.format(name, i.text.replace('收集', ''))) # i.text为“收集能量5克”
-                time.sleep(1)
-
+    try:
+        print('正在偷自己能量')
+        items = driver.find_elements_by_class_name("android.widget.Button")
+     #   print(items)
+        name = driver.find_element_by_id('com.alipay.mobile.nebula:id/h5_tv_title').text
+        if len(items) > 14:
+            for i in items:
+                if '能量' in i.text:
+                    i.click()
+                    print('收取{0}的{1}'.format(name, i.text.replace('收集', ''))) # i.text为“收集能量5克”
+                    time.sleep(1)
+    except:
+        pass
 def raiseChicken():
     ''' ---------- 喂小鸡 ---------- '''
     # 小鸡不在也不召回了，有没有粮食
