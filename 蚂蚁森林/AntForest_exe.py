@@ -16,6 +16,7 @@ class App:
 
         frame1 = Frame(master)
         # 采用grid网格布局，添加控件
+        '''
         lb_1 = Label(frame1, text=u'摘自己能量：', font=('微软雅黑', 12), padx=7)
         lb_1.grid(row=0, column=0, sticky=W)  # W 西对齐（左对齐）
         lb_2 = Label(frame1, text=u'偷好友能量：', font=('微软雅黑', 12), padx=7)
@@ -24,9 +25,6 @@ class App:
         lb_3.grid(row=2, column=0, sticky=W)
         lb_3 = Label(frame1, text=u'给合种浇水：', font=('微软雅黑', 12), padx=7)
         lb_3.grid(row=3, column=0, sticky=W)
-
-
-
         self.en_1 = Entry(frame1, font=('微软雅黑', 13), width=15, show=None)
         self.en_2 = Entry(frame1, font=('微软雅黑', 13), width=15, show=None)
         self.en_1.grid(row=0, column=1, columnspan=2, sticky=W)
@@ -35,6 +33,21 @@ class App:
         self.en_4 = Entry(frame1, font=('微软雅黑', 13), width=15, show=None)
         self.en_3.grid(row=2, column=1, columnspan=2, sticky=W)
         self.en_4.grid(row=3, column=1, columnspan=2, sticky=W)
+        self.en_1.insert(0, '1')
+        self.en_2.insert(0, '1')
+        self.en_3.insert(0, '1')
+        self.en_4.insert(0, '1')
+        '''
+        global checkVar1
+        global checkVar2
+        global checkVar3
+        global checkVar4
+        checkVar1= StringVar(value="0");checkVar2= StringVar(value="0");checkVar3= StringVar(value="0");checkVar4= StringVar(value="0")
+        ck_1 = Checkbutton(frame1, text='摘自己能量', variable=checkVar1, font=('微软雅黑', 13)).grid(row=1, column=0, sticky=W)
+        ck_2 = Checkbutton(frame1, text='偷好友能量', variable=checkVar2, font=('微软雅黑', 13)).grid(row=2, column=0, sticky=W)
+        ck_1 = Checkbutton(frame1, text='给小鸡喂食', variable=checkVar3, font=('微软雅黑', 13)).grid(row=3, column=0, sticky=W)
+        ck_2 = Checkbutton(frame1, text='给合种浇水', variable=checkVar4, font=('微软雅黑', 13)).grid(row=4, column=0, sticky=W)
+
         frame1.pack()
 
         frame2 = Frame(master)
@@ -45,10 +58,7 @@ class App:
         frame2.pack()
 
         # 初始化
-        self.en_1.insert(0, '1')
-        self.en_2.insert(0, '1')
-        self.en_3.insert(0, '1')
-        self.en_4.insert(0, '1')
+    #    self.ck_2.select(True)
 
 
     def Run(self):
@@ -60,7 +70,11 @@ class App:
 
         from appium import webdriver
         from appium.webdriver.common.touch_action import TouchAction
-
+        global checkVar1
+        global checkVar2
+        global checkVar3
+        global checkVar4
+        global checkVar4
         start = time.perf_counter()  # 计算程序运行时间
 
         ''' ---------- 打开支付宝 ---------- '''
@@ -79,8 +93,7 @@ class App:
         time.sleep(5)
         print('正在打开蚂蚁森林')
         TouchAction(driver).press(x=544, y=706).release().perform()  # 蚂蚁森林的图标位置,我的在首页，不在的话，要先打开更多
-        # 点击蚂蚁森林（以id打开，这种较好，但是appium有些故障，刷新不出来
-        # driver.find_element_by_id('com.alipay.android.phone.wallet.homemarket:id/app_group_item_icon').click()
+
         time.sleep(5)
 
         def getSelfEnergy():
@@ -156,7 +169,7 @@ class App:
 
                 name = driver.find_element_by_id('com.alipay.mobile.nebula:id/h5_tv_title').text
                 print('正在查看{0}'.format(name))
-                if name in ['陈欣的蚂蚁森林', '崔鼎正的蚂蚁森林']:  # 填写最后一个好友昵称，程序不会遍历到最后一个，因为到最后的时候，界面不能滑动；可先填最后一个，看能遍历到哪一个好友，再修改即可.
+                if name in ['小姑的蚂蚁森林', '잊다的蚂蚁森林']:  # 填写最后一个好友昵称，程序不会遍历到最后一个，因为到最后的时候，界面不能滑动；可先填最后一个，看能遍历到哪一个好友，再修改即可.
                     break
 
                 items = driver.find_elements_by_class_name("android.widget.Button")
@@ -217,12 +230,12 @@ class App:
             time.sleep(3)
             TouchAction(driver).press(x=69, y=138).release().perform()  # 左上角返回，退出合种界面
 
-        ''' -------------- 修改处 ------------- '''
 
-        SelfEnergyID = int(self.en_1.get())  # 取自己能量
-        FriendEnergy = int(self.en_2.get())  # 偷好友能量
-        RaiseChicken = int(self.en_3.get())  # 给小鸡喂食
-        WaterPlantHZ = int(self.en_4.get())  # 给合种浇水
+
+        SelfEnergyID = int(checkVar1.get())  # 取自己能量
+        FriendEnergy = int(checkVar2.get())  # 偷好友能量
+        RaiseChicken = int(checkVar3.get())  # 给小鸡喂食
+        WaterPlantHZ = int(checkVar4.get())  # 给合种浇水
 
         start = time.perf_counter()  # 计算程序运行时间
 
@@ -249,8 +262,8 @@ win.title("made by xdd1997")
 app = App(win)
 screenwidth = win.winfo_screenwidth()  # 窗口居中
 screenheight = win.winfo_screenheight()
-W = 400
-H = W * 9 / 16
+W = 220
+H = 250
 alignstr = '%dx%d+%d+%d' % (W, H, (screenwidth - W) / 2, (screenheight - H) / 2)
 win.geometry(alignstr)
 win.wm_attributes('-topmost', 1)  # 窗口置顶
