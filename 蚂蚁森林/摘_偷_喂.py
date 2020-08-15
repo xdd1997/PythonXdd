@@ -96,7 +96,7 @@ def stealFriendEnergy():
     # ----------- 进入偷能量界面 ---------- '''
     while True:
         TouchAction(driver).press(x=345, y=668).release().perform() # 第一个蚂蚁好友框框的坐标，随着滑动，每一个好友都会出现在这个坐标点
-        time.sleep(0.5) #等一会让系统进入这个界面
+        time.sleep(0.5) # 等一会让系统进入这个界面
 
         name = driver.find_element_by_id('com.alipay.mobile.nebula:id/h5_tv_title').text
         print('正在查看{0}'.format(name))
@@ -107,14 +107,16 @@ def stealFriendEnergy():
     #    print(len(items)，'\n',items)
         if len(items) > 5:
             try:
+                jj = 1
                 for i in items:
                     if ('我的大树' not in i.text) & ('看林区' not in i.text) & ('成就' not in i.text) & ('发消息' not in i.text) & ('弹幕' not in i.text) & ('浇水' not in i.text):
-                  #      print('正在收/替{0}收能量'.format(name))
+
                         i.click()
-                   #     print('我点了一下')
+                        print('我点了{}下'.format(jj))
+                        jj = jj+1
                         time.sleep(0.2)
 
-                time.sleep(0.2)
+
                 TouchAction(driver).press(x=69, y=138).release().perform()  # 左上角返回
                 time.sleep(0.2)
             except:

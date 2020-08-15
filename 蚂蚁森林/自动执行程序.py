@@ -13,9 +13,9 @@ while True:
     minute = int(time2[1]);
     sec = int(time2[2])
     if hour !=7:
-        t.sleep(1200) # 20分钟
+        t.sleep(1500) # 25分钟
         print(str(hour) + ':' + str(minute) + '不执行')
-    elif (hour ==7) & (minute >27) :
+    elif (hour ==7) & (minute >=28) :
         from 摘_偷_喂.py import *
         break
     else:
