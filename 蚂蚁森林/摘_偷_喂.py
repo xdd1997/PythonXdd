@@ -99,7 +99,7 @@ def stealFriendEnergy():
     driver.find_element_by_xpath("//*[@text='总排行榜']").click()  # 点击总排行榜
     # ----------- 进入偷能量界面 ---------- '''
     while True:
-        TouchAction(driver).press(x=345, y=668).release().perform() # 第一个蚂蚁好友框框的坐标，随着滑动，每一个好友都会出现在这个坐标点
+        TouchAction(driver).press(x=345, y=481).release().perform() # 第一个蚂蚁好友框框的坐标，随着滑动，每一个好友都会出现在这个坐标点
        # time.sleep(0.5) # 等一会让系统进入这个界面
 
         name = driver.find_element_by_id('com.alipay.mobile.nebula:id/h5_tv_title').text

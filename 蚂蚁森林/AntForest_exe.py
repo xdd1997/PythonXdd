@@ -160,40 +160,45 @@ class App:
                 distance = 1000
                 driver.swipe(start_x, start_y, start_x, start_y - distance)
                 n = n + 1
+                time.sleep(0.2)
             driver.find_element_by_xpath("//*[@text='查看更多好友']").click()  # 点击查看更多好友
             time.sleep(1)
+            driver.find_element_by_xpath("//*[@text='总排行榜']").click()  # 点击总排行榜
             # ----------- 进入偷能量界面 ---------- '''
             while True:
-                TouchAction(driver).press(x=345, y=668).release().perform()  # 第一个蚂蚁好友框框的坐标，随着滑动，每一个好友都会出现在这个坐标点
-                time.sleep(0.5)  # 等一会让系统进入这个界面
+                TouchAction(driver).press(x=345, y=481).release().perform()  # 第一个蚂蚁好友框框的坐标，随着滑动，每一个好友都会出现在这个坐标点
+                # time.sleep(0.5) # 等一会让系统进入这个界面
 
                 name = driver.find_element_by_id('com.alipay.mobile.nebula:id/h5_tv_title').text
                 print('正在查看{0}'.format(name))
-                if name in ['小姑的蚂蚁森林', '잊다的蚂蚁森林']:  # 填写最后一个好友昵称，程序不会遍历到最后一个，因为到最后的时候，界面不能滑动；可先填最后一个，看能遍历到哪一个好友，再修改即可.
+                if name in ['陈欣的蚂蚁森林', '崔鼎正的蚂蚁森林']:  # 填写最后一个好友昵称，程序不会遍历到最后一个，因为到最后的时候，界面不能滑动；可先填最后一个，看能遍历到哪一个好友，再修改即可.
                     break
 
                 items = driver.find_elements_by_class_name("android.widget.Button")
-                #    print(len(items)，'\n',items)
-                if len(items) > 5:
+                # print(len(items),'\n',items)
+                if len(items) > 6:  # 在自己的名字栏，因len(items）=0<5,会直接向上划过
                     try:
+                        jj = 1
                         for i in items:
                             if ('我的大树' not in i.text) & ('看林区' not in i.text) & ('成就' not in i.text) & (
                                     '发消息' not in i.text) & ('弹幕' not in i.text) & ('浇水' not in i.text):
-                                #      print('正在收/替{0}收能量'.format(name))
                                 i.click()
-                                #     print('我点了一下')
-                                time.sleep(0.2)
-
-                       # time.sleep(0.2)
+                                print('我点了{}下'.format(jj))
+                                jj = jj + 1
                         TouchAction(driver).press(x=69, y=138).release().perform()  # 左上角返回
                         time.sleep(0.2)
                     except:
                         pass
-
+                elif len(items) > 1:  # 执行此项的是能量为空的好友；
+                    TouchAction(driver).press(x=69, y=138).release().perform()  # 左上角返回
+                    time.sleep(0.2)
+                else:  # 加执行此项的是 点击无反应的界面,和自己的名字栏，(len=0)不能左上角返回
+                    pass
                 start_x = 500
                 start_y = 1910
-                distance = 195  # 一个框的高度
-                driver.swipe(start_x, start_y, start_x,start_y - distance)  # 向上滑动一个框的高度   # driver.swipe（分别表示滑动的起始和终点位置的 x/y 坐标）
+                distance = 187  # 一个框的高度
+                driver.swipe(start_x, start_y, start_x,
+                             start_y - distance)  # 向上滑动一个框的高度   # driver.swipe（分别表示滑动的起始和终点位置的 x/y 坐标）
                 time.sleep(0.5)  # 系统反应也需要时间，此处sleep()不可省略
 
             TouchAction(driver).press(x=995, y=129).release().perform()  # 右上角退出,蚂蚁森林
