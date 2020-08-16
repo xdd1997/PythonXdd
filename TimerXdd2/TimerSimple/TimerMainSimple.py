@@ -12,6 +12,7 @@ from Cryptodome.Cipher import DES
 import binascii
 import tkinter.messagebox
 import winsound
+import time
 
 
 # pyinstaller -F -w "TimerMainSimple.py"
@@ -28,14 +29,16 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         self.pushButton_start.clicked.connect(self.btn_start_click)
         self.pushButton_pause.clicked.connect(self.btn_pause_click)
         self.pushButton_stop.clicked.connect(self.btn_stop_click)
-
-
-
+        self.pushButton_Zstart.clicked.connect(self.btn_Zstart_click)  # z 表示正计时
+        self.pushButton_Zstop.clicked.connect(self.btn_Zstop_click)
+        self.pushButton_Zclear.clicked.connect(self.btn_Zclear_click)
 
         self.pushButton_talk.clicked.connect(self.btn_talk_click)
 
         self.pushButton_ZhiDing.clicked.connect(self.btn_ZhiDing_click)
         self.pushButton_setupMore.clicked.connect(self.btn_setupMore_click)
+
+        self.checkBox_drank.stateChanged.connect(self.checkBox_drank_choose)
 
         # ---------- 设置logo -------
         '''
@@ -71,6 +74,10 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         self.time2.timeout.connect(self.refresh2)
         self.time2.start()
 
+        self.time3 = QTimer(self)
+        self.time3.setInterval(1000)
+        self.time3.timeout.connect(self.refresh3)
+
         self.setWindowTitle('Timer-xdd1997 ')   #设置窗口标题
 
         self.pushButton_pause.setEnabled(False)
@@ -79,24 +86,32 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         self.pushButton_ZhiDing.setText('取消置顶')  #默认置顶（在if __main__设置的），此处设置置顶按钮默认显示文字
         self.tabWidget.setCurrentIndex(0)   #设置默认tab显示
 
-        self.lineEdit_zhifubao.setReadOnly(True)  # 设置为只读
-        self.lineEdit_lianxi.setReadOnly(True)
+      #  self.lineEdit_zhifubao.setReadOnly(True)  # 设置为只读
+       # self.lineEdit_lianxi.setReadOnly(True)
 
         with open("c:\\timerXdd\\此文件夹重要，请阅读.txt", mode='w', encoding='utf-8') as ff:
             ff.writelines('此文件夹为TimerXDD软件的缓存目录，请勿随意改动文件名名及内容！\n')
             ff.writelines('如果改错，请删除本文件夹timerXdd,可重新注册使用.\n code.txt文件的内容为本机注册码')
+    def checkBox_drank_choose(self):
+        if self.checkBox_drank.isChecked():
+            with open("c:\\timerXdd\\setupcheckboxDrank.txt", mode='w', encoding='utf-8') as ff:
+                ff.writelines('1')
+        else:
+            with open("c:\\timerXdd\\setupcheckboxDrank.txt", mode='w', encoding='utf-8') as ff:
+                ff.writelines('0')
+
     def btn_talk_click(self):
         try:
             QDesktopServices.openUrl(QUrl("https://support.qq.com/products/173442"))
         except:
             self.tabWidget.setCurrentIndex(1)
+
     def btn_setupMore_click(self):
 
         self.mySetup = winSetup()
         self.mySetup.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)  # 窗口置顶
         self.mySetup.show()
         self.close
-
 
     def btn_ZhiDing_click(self):
         btnTxt = self.pushButton_ZhiDing.text()
@@ -108,13 +123,6 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)  # 置顶
             self.pushButton_ZhiDing.setText('取消置顶')
         self.show()
-
-
-
-
-
-
-
 
     def btn_start_click(self):
         #self.label_time.setText('ILOVEYOU')
@@ -135,16 +143,31 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             self.time.start()
             self.pushButton_pause.setText('暂停')
 
-
     def btn_stop_click(self):
         self.time.stop()
         self.label_time.setText('LOVE YU')
-    '''
-    def btn_stopAndStart_click(self):
-        self.btn_stop_click()
-        self.btn_start_click()
-    '''
     # 第一个计时器每一秒发射的信号
+
+    def btn_Zstart_click(self):
+        global t1    # 正计时的开始
+
+        self.time3.start()
+
+        t1 = time.perf_counter()
+
+    def btn_Zstop_click(self):               # 正计时的结束
+        self.time3.stop()
+
+    def btn_Zclear_click(self):               # 正计时的开始
+        self.time3.stop()
+        self.label_zhengJS.setText('要专注！')
+
+    def num2HourMinSec(self,num):
+        m, s = divmod(num, 60)
+        h, m = divmod(m, 60)
+        timestr = "%02d:%02d:%02d" % (h, m, s)
+        return timestr
+
     def Refresh(self):
         if self.count > 0:
 
@@ -167,9 +190,6 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             self.txtShow = '你好,计时时间到了!'
             winsound.Beep(440, 1500)
             self.showLast2min()
-
-
-
     # 第2个计时器每一秒发射的信号
     def refresh2(self):
         """左下角的时间显示，限制三天"""
@@ -189,28 +209,10 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             
         '''
         # 判断是否启用喝水1提醒
-
-        if os.path.exists('c:\\timerXdd\\setupcheckboxDrank.txt'):
-            with open('c:\\timerXdd\\setupcheckboxDrank.txt', mode='r', encoding='utf-8') as ff:
-                checkbox2val = ff.readline()
-                if checkbox2val =='1':
-                    self.checkBox_drank.setChecked(True)
-                else:
-                    self.checkBox_drank.setChecked(False)
-        else:
-            self.checkBox_drank.setChecked(True)
-
         if self.checkBox_drank.isChecked():
-            '''
-            with open("c:\\timerXdd\\setupcheckboxDrank.txt", mode='w', encoding='utf-8') as ff:
-                ff.writelines('1')
-            '''
             if (hour > 8) & (hour < 22) & (minute == 0) & (sec == 0):
                 self.txtShow = '学习1个小时，喝口水，休息下眼睛吧'
                 self.showLast2min()
-        else:
-            with open("c:\\timerXdd\\setupcheckboxDrank.txt", mode='w', encoding='utf-8') as ff:
-                ff.writelines('0')
 
         startDate = QDateTime.currentMSecsSinceEpoch()
         if os.path.exists('c:\\timerXdd\\setupcheckbox1.txt'):
@@ -852,6 +854,14 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             self.showLast2min()
             '''
 
+    def refresh3(self):
+        global t1
+
+        t2 = time.perf_counter()
+        tim = t2 - t1
+        timestr = self.num2HourMinSec(tim)
+        self.label_zhengJS.setText(timestr)
+
     def showLast2min(self):
 
         window = tk.Tk()
@@ -867,10 +877,6 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         window.wm_attributes('-topmost', 1)  # 窗口置顶
         l.pack()
         window.mainloop()
-
-
-
-
 
     def get_ZhuCeId(self):
         # 获取本机 Mac  加密Mac

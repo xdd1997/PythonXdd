@@ -1,4 +1,4 @@
-import os
+
 import tkinter.messagebox
 from tkinter import *
 
@@ -207,7 +207,7 @@ class App:
             TouchAction(driver).press(x=544, y=706).release().perform()
 
         def waterTogetherPlant():
-
+            print('正在打开合种界面')
             items = driver.find_elements_by_class_name("android.widget.Button")
             for i in items:
                 if '合种' in i.text:

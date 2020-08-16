@@ -28,7 +28,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -161,21 +161,23 @@
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>10</y>
-       <width>203</width>
-       <height>101</height>
+       <y>0</y>
+       <width>211</width>
+       <height>111</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QLabel" name="label">
+       <widget class="QLabel" name="label_zhengJS">
         <property name="font">
          <font>
-          <pointsize>14</pointsize>
+          <pointsize>17</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="text">
-         <string>捐款开发</string>
+         <string>要专注！</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -183,28 +185,29 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_zhifubao">
-        <property name="font">
-         <font>
-          <pointsize>9</pointsize>
-         </font>
-        </property>
+       <widget class="QPushButton" name="pushButton_Zstart">
         <property name="text">
-         <string>支付宝：1837990190@qq.com</string>
+         <string>开始</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_lianxi">
-        <property name="font">
-         <font>
-          <pointsize>9</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>联系方式：xdd2026@qq.com</string>
-        </property>
-       </widget>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QPushButton" name="pushButton_Zstop">
+          <property name="text">
+           <string>停止</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_Zclear">
+          <property name="text">
+           <string>清零</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </widget>

@@ -16,7 +16,7 @@ while True:
         t.sleep(1500) # 25分钟
         print(str(hour) + ':' + str(minute) + '不执行')
     elif (hour ==7) & (minute >=28) :
-        from 摘_偷_喂.py import *
+        from 摘_偷_喂_浇.py import *
         break
     else:
         print(str(hour) + ':' + str(minute) + '不执行')

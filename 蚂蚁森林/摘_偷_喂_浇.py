@@ -3,7 +3,7 @@
 # Reference site:https://www.cnblogs.com/deliaries/archive/2020/03/18/12410835.html
 
 import time
-from tkinter.messagebox import *
+import tkinter.messagebox
 from appium import webdriver
 from appium.webdriver.common.touch_action import TouchAction
 
@@ -137,9 +137,8 @@ def stealFriendEnergy():
     print('正在打开蚂蚁森林')
     TouchAction(driver).press(x=544, y=706).release().perform()
 
-
 def waterTogetherPlant():
-
+    print('正在打开合种界面')
     items = driver.find_elements_by_class_name("android.widget.Button")
     for i in items:
         if '合种' in i.text:
@@ -189,4 +188,4 @@ end = time.perf_counter()
 tim = end - start
 txtshow = '偷能量完成，运行这段代码用时：{:.6f}秒'.format(tim)
 print(txtshow)
-showinfo(title='提示', message=txtshow)
+tkinter.messagebox.showinfo('提示',txtshow)
