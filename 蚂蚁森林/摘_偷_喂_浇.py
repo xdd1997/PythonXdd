@@ -24,7 +24,8 @@ print('正在打开支付宝')
 driver = webdriver.Remote(server, desired_caps)
 time.sleep(5)
 print('正在打开蚂蚁森林')
-TouchAction(driver).press(x=544, y=706).release().perform()     # 蚂蚁森林的图标位置,我的在首页，不在的话，要先打开更多
+#TouchAction(driver).press(x=544, y=706).release().perform()     # 蚂蚁森林的图标位置,我的在首页，不在的话，要先打开更多
+driver.find_element_by_xpath("//*[@text='蚂蚁森林']").click()  # 点击总排行榜
 # 点击蚂蚁森林（以id打开，这种较好，但是appium有些故障，刷新不出来
 # driver.find_element_by_id('com.alipay.android.phone.wallet.homemarket:id/app_group_item_icon').click()
 time.sleep(5)
@@ -62,25 +63,11 @@ def raiseChicken():
     time.sleep(2)
     TouchAction(driver).press(x=686, y=1262).release().perform()  # 请走Ta
     time.sleep(2)
-    TouchAction(driver).press(x=995, y=129).release().perform()  # 右上角退出喂小鸡界面，回到蚂蚁森林
-    '''
-    print('正在打开喂小鸡界面')
-    TouchAction(driver).press(x=886, y=1264).release().perform()  # 点击小鸡，进入喂小鸡界面
-    time.sleep(5)
-    TouchAction(driver).press(x=931, y=1973).release().perform()    # 点击饲料
-    time.sleep(2)
-    TouchAction(driver).press(x=561, y=1285).release().perform()    # 找小鸡
-    time.sleep(5)
-    TouchAction(driver).press(x=400, y=1455).release().perform()    # 点击找到左边的小鸡
-    time.sleep(2)
-    TouchAction(driver).press(x=561, y=1314).release().perform()    # 请回家
-    time.sleep(5)
-    TouchAction(driver).press(x=931, y=1973).release().perform()    # 点击饲料
-    time.sleep(2)
-    
-    TouchAction(driver).press(x=995, y=129).release().perform()     # 右上角退出喂小鸡界面，回到蚂蚁森林
-    time.sleep(2)
-    '''
+    #TouchAction(driver).press(x=995, y=129).release().perform()  # 右上角退出喂小鸡界面，回到蚂蚁森林
+    driver.find_element_by_xpath("//android.widget.TextView[@content-desc='关闭']").click()   # 作用同上
+
+
+
 
 def stealFriendEnergy():
     ''' 在蚂蚁森林界面，向下滑，找到更多好友，点击 '''
@@ -169,7 +156,7 @@ def waterTogetherPlant():
 ''' -------------- 修改处 ------------- '''
 
 SelfEnergyID = 1        # 取自己能量
-FriendEnergy = 1        # 偷好友能量
+FriendEnergy = 1       # 偷好友能量
 RaiseChicken = 1        # 给小鸡喂食
 WaterPlantHZ = 10        # 给合种浇水
 
