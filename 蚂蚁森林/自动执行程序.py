@@ -1,5 +1,6 @@
-# edit by xdd1997
-# 2020-08-14
+# encoding = utf8
+# edit by xdd1997  2020-08-14
+# 2020-08-21    更新
 # 自动执行程序偷取蚂蚁森林能量
 
 from PyQt5.QtCore import QTime, Qt

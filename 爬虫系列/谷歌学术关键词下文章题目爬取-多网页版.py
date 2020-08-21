@@ -1,12 +1,12 @@
 #encoding = utf8
 # write by xdd1997  xdd2026@qq.com
-# 2020-08-20
-
+# 2020-08-21
+'''容易被封，容易被封，容易被封'''
 import requests
 from bs4 import BeautifulSoup
 import time
 import random
-for ii in range(0,100,10):
+for ii in range(100,180,10):  # 爬取90.html时会被禁
     url = "https://scholar.paodekuaiweixinqun.com/scholar?start={}&q=Cylindrical+Shells&hl=zh-CN&as_sdt=0,5&as_ylo=2016".format(ii)    #
     print(url)
     try:

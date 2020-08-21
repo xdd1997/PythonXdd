@@ -1,12 +1,13 @@
 #encoding = utf8
 # write by xdd1997  xdd2026@qq.com
-# 2020-08-20
+# 2020-08-21
 
+'''还是不建议一次爬取多个页面，容易被封，解封时长未知'''
 import requests
 from bs4 import BeautifulSoup
-import time
-ii = 0
-url = "https://scholar.paodekuaiweixinqun.com/scholar?start={}&q=Cylindrical+Shells&hl=zh-CN&as_sdt=0,5&as_ylo=2016".format(ii)    #
+ii = 130
+url = "https://scholar.paodekuaiweixinqun.com/scholar?start={}&q=Cylindrical+Shells&hl=zh-CN&as_sdt=0,5&as_ylo=2016".format(ii)
+# https://scholar.paodekuaiweixinqun.com/scholar?start=140&q=Cylindrical+Shells&hl=zh-CN&as_sdt=0,5&as_ylo=2016
 print(url)
 try:
     kv = {'user-agent':'Mozilla/5.0'}   #应对爬虫审查
@@ -17,13 +18,19 @@ except:
     print("进入网站失败")
 demo = r.text
 soup = BeautifulSoup(demo, "html.parser")
-print(soup)
+#print(soup)
 print('----------------------------------------------------------------------------------------------')
+paperlist = []
 for ss in soup.find_all('a',{"target":"_blank"}): # 查找<ul class="f-hide"> ...</ul>  ,{"target":"_blank"}
-   # for ii in ss.find_all('b'):
     tex = ss.get_text().replace('  ','').split('\n')
-    print(tex)
-    if len(tex) == 7:
-        print(tex[1]+ ' ' + tex[3]+ ' '+ tex[6])
-
+    texp = ''
+    if len(tex) >= 6:
+        for t in tex:
+            if t !=None:
+                texp = texp + t
+        paperlist.append(texp)
+#print(paperlist)
+for paper in paperlist:
+    if len(paper)>30:  # 排除类似于[PDF] researchgate.net一样的文本
+        print(paper)
 
