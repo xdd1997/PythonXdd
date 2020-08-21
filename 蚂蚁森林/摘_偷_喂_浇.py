@@ -25,7 +25,7 @@ driver = webdriver.Remote(server, desired_caps)
 time.sleep(5)
 print('正在打开蚂蚁森林')
 #TouchAction(driver).press(x=544, y=706).release().perform()     # 蚂蚁森林的图标位置,我的在首页，不在的话，要先打开更多
-driver.find_element_by_xpath("//*[@text='蚂蚁森林']").click()  # 点击总排行榜
+driver.find_element_by_xpath("//*[@text='蚂蚁森林']").click()  # 点击蚂蚁森林
 # 点击蚂蚁森林（以id打开，这种较好，但是appium有些故障，刷新不出来
 # driver.find_element_by_id('com.alipay.android.phone.wallet.homemarket:id/app_group_item_icon').click()
 time.sleep(5)

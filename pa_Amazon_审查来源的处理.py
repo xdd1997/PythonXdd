@@ -5,7 +5,5 @@ try:
 	r = requests.get(url,headers=kv)
 	r.raise_for_status()      			#若返回值不是202，则抛出一个异常
 	r.encoding = r.apparent_encoding
-	print(r.text[0:100])
 except:
-	print("爬取失败")
-	
+	print("进入爬取失败")

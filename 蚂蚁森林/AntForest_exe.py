@@ -16,28 +16,7 @@ class App:
 
         frame1 = Frame(master)
         # 采用grid网格布局，添加控件
-        '''
-        lb_1 = Label(frame1, text=u'摘自己能量：', font=('微软雅黑', 12), padx=7)
-        lb_1.grid(row=0, column=0, sticky=W)  # W 西对齐（左对齐）
-        lb_2 = Label(frame1, text=u'偷好友能量：', font=('微软雅黑', 12), padx=7)
-        lb_2.grid(row=1, column=0, sticky=W)
-        lb_3 = Label(frame1, text=u'给小鸡喂食：', font=('微软雅黑', 12), padx=7)
-        lb_3.grid(row=2, column=0, sticky=W)
-        lb_3 = Label(frame1, text=u'给合种浇水：', font=('微软雅黑', 12), padx=7)
-        lb_3.grid(row=3, column=0, sticky=W)
-        self.en_1 = Entry(frame1, font=('微软雅黑', 13), width=15, show=None)
-        self.en_2 = Entry(frame1, font=('微软雅黑', 13), width=15, show=None)
-        self.en_1.grid(row=0, column=1, columnspan=2, sticky=W)
-        self.en_2.grid(row=1, column=1, columnspan=2, sticky=W)
-        self.en_3 = Entry(frame1, font=('微软雅黑', 13), width=15, show=None)
-        self.en_4 = Entry(frame1, font=('微软雅黑', 13), width=15, show=None)
-        self.en_3.grid(row=2, column=1, columnspan=2, sticky=W)
-        self.en_4.grid(row=3, column=1, columnspan=2, sticky=W)
-        self.en_1.insert(0, '1')
-        self.en_2.insert(0, '1')
-        self.en_3.insert(0, '1')
-        self.en_4.insert(0, '1')
-        '''
+
         global checkVar1
         global checkVar2
         global checkVar3
@@ -92,7 +71,8 @@ class App:
         driver = webdriver.Remote(server, desired_caps)
         time.sleep(5)
         print('正在打开蚂蚁森林')
-        TouchAction(driver).press(x=544, y=706).release().perform()  # 蚂蚁森林的图标位置,我的在首页，不在的话，要先打开更多
+        #TouchAction(driver).press(x=544, y=706).release().perform()  # 蚂蚁森林的图标位置,我的在首页，不在的话，要先打开更多
+        driver.find_element_by_xpath("//*[@text='蚂蚁森林']").click()  # 点击蚂蚁森林
 
         time.sleep(5)
 
