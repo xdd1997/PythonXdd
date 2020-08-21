@@ -12,12 +12,12 @@ while True:
     hour = int(time2[0]);
     minute = int(time2[1]);
     sec = int(time2[2])
-    if hour !=7:
+    if (hour !=7) & (hour !=8) :
         t.sleep(1500) # 25分钟
         print(str(hour) + ':' + str(minute) + '不执行')
-    elif (hour ==7) & (minute >=28) :
+    elif ((hour ==7) & (minute ==28)) | ((hour ==8) & (minute ==45)):
         from 摘_偷_喂_浇.py import *
-        break
     else:
         print(str(hour) + ':' + str(minute) + '不执行')
         t.sleep(50)
+
