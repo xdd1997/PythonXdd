@@ -4,7 +4,8 @@
 
 import requests
 from bs4 import BeautifulSoup
-url = "https://music.163.com/playlist?id=5138652624"    # 注意直接复制的网址要去掉#号
+id = 3226150252
+url = "https://music.163.com/playlist?id={}".format(id)    # 注意直接复制的网址要去掉#号
 try:
     kv = {'user-agent':'Mozilla/5.0'}   #应对爬虫审查
     r = requests.get(url,headers=kv)

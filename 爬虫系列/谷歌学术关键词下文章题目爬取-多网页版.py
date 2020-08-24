@@ -2,6 +2,7 @@
 # write by xdd1997  xdd2026@qq.com
 # 2020-08-21
 '''容易被封，容易被封，容易被封'''
+容易被封
 import requests
 from bs4 import BeautifulSoup
 import time
