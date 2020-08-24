@@ -19,13 +19,13 @@ for link in soup.find_all('img'):
         piclist.append(link_list)
 
 # -------------递归创建的目录-----------
-path = r"F:\desktop\爬取的图片"   # 若此为第20行，要和第27行一起更改
+path = "F:\desktop\爬取的图片"
 if not os.path.exists(path):
     os.makedirs(path)
 
 http = piclist[2]
 print(http)
-filesavepath = r'F:\desktop\爬取的图片\pic.jpg'
+filesavepath = os.path.join(path, 'pic.jpg')
 urllib.request.urlretrieve(http, filesavepath)
 print('下载完成,保存路径为' + path)
 

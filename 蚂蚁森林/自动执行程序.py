@@ -11,17 +11,16 @@ while True:
     hour = int(time2[0]);
     minute = int(time2[1]);
     sec = int(time2[2])
-    if (hour != 7) & (hour != 8):
+    if (hour != 7) & (hour != 8)& (hour != 1):
         print(str(hour) + ':' + str(minute) + '不执行,休息25分钟')
         t.sleep(1500) # 25分钟
 
-    elif ((hour ==7) & (minute ==0))| ((hour ==7) & (minute ==27)) | ((hour ==8) & (minute ==18)):
+    elif ((hour ==7) & (minute ==0))| ((hour ==7) & (minute ==27)) | ((hour ==8) & (minute ==18)) | ((hour ==1) & (minute ==0)):
         try:
             print('时间到了，即将执行')
-            from 摘_偷_喂_浇.py import *
+            from 偷能量快速版.py import *
         except:
             print('执行失败，可能是 Appium未打开 / 未连接手机')
     else:
         print(str(hour) + ':' + str(minute) + '不执行，休息25s')
-        t.sleep(35)
-
+        t.sleep(35)  # 35S
