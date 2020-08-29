@@ -156,9 +156,9 @@ def waterTogetherPlant():
 ''' -------------- 修改处 ------------- '''
 
 SelfEnergyID = 1        # 取自己能量
-FriendEnergy = 1       # 偷好友能量
+FriendEnergy = 1        # 偷好友能量
 RaiseChicken = 1        # 给小鸡喂食
-WaterPlantHZ = 10        # 给合种浇水
+WaterPlantHZ = 1        # 给合种浇水
 
 start = time.perf_counter()         # 计算程序运行时间
 

@@ -1,0 +1,157 @@
+Index: 11.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import sys\r\nfrom PyQt4.QtGui import *\r\nfrom PyQt4.QtCore import *\r\n\r\n\r\nclass combo(QComboBox):\r\n\r\n    def __init__(self, title, parent):\r\n        super(combo, self).__init__(parent)\r\n\r\n        self.setAcceptDrops(True)\r\n\r\n    def dragEnterEvent(self, e):\r\n        print\r\n        e\r\n\r\n        if e.mimeData().hasText():\r\n            e.accept()\r\n        else:\r\n            e.ignore()\r\n\r\n    def dropEvent(self, e):\r\n        self.addItem(e.mimeData().text())\r\n\r\n\r\nclass Example(QWidget):\r\n\r\n    def __init__(self):\r\n        super(Example, self).__init__()\r\n\r\n        self.initUI()\r\n\r\n    def initUI(self):\r\n        lo = QFormLayout()\r\n        lo.addRow(QLabel(\"Type some text in textbox and drag it into combo box\"))\r\n\r\n        edit = QLineEdit()\r\n        edit.setDragEnabled(True)\r\n        com = combo(\"Button\", self)\r\n        lo.addRow(edit, com)\r\n        self.setLayout(lo)\r\n        self.setWindowTitle('Simple drag & drop')\r\n\r\n\r\ndef main():\r\n    app = QApplication(sys.argv)\r\n    ex = Example()\r\n    ex.show()\r\n    app.exec_()\r\n\r\n\r\nif __name__ == '__main__':\r\n    main()
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- 11.py	(revision 0ce8ef818078efcdfb03d236c1514506cb9eba96)
++++ 11.py	(date 1597716080731)
+@@ -1,53 +1,1 @@
+-import sys
+-from PyQt4.QtGui import *
+-from PyQt4.QtCore import *
+-
+-
+-class combo(QComboBox):
+-
+-    def __init__(self, title, parent):
+-        super(combo, self).__init__(parent)
+-
+-        self.setAcceptDrops(True)
+-
+-    def dragEnterEvent(self, e):
+-        print
+-        e
+-
+-        if e.mimeData().hasText():
+-            e.accept()
+-        else:
+-            e.ignore()
+-
+-    def dropEvent(self, e):
+-        self.addItem(e.mimeData().text())
+-
+-
+-class Example(QWidget):
+-
+-    def __init__(self):
+-        super(Example, self).__init__()
+-
+-        self.initUI()
+-
+-    def initUI(self):
+-        lo = QFormLayout()
+-        lo.addRow(QLabel("Type some text in textbox and drag it into combo box"))
+-
+-        edit = QLineEdit()
+-        edit.setDragEnabled(True)
+-        com = combo("Button", self)
+-        lo.addRow(edit, com)
+-        self.setLayout(lo)
+-        self.setWindowTitle('Simple drag & drop')
+-
+-
+-def main():
+-    app = QApplication(sys.argv)
+-    ex = Example()
+-    ex.show()
+-    app.exec_()
+-
+-
+-if __name__ == '__main__':
+-    main()
+\ No newline at end of file
++print('*******')
+\ No newline at end of file
+Index: 蚂蚁森林/自动执行程序.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># edit by xdd1997\r\n# 2020-08-14\r\n# 自动执行程序偷取蚂蚁森林能量\r\n\r\nfrom PyQt5.QtCore import QTime, Qt\r\nimport time as t\r\n\r\nwhile True:\r\n    time = QTime.currentTime()\r\n    time1 = time.toString(Qt.DefaultLocaleLongDate)\r\n    time2 = time1.split(':')\r\n    hour = int(time2[0]);\r\n    minute = int(time2[1]);\r\n    sec = int(time2[2])\r\n    if hour !=7:\r\n        t.sleep(1500) # 25分钟\r\n        print(str(hour) + ':' + str(minute) + '不执行')\r\n    elif (hour ==7) & (minute >=28) :\r\n        from 摘_偷_喂_浇.py import *\r\n        break\r\n    else:\r\n        print(str(hour) + ':' + str(minute) + '不执行')\r\n        t.sleep(50)
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- 蚂蚁森林/自动执行程序.py	(revision 0ce8ef818078efcdfb03d236c1514506cb9eba96)
++++ 蚂蚁森林/自动执行程序.py	(date 1597977398250)
+@@ -1,23 +1,0 @@
+-# edit by xdd1997
+-# 2020-08-14
+-# 自动执行程序偷取蚂蚁森林能量
+-
+-from PyQt5.QtCore import QTime, Qt
+-import time as t
+-
+-while True:
+-    time = QTime.currentTime()
+-    time1 = time.toString(Qt.DefaultLocaleLongDate)
+-    time2 = time1.split(':')
+-    hour = int(time2[0]);
+-    minute = int(time2[1]);
+-    sec = int(time2[2])
+-    if hour !=7:
+-        t.sleep(1500) # 25分钟
+-        print(str(hour) + ':' + str(minute) + '不执行')
+-    elif (hour ==7) & (minute >=28) :
+-        from 摘_偷_喂_浇.py import *
+-        break
+-    else:
+-        print(str(hour) + ':' + str(minute) + '不执行')
+-        t.sleep(50)
+\ No newline at end of file
+Index: 蚂蚁森林/摘_偷_喂_浇.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># edit by xdd\r\n# Before running this script, open appium.exe\r\n# Reference site:https://www.cnblogs.com/deliaries/archive/2020/03/18/12410835.html\r\n\r\nimport time\r\nimport tkinter.messagebox\r\nfrom appium import webdriver\r\nfrom appium.webdriver.common.touch_action import TouchAction\r\n\r\nstart = time.perf_counter()         # 计算程序运行时间\r\n\r\n''' ---------- 打开支付宝 ---------- '''\r\ndesired_caps = {\r\n                \"platformName\": \"Android\",\r\n                \"deviceName\": \"MI 6X\",\r\n                \"appPackage\": \"com.eg.android.AlipayGphone\",\r\n                \"appActivity\": \"com.eg.android.AlipayGphone.AlipayLogin\",\r\n                \"noReset\": \"true\",\r\n                \"fullReset\": \"false\",\r\n                \"automationName\": \"UiAutomator1\"\r\n}\r\nserver = 'http://localhost:4723/wd/hub'\r\nprint('正在打开支付宝')\r\ndriver = webdriver.Remote(server, desired_caps)\r\ntime.sleep(5)\r\nprint('正在打开蚂蚁森林')\r\n#TouchAction(driver).press(x=544, y=706).release().perform()     # 蚂蚁森林的图标位置,我的在首页，不在的话，要先打开更多\r\ndriver.find_element_by_xpath(\"//*[@text='蚂蚁森林']\").click()  # 点击总排行榜\r\n# 点击蚂蚁森林（以id打开，这种较好，但是appium有些故障，刷新不出来\r\n# driver.find_element_by_id('com.alipay.android.phone.wallet.homemarket:id/app_group_item_icon').click()\r\ntime.sleep(5)\r\ndef getSelfEnergy():\r\n    ''' ---------- 收取自己的能量 ---------- '''\r\n    try:\r\n        print('正在偷自己能量')\r\n        items = driver.find_elements_by_class_name(\"android.widget.Button\")\r\n     #   print(items)\r\n        name = driver.find_element_by_id('com.alipay.mobile.nebula:id/h5_tv_title').text\r\n        if len(items) > 14:\r\n            jj = 1\r\n            for i in items:\r\n                if '能量' in i.text:\r\n                    i.click()\r\n                    print('我点了{}下'.format(jj))\r\n                    print('收取{0}的{1}'.format(name, i.text.replace('收集', ''))) # i.text为“收集能量5克”\r\n                    time.sleep(1)\r\n    except:\r\n        pass\r\ndef raiseChicken():\r\n    ''' ---------- 喂小鸡 ---------- '''\r\n    # 小鸡不在也不召回了，有没有粮食\r\n    time.sleep(5)\r\n    TouchAction(driver).press(x=886, y=1264).release().perform()  # 点击小鸡，进入喂小鸡界面\r\n    print('正在打开喂小鸡界面')\r\n    time.sleep(5)\r\n    TouchAction(driver).press(x=931, y=1973).release().perform()  # 点击饲料\r\n    time.sleep(1)\r\n    TouchAction(driver).press(x=400, y=1477).release().perform()  # 点第一只鸡\r\n    time.sleep(2)\r\n    TouchAction(driver).press(x=237, y=1272).release().perform()  # 请走Ta\r\n    time.sleep(5)\r\n    TouchAction(driver).press(x=843, y=1478).release().perform()  # 点第二只鸡\r\n    time.sleep(2)\r\n    TouchAction(driver).press(x=686, y=1262).release().perform()  # 请走Ta\r\n    time.sleep(2)\r\n    #TouchAction(driver).press(x=995, y=129).release().perform()  # 右上角退出喂小鸡界面，回到蚂蚁森林\r\n    driver.find_element_by_xpath(\"//android.widget.TextView[@content-desc='关闭']\").click()   # 作用同上\r\n\r\n\r\n\r\n\r\ndef stealFriendEnergy():\r\n    ''' 在蚂蚁森林界面，向下滑，找到更多好友，点击 '''\r\n    print('正在打开更多好友')\r\n    time.sleep(2)\r\n    n = 0\r\n    while n <= 5:\r\n        start_x = 500\r\n        start_y = 1500\r\n        distance = 1000\r\n        driver.swipe(start_x, start_y, start_x, start_y - distance)\r\n        n = n + 1\r\n        time.sleep(0.2)\r\n    driver.find_element_by_xpath(\"//*[@text='查看更多好友']\").click()  # 点击查看更多好友\r\n    time.sleep(1)\r\n    driver.find_element_by_xpath(\"//*[@text='总排行榜']\").click()  # 点击总排行榜\r\n    # ----------- 进入偷能量界面 ---------- '''\r\n    while True:\r\n        TouchAction(driver).press(x=345, y=481).release().perform() # 第一个蚂蚁好友框框的坐标，随着滑动，每一个好友都会出现在这个坐标点\r\n       # time.sleep(0.5) # 等一会让系统进入这个界面\r\n\r\n        name = driver.find_element_by_id('com.alipay.mobile.nebula:id/h5_tv_title').text\r\n        print('正在查看{0}'.format(name))\r\n        if name in ['陈欣的蚂蚁森林','崔鼎正的蚂蚁森林']:      # 填写最后一个好友昵称，程序不会遍历到最后一个，因为到最后的时候，界面不能滑动；可先填最后一个，看能遍历到哪一个好友，再修改即可.\r\n            break\r\n\r\n        items = driver.find_elements_by_class_name(\"android.widget.Button\")\r\n       # print(len(items),'\\n',items)\r\n        if len(items) > 6:      # 在自己的名字栏，因len(items）=0<5,会直接向上划过\r\n            try:\r\n                jj = 1\r\n                for i in items:\r\n                    if ('我的大树' not in i.text) & ('看林区' not in i.text) & ('成就' not in i.text) & ('发消息' not in i.text) & ('弹幕' not in i.text) & ('浇水' not in i.text):\r\n                        i.click()\r\n                        print('我点了{}下'.format(jj))\r\n                        jj = jj+1\r\n                TouchAction(driver).press(x=69, y=138).release().perform()  # 左上角返回\r\n                time.sleep(0.2)\r\n            except:\r\n                pass\r\n        elif len(items) > 1: # 执行此项的是能量为空的好友；\r\n            TouchAction(driver).press(x=69, y=138).release().perform()  # 左上角返回\r\n            time.sleep(0.2)\r\n        else:               # 加执行此项的是 点击无反应的界面,和自己的名字栏，(len=0)不能左上角返回\r\n            pass\r\n        start_x = 500\r\n        start_y = 1910\r\n        distance = 187  # 一个框的高度\r\n        driver.swipe(start_x, start_y, start_x, start_y - distance)    # 向上滑动一个框的高度   # driver.swipe（分别表示滑动的起始和终点位置的 x/y 坐标）\r\n        time.sleep(0.5)     # 系统反应也需要时间，此处sleep()不可省略\r\n\r\n    TouchAction(driver).press(x=995, y=129).release().perform()  # 右上角退出,蚂蚁森林\r\n    time.sleep(2)\r\n    print('正在打开蚂蚁森林')\r\n    TouchAction(driver).press(x=544, y=706).release().perform()\r\n\r\ndef waterTogetherPlant():\r\n    print('正在打开合种界面')\r\n    items = driver.find_elements_by_class_name(\"android.widget.Button\")\r\n    for i in items:\r\n        if '合种' in i.text:\r\n            i.click()\r\n            time.sleep(0.5)\r\n            break\r\n    time.sleep(1)\r\n    TouchAction(driver).press(x=942, y=1992).release().perform()  # 点击去浇水(2015064)\r\n    time.sleep(1)\r\n    for ii in range(1,52):\r\n        TouchAction(driver).press(x=330, y=1159).release().perform()  # 减号，到10克\r\n        time.sleep(0.1)\r\n    time.sleep(1)\r\n    TouchAction(driver).press(x=715, y=1356).release().perform()  # 确定浇水2015064\r\n    time.sleep(3)\r\n    TouchAction(driver).press(x=656, y=2017).release().perform()    # 下一个合种\r\n    time.sleep(2)\r\n    TouchAction(driver).press(x=942, y=1992).release().perform()    # 点击去浇水(小梦雨)\r\n    time.sleep(1)\r\n    for ii in range(1,52):\r\n        TouchAction(driver).press(x=750, y=1155).release().perform()    # 加号，加到520g\r\n        time.sleep(0.1)\r\n    time.sleep(1)\r\n    TouchAction(driver).press(x=715, y=1356).release().perform()    # 确定浇水（小梦雨）\r\n    time.sleep(3)\r\n    TouchAction(driver).press(x=69, y=138).release().perform()      # 左上角返回，退出合种界面\r\n\r\n''' -------------- 修改处 ------------- '''\r\n\r\nSelfEnergyID = 1        # 取自己能量\r\nFriendEnergy = 1       # 偷好友能量\r\nRaiseChicken = 1        # 给小鸡喂食\r\nWaterPlantHZ = 10        # 给合种浇水\r\n\r\nstart = time.perf_counter()         # 计算程序运行时间\r\n\r\nif SelfEnergyID == 1:\r\n    getSelfEnergy()\r\nif FriendEnergy == 1:\r\n    stealFriendEnergy()\r\nif RaiseChicken == 1:\r\n    raiseChicken()\r\nif WaterPlantHZ == 1:\r\n    waterTogetherPlant()\r\n\r\nend = time.perf_counter()\r\ntim = end - start\r\ntxtshow = '偷能量完成，运行这段代码用时：{:.6f}秒'.format(tim)\r\nprint(txtshow)\r\ntkinter.messagebox.showinfo('提示',txtshow)
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- 蚂蚁森林/摘_偷_喂_浇.py	(revision 0ce8ef818078efcdfb03d236c1514506cb9eba96)
++++ 蚂蚁森林/摘_偷_喂_浇.py	(date 1597716976613)
+@@ -43,7 +43,7 @@
+                     i.click()
+                     print('我点了{}下'.format(jj))
+                     print('收取{0}的{1}'.format(name, i.text.replace('收集', ''))) # i.text为“收集能量5克”
+-                    time.sleep(1)
++                    time.sleep(1)   #     
+     except:
+         pass
+ def raiseChicken():
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"JavaScriptSettings\">\r\n    <option name=\"languageLevel\" value=\"ES6\" />\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" project-jdk-name=\"Python 3.8\" project-jdk-type=\"Python SDK\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(revision 0ce8ef818078efcdfb03d236c1514506cb9eba96)
++++ .idea/misc.xml	(date 1597716768442)
+@@ -3,5 +3,5 @@
+   <component name="JavaScriptSettings">
+     <option name="languageLevel" value="ES6" />
+   </component>
+-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.8" project-jdk-type="Python SDK" />
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.7" project-jdk-type="Python SDK" />
+ </project>
+\ No newline at end of file
+Index: .idea/PythonXdd.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module type=\"PYTHON_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\">\r\n    <content url=\"file://$MODULE_DIR$\" />\r\n    <orderEntry type=\"jdk\" jdkName=\"Python 3.8\" jdkType=\"Python SDK\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n  </component>\r\n  <component name=\"PyDocumentationSettings\">\r\n    <option name=\"renderExternalDocumentation\" value=\"true\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/PythonXdd.iml	(revision 0ce8ef818078efcdfb03d236c1514506cb9eba96)
++++ .idea/PythonXdd.iml	(date 1597716768387)
+@@ -1,8 +1,10 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <module type="PYTHON_MODULE" version="4">
+   <component name="NewModuleRootManager">
+-    <content url="file://$MODULE_DIR$" />
+-    <orderEntry type="jdk" jdkName="Python 3.8" jdkType="Python SDK" />
++    <content url="file://$MODULE_DIR$">
++      <excludeFolder url="file://$MODULE_DIR$/venv" />
++    </content>
++    <orderEntry type="jdk" jdkName="Python 3.7" jdkType="Python SDK" />
+     <orderEntry type="sourceFolder" forTests="false" />
+   </component>
+   <component name="PyDocumentationSettings">
