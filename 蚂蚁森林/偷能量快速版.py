@@ -21,6 +21,8 @@ desired_caps = {
 }
 server = 'http://localhost:4723/wd/hub'
 print('正在打开支付宝')
+driver = webdriver.Remote(server, desired_caps)  # 启用两次，是因为锁屏打开手机一次有可能打不开
+time.sleep(5)
 driver = webdriver.Remote(server, desired_caps)
 time.sleep(5)
 print('正在打开蚂蚁森林')
@@ -101,3 +103,4 @@ end = time.perf_counter()
 tim = end - start
 txtshow = '偷能量完成，运行这段代码用时：{:.6f}秒'.format(tim)
 print(txtshow)
+tkinter.messagebox.showinfo('提示',txtshow)

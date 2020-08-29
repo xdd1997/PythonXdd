@@ -5,20 +5,20 @@
 '''还是不建议一次爬取多个页面，容易被封，解封时长未知'''
 import requests
 from bs4 import BeautifulSoup
-ii = 160
+ii = 10
 # https://scholar.paodekuaiweixinqun.com/scholar?start=200&q=Cylindrical+Shells&hl=zh-CN&as_sdt=0,5&as_ylo=2016
 url = "https://scholar.paodekuaiweixinqun.com/scholar?start={}&q=Cylindrical+Shells&hl=zh-CN&as_sdt=0,5&as_ylo=2016".format(ii)
-# https://scholar.paodekuaiweixinqun.com/scholar?start=140&q=Cylindrical+Shells&hl=zh-CN&as_sdt=0,5&as_ylo=2016
 print(url)
 try:
     kv = {'user-agent':'Mozilla/5.0'}   #应对爬虫审查
     r = requests.get(url,headers=kv)
     r.raise_for_status()      			#若返回值不是202，则抛出一个异常
     r.encoding = r.apparent_encoding
+    demo = r.text
+    soup = BeautifulSoup(demo, "html.parser")
 except:
     print("进入网站失败")
-demo = r.text
-soup = BeautifulSoup(demo, "html.parser")
+
 #print(soup)
 print('----------------------------------------------------------------------------------------------')
 paperlist = []
