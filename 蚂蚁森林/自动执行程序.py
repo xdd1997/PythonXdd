@@ -19,6 +19,7 @@ while True:
         try:
             print('时间到了，即将执行')
             from 偷能量快速版.py import *
+            t.sleep(60)  # 60S
         except:
             print('执行失败，可能是 Appium未打开 / 未连接手机')
     else:
