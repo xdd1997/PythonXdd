@@ -23,6 +23,7 @@ server = 'http://localhost:4723/wd/hub'
 print('正在打开支付宝')
 driver = webdriver.Remote(server, desired_caps)  # 启用两次，是因为锁屏打开手机一次有可能打不开
 time.sleep(5)
+print('正在重新打开支付宝')
 driver = webdriver.Remote(server, desired_caps)
 time.sleep(5)
 print('正在打开蚂蚁森林')
@@ -33,7 +34,7 @@ driver.find_element_by_xpath("//*[@text='蚂蚁森林']").click()  # 点击蚂�
 time.sleep(5)
 ''' ---------- 收取自己的能量 ---------- '''
 try:
-    print('正在偷自己能量')
+    print('正在收取自己能量')
     items = driver.find_elements_by_class_name("android.widget.Button")
  #   print(items)
     name = driver.find_element_by_id('com.alipay.mobile.nebula:id/h5_tv_title').text
