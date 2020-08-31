@@ -20,9 +20,11 @@ except:
     print("进入网站失败")
 
 #print(soup)
+
 print('----------------------------------------------------------------------------------------------')
 paperlist = []
-for ss in soup.find_all('a',{"target":"_blank"}): # 查找<ul class="f-hide"> ...</ul>  ,{"target":"_blank"}
+for ss in soup.find_all('a',target="_blank"):      # 查找<ul  target="_blank"> ...</ul>
+#for ss in soup.find_all('a',{"target":"_blank"}): # 查找<ul target="_blank"> ...</ul>
     tex = ss.get_text().replace('  ','').split('\n')
     texp = ''
     if len(tex) >= 6:
