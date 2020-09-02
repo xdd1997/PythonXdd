@@ -17,7 +17,7 @@ for line in file:
         list.append(match1)
 
 piclist = []
-for ii in list[0]:
+for ii in list[0]:   # 所有的http都在list[0]中
     tex = ii.split(' ')
     for jj in tex:
         if "__85" in jj:
@@ -29,7 +29,7 @@ for ii in piclist:
     picHttp.append(link)
 
 # -------------递归创建的目录-----------
-path = "D:\桌面\爬取的图片"
+path = "D:\桌面\关于爱情的图片"
 if not os.path.exists(path):
     os.makedirs(path)
 i = 0
@@ -38,7 +38,7 @@ for http in picHttp:
     filesavepath = os.path.join(path, name + '.jpg')
     urllib.request.urlretrieve(http, filesavepath)
     i = i+1
-    print('正在下载---')
+    print('正在下载No.{}/{}'.format(i,len(picHttp)))
 print('{}张图片下载完成,保存路径为'.format(i) + path)
 
 
