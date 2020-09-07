@@ -6,7 +6,7 @@ import time as t
 import EnergyFast
 print('进入自动执行程序')
 # --------- -------------- -------------- --------#
-isAuto = 1   # 1:按时间执行；   0：立刻执行           #
+isAuto = 0   # 1:按时间执行；   0：立刻执行           #
 # --------- -------------- ------------- ---------#
 if isAuto == 0:
     EnergyFast.run()
@@ -26,7 +26,6 @@ else:
             try:
                 print('时间到了，即将执行')
                 EnergyFast.run()
-                t.sleep(60)  # 60S
             except:
                 print('执行失败，可能是 Appium未打开 / 未连接手机')
         else:

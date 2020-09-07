@@ -6,8 +6,9 @@
 import requests
 from bs4 import BeautifulSoup
 ii = 10
-# https://scholar.paodekuaiweixinqun.com/scholar?start=200&q=Cylindrical+Shells&hl=zh-CN&as_sdt=0,5&as_ylo=2016
-url = "https://scholar.paodekuaiweixinqun.com/scholar?start={}&q=Cylindrical+Shells&hl=zh-CN&as_sdt=0,5&as_ylo=2016".format(ii)
+#url =  "https://scholar.paodekuaiweixinqun.com/scholar?start=200&q=Cylindrical+Shells&hl=zh-CN&as_sdt=0,5&as_ylo=2016"
+#url = "https://scholar.paodekuaiweixinqun.com/scholar?start={}&q=Cylindrical+Shells&hl=zh-CN&as_sdt=0,5&as_ylo=2016".format(ii)
+url = "https://scholar.google.com.hk/scholar?start=150&q=multi-stage+cyclic+structures&hl=zh-CN&lr=lang_en%7Clang_zh-TW%7Clang_zh-CN&newwindow=1&as_sdt=0,5"
 print(url)
 try:
     kv = {'user-agent':'Mozilla/5.0'}   #应对爬虫审查
@@ -36,4 +37,5 @@ for ss in soup.find_all('a',target="_blank"):      # 查找<ul  target="_blank">
 for paper in paperlist:
     if len(paper)>30:  # 排除类似于[PDF] researchgate.net一样的文本
         print(paper)
+print('------------ 结束 ----------')
 
