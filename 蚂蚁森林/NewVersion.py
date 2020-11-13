@@ -1,3 +1,4 @@
+#  通过中间右下角“逛一逛‘’
 import time
 from appium import webdriver
 from appium.webdriver.common.touch_action import TouchAction
@@ -19,8 +20,11 @@ time.sleep(4)
 print('正在打开蚂蚁森林')
 try:
     driver.find_element_by_xpath("//*[@text='蚂蚁森林']").click()  # 点击蚂蚁森林
+    print('标签方式进入蚂蚁森林')
 except:
+
     TouchAction(driver).press(x=544, y=706).release().perform()  # 蚂蚁森林的图标位置,我的在首页，不在的话，要先打开更多
+    print('坐标方式进入蚂蚁森林')
 
 # 点击蚂蚁森林（以id打开，这种较好，但是appium有些故障，刷新不出来
 # driver.find_element_by_id('com.alipay.android.phone.wallet.homemarket:id/app_group_item_icon').click()
@@ -64,9 +68,9 @@ while True:
                     i.click()
                     time.sleep(0.5)
                 else:
-                    iiquit = iiquit +1
+                    iiquit = iiquit + 1
                     print(iiquit)
-                    if iiquit > 80:
+                    if iiquit > 150:
                         flag = 1
                         break
         except:

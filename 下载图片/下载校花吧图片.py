@@ -42,5 +42,5 @@ for i in range(0,200,50):  ## 100=50*2，表明下载2页，可改为150，300..
         index = index + 1
         print('正在保存第{:.0f}张图片'.format(index))
 
-        time.sleep(2)
+        time.sleep(0.5)
     print('下载完成')
