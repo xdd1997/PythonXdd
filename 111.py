@@ -4,6 +4,7 @@ for ii in range(len(AA)):
 
     stmp = AA[ii][1]
     BB.append(stmp)
+
 print(BB)
 
 
