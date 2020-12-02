@@ -6,5 +6,6 @@ for ii in range(len(AA)):
     BB.append(stmp)
 
 print(BB)
+print('xdd')
 
 
