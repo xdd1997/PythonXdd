@@ -20,7 +20,7 @@ soup = BeautifulSoup(demo, "html.parser")
 index = 0
 for ss in soup.find_all('ul',{"class":"f-hide"}): # 查找<ul class="f-hide"> ...</ul>
     for ii in ss.find_all('a'):
-       # print(ii.string)
+       # print(ii.string)#
        index = index + 1
        print( str(index) + '\n'+ '点歌 ' + ii.string)
 
