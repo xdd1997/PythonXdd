@@ -15,7 +15,8 @@ import winsound
 import time
 
 
-# pyinstaller -F -w "TimerMainSimple.py"
+# pyinstaller -F -w "TimerMainSimple.py"   # 无黑窗
+# pyinstaller -F "TimerMainSimple.py"      # 有黑窗
 
 class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
     # 下面这个方法自动执行，相当于初始化,但是可以自定义一个初始化函数 initUI()
@@ -63,7 +64,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
 
         '''
 
-        self.OpenZhuCe()
+       # self.OpenZhuCe()        # 关闭注册窗口
 
         self.time = QTimer(self)                           # 设置第一个计时器用以倒计时
         self.time.setInterval(1000)                       # 每隔1000毫秒发射一次信号（即执行一次timeout)
