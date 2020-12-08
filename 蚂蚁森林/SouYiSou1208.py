@@ -3,12 +3,13 @@ import os
 import time
 from appium import webdriver
 from appium.webdriver.common.touch_action import TouchAction
-
+import winsound
 # ------------------ 在能量球可能出现的地方疯狂点击 -------------------
 def collect_energy(driver):
     name = driver.find_element_by_id('com.alipay.mobile.nebula:id/h5_tv_title').text
     if name=="蚂蚁森林":
         print('退出程序了')
+        winsound.Beep(1000, 1000)
         os._exit(0)
     else:
         print('正在查看{0}'.format(name))
@@ -27,7 +28,7 @@ def collect_energy(driver):
             # 点击指定坐标
             driver.tap([(tap_x1, tap_y1), (tap_x1, tap_y1)], 1000)
         driver.tap([(732, 942), (732, 942)], 1000)    # 关闭点开的小树装饰
-# ---------------------------------------------------------------
+
 
 # ---------- 打开支付宝，点击搜能量 ----------
 def main():
@@ -91,7 +92,7 @@ def main():
             collect_energy(driver)
         except:
             pass
-# ---------------------------------------------------------------
+
 
 # ----------------- run script --------------------
 main()
