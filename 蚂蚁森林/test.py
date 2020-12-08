@@ -15,11 +15,12 @@ desired_caps = {
 }
 server = 'http://localhost:4723/wd/hub'
 print('正在打开支付宝01')
-driver = webdriver.Remote(server, desired_caps)  # 启用两次，是因为锁屏打开手机一次有可能打不开
+driver = webdriver.Remote(server, desired_caps)  # 打开支付宝
 time.sleep(4)
-print('正在打开蚂蚁森林')
+print('已打开支付宝，正在打开蚂蚁森林')
 try:
     driver.find_element_by_xpath("//*[@text='蚂蚁森林']").click()  # 点击蚂蚁森林
+
     print('标签方式进入蚂蚁森林')
 except:
 
@@ -30,6 +31,14 @@ except:
 # driver.find_element_by_id('com.alipay.android.phone.wallet.homemarket:id/app_group_item_icon').click()
 time.sleep(5)
 ''' ---------- 收取自己的能量 ---------- '''
+items = driver.find_elements_by_class_name("android.widget.Button")
+print(len(items))
+print(items)
+
+
+
+
+'''
 try:
     print('正在收取自己能量')
     items = driver.find_elements_by_class_name("android.widget.Button")
@@ -44,11 +53,11 @@ try:
 except:
     pass
 
-''' 在蚂蚁森林界面，向下滑，找到更多好友，点击 '''
+# 在蚂蚁森林界面，向下滑，找到更多好友，点击 
 print('正在搜一搜')
 time.sleep(2)
 iiquit = 0    # 用于控制无能量的次数
-# ----------- 进入偷能量界面 ---------- '''
+# ----------- 进入偷能量界面 ---------- 
 flag = 0
 while True:
     #driver.find_element_by_id('com.alipay.android.phone.wallet.homemarket:id/app_group_item_icon').click()
@@ -85,3 +94,5 @@ end = time.perf_counter()
 tim = end - start
 txtshow = '偷能量完成，运行这段代码用时：{:.6f}秒'.format(tim)
 print(txtshow)
+
+'''

@@ -8,8 +8,8 @@ id = 5209047164
 url = "https://music.163.com/playlist?id={}".format(id)    # 注意直接复制的网址要去掉#号
 try:
     kv = {'user-agent':'Mozilla/5.0'}   #应对爬虫审查
-    r = requests.get(url,headers=kv)
-    r.raise_for_status()      			#若返回值不是202，则抛出一个异常
+    r = requests.get(url, headers=kv)
+    r.raise_for_status()  # 若返回值不是202，则抛出一个异常
     r.encoding = r.apparent_encoding
 except:
     print("进入网站失败")
