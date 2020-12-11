@@ -18,7 +18,7 @@ def collect_energy(driver):
     height = int(driver.get_window_size()['height'])
     # 能量球可能出现的区域坐标
     start_x = 200
-    end_x = 870
+    end_x = 1000
     start_y = 620
     end_y = 780
     for i in range(start_y, end_y, 100):
@@ -27,7 +27,7 @@ def collect_energy(driver):
             tap_y1 = int((int(i) / height) * height)
             # 点击指定坐标
             driver.tap([(tap_x1, tap_y1), (tap_x1, tap_y1)], 1000)
-        driver.tap([(732, 942), (732, 942)], 1000)    # 关闭点开的小树装饰
+        #driver.tap([(840, 579), (918, 614)], 1000)    # 关闭点开的小树装饰
 
 
 # ---------- 打开支付宝，点击搜能量 ----------
@@ -53,6 +53,7 @@ def main():
     time.sleep(4)
     print('正在打开蚂蚁森林')
     try:
+     #   driver.tap([(498, 1071), (582, 1155)], 1000)
         driver.find_elements_by_id('com.alipay.android.phone.openplatform:id/home_app_view')[7].click()
         print("id进入蚂蚁森林")
     except:
@@ -75,7 +76,6 @@ def main():
                 tap_y1 = int((int(i) / height) * height)
                 # 点击指定坐标
                 driver.tap([(tap_x1, tap_y1), (tap_x1, tap_y1)], 1000)
-            driver.tap([(732, 942), (732, 942)], 1000)  # 关闭点开的小树装饰
     except:
         pass
 
