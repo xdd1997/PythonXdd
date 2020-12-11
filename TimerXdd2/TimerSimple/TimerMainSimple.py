@@ -47,27 +47,13 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         self.checkBox_drank.stateChanged.connect(self.checkBox_drank_choose)
 
         # ---------- 设置logo -------
-        '''
+
         try:
-            if os.path.exists('c:\\timerXdd\\TimerLogo.jpg'):
-                print('001')
-                self.setWindowIcon(QIcon('C:\\timerXdd\\004.ico'))
-
-            else:
-                http = 'https://pic.downk.cc/item/5f237f5814195aa5946d1309.jpg'
-                path = "c:\\timerXdd"
-
-                if not os.path.exists(path):
-                    os.makedirs(path)
-                filesavepath = os.path.join(path, 'TimerLogo.jpg')
-                urllib.request.urlretrieve(http, filesavepath)
-                print('002')
-                self.setWindowIcon(QIcon(filesavepath))
-
+            self.setWindowIcon(QIcon('C:\\xdd.jpg'))
         except:
-            print('设置logo不成功')
+            pass
 
-        '''
+
 
        # self.OpenZhuCe()        # 关闭注册窗口
 
@@ -1361,7 +1347,7 @@ if __name__ == '__main__':  # 四句话：继承-实例化-显示-退出
     # 在系统托盘处显示图标
     w=main_form
     tp = QSystemTrayIcon(w)
-    tp.setIcon(QIcon('D:/图片/刘亦菲/liuyuifeipic.jpg'))
+    tp.setIcon(QIcon('C:\\xdd.jpg'))
     # 设置系统托盘图标的菜单
     a1 = QAction('&显示(Show)', triggered=w.show)
     def quitApp():
@@ -1371,10 +1357,6 @@ if __name__ == '__main__':  # 四句话：继承-实例化-显示-退出
         if re == QMessageBox.Yes:
             # 关闭窗体程序
             QCoreApplication.instance().quit()
-            # 在应用程序全部关闭后，TrayIcon其实还不会自动消失，
-            # 直到你的鼠标移动到上面去后，才会消失，
-            # 这是个问题，（如同你terminate一些带TrayIcon的应用程序时出现的状况），
-            # 这种问题的解决我是通过在程序退出前将其setVisible(False)来完成的。
             tp.setVisible(False)
     a2 = QAction('&退出(Exit)', triggered=quitApp)  # 直接退出可以用qApp.quit
     tpMenu = QMenu()
@@ -1387,7 +1369,7 @@ if __name__ == '__main__':  # 四句话：继承-实例化-显示-退出
     # 参数1：标题
     # 参数2：内容
     # 参数3：图标（0没有图标 1信息图标 2警告图标 3错误图标），0还是有一个小图标
-    tp.showMessage('tp', 'tpContent', icon=0)
+    tp.showMessage('Notes', 'Xdd1997制作的计时器', icon=0)
     def message():
         print("弹出的信息被点击了")
     tp.messageClicked.connect(message)
