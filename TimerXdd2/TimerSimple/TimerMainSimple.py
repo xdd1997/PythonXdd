@@ -5,6 +5,11 @@ from Timer2 import Ui_Form  # Timer2为ui对于py文件的名字
 from TimerSetup import Ui_Form as UISetup  # Timer2为ui对于py文件的名字
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtCore import QTimer, QDateTime, QDate, QTime, Qt, QUrl
+from PyQt5.QtWidgets import QSystemTrayIcon, QAction
+from PyQt5.QtWidgets import QMenu
+from PyQt5.QtGui import QIcon
+#from PyQt5 import QtGui
+
 import tkinter as tk
 from PyQt5.QtGui import QPixmap,  QDesktopServices
 import uuid
@@ -14,7 +19,7 @@ import tkinter.messagebox
 import winsound
 import time
 
-
+#os._exit(0)
 # pyinstaller -F -w "TimerMainSimple.py"   # 无黑窗
 # pyinstaller -F "TimerMainSimple.py"      # 有黑窗
 
@@ -1339,12 +1344,59 @@ class winSetup(QtWidgets.QWidget, UISetup):
         return box1
     '''
 
+
+
+
 if __name__ == '__main__':  # 四句话：继承-实例化-显示-退出
 
     app = QtWidgets.QApplication(sys.argv)
+    app.setQuitOnLastWindowClosed(False)      # 最小化托盘用
     main_form = MyPyQT_Form()  #实例化,类的名字,可更改等号前面名字 MyPyQT_Form()继承自Ui_Form
     main_form.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)   # 窗口置顶
     main_form.setWindowFlags(QtCore.Qt.WindowCloseButtonHint | QtCore.Qt.WindowMinimizeButtonHint)  # 禁止窗口最大化
     main_form.setFixedSize(main_form.width(), main_form.height());  # 禁止拉伸窗口
     main_form.show()
+
+    # -------------------- 托盘开始 ----------
+    # 在系统托盘处显示图标
+    w=main_form
+    tp = QSystemTrayIcon(w)
+    tp.setIcon(QIcon('D:/图片/刘亦菲/liuyuifeipic.jpg'))
+    # 设置系统托盘图标的菜单
+    a1 = QAction('&显示(Show)', triggered=w.show)
+    def quitApp():
+        w.show()  # w.hide() #隐藏
+        re = QMessageBox.question(w, "提示", "退出系统", QMessageBox.Yes |
+                                  QMessageBox.No, QMessageBox.No)
+        if re == QMessageBox.Yes:
+            # 关闭窗体程序
+            QCoreApplication.instance().quit()
+            # 在应用程序全部关闭后，TrayIcon其实还不会自动消失，
+            # 直到你的鼠标移动到上面去后，才会消失，
+            # 这是个问题，（如同你terminate一些带TrayIcon的应用程序时出现的状况），
+            # 这种问题的解决我是通过在程序退出前将其setVisible(False)来完成的。
+            tp.setVisible(False)
+    a2 = QAction('&退出(Exit)', triggered=quitApp)  # 直接退出可以用qApp.quit
+    tpMenu = QMenu()
+    tpMenu.addAction(a1)
+    tpMenu.addAction(a2)
+    tp.setContextMenu(tpMenu)
+    # 不调用show不会显示系统托盘
+    tp.show()
+    # 信息提示
+    # 参数1：标题
+    # 参数2：内容
+    # 参数3：图标（0没有图标 1信息图标 2警告图标 3错误图标），0还是有一个小图标
+    tp.showMessage('tp', 'tpContent', icon=0)
+    def message():
+        print("弹出的信息被点击了")
+    tp.messageClicked.connect(message)
+    def act(reason):
+        # 鼠标点击icon传递的信号会带有一个整形的值，1是表示单击右键，2是双击，3是单击左键，4是用鼠标中键点击
+        if reason == 2 or reason == 3:
+            w.show()
+        # print("系统托盘的图标被点击了")
+    tp.activated.connect(act)
+    # -------------------- 托盘结束 ----------
+
     sys.exit(app.exec_())
