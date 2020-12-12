@@ -3,13 +3,13 @@
 
 from PyQt5.QtCore import QTime, Qt
 import time as t
-import EnergyFast
+import SouEnergy
 print('进入自动执行程序')
 # --------- -------------- -------------- --------#
-isAuto = 1   # 1:按时间执行；   0：立刻执行           #
+isAuto = 0    # 1:按时间执行；   0：立刻执行           #
 # --------- -------------- ------------- ---------#
 if isAuto == 0:
-    EnergyFast.run()
+    SouEnergy.main()
 else:
     while True:
         time = QTime.currentTime()
@@ -23,10 +23,10 @@ else:
             t.sleep(1500) # 25分钟
 
         # 笔记本设置为27 才能收到行走的能量
-        elif ((hour == 7) & (minute == 15)) | ((hour == 7) & (minute == 27)) | ((hour == 7) & (minute == 40)) | ((hour == 1) & (minute == 30)):
+        elif ((hour == 7) & (minute == 59)) | ((hour == 7) & (minute == 28)) | ((hour == 7) & (minute == 40)) | ((hour == 1) & (minute == 30)):
             try:
                 print('时间到了，即将执行')
-                EnergyFast.run()
+                SouEnergy.main()
             except:
                 print('执行失败，可能是 Appium未打开 / 未连接手机')
         else:
