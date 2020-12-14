@@ -21,6 +21,7 @@ import time
 
 #os._exit(0)
 # pyinstaller -F -w "TimerMainSimple.py"   # 无黑窗
+# pyinstaller  -w "TimerMainSimple.py"     # 无黑窗文件夹
 # pyinstaller -F "TimerMainSimple.py"      # 有黑窗
 
 class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):

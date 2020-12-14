@@ -13,21 +13,21 @@ def collect_energy(driver):
         os._exit(0)
     else:
         print('正在查看{0}'.format(name))
-    # 获取手机屏幕宽高
-    width = int(driver.get_window_size()['width'])
-    height = int(driver.get_window_size()['height'])
-    # 能量球可能出现的区域坐标
-    start_x = 200
-    end_x = 1000
-    start_y = 620
-    end_y = 780
-    for i in range(start_y, end_y, 100):
-        for j in range(start_x, end_x, 100):
-            tap_x1 = int((int(j) / width) * width)
-            tap_y1 = int((int(i) / height) * height)
-            # 点击指定坐标
-            driver.tap([(tap_x1, tap_y1), (tap_x1, tap_y1)], 1000)
-        #driver.tap([(840, 579), (918, 614)], 1000)    # 关闭点开的小树装饰
+        # 能量球可能出现的区域坐标
+        start_x = 200
+        end_x = 1080
+        start_y = 620
+        end_y = 800
+        for y in range(start_y, end_y, 100):
+            for x in range(start_x, end_x, 100):
+                driver.tap([(x, y), (x, y)], 3000)
+                dx = int(x)
+                dy = int(y)
+        TouchAction(driver).press(x=dx, y=dy).release().perform()  # 小树装饰位置
+        time.sleep(1)
+        TouchAction(driver).press(x=dx, y=dy).release().perform()  # 小树装饰位置
+        time.sleep(1)
+        TouchAction(driver).press(x=dx, y=dy).release().perform()  # 小树装饰位置
 
 
 # ---------- 打开支付宝，点击搜能量 ----------
@@ -53,46 +53,48 @@ def main():
     time.sleep(4)
     print('正在打开蚂蚁森林')
     try:
-     #   driver.tap([(498, 1071), (582, 1155)], 1000)
         driver.find_elements_by_id('com.alipay.android.phone.openplatform:id/home_app_view')[7].click()
         print("id进入蚂蚁森林")
     except:
         driver.find_element_by_xpath("//*[@text='蚂0蚁森林']").click()  # 点击蚂蚁森林
         print("xpath进入蚂蚁森林")
-        # TouchAction(driver).press(x=544, y=706).release().perform()  # 蚂蚁森林的图标位置,
     time.sleep(2)
     ''' ---------- 收取自己的能量 ---------- '''
+
     try:
-        width = int(driver.get_window_size()['width'])
-        height = int(driver.get_window_size()['height'])
         # 能量球可能出现的区域坐标
         start_x = 200
-        end_x = 870
+        end_x = 1080
         start_y = 620
-        end_y = 780
-        for i in range(start_y, end_y, 100):
-            for j in range(start_x, end_x, 100):
-                tap_x1 = int((int(j) / width) * width)
-                tap_y1 = int((int(i) / height) * height)
-                # 点击指定坐标
-                driver.tap([(tap_x1, tap_y1), (tap_x1, tap_y1)], 1000)
+        end_y = 800
+        for y in range(start_y, end_y, 100):
+            for x in range(start_x, end_x, 100):
+                driver.tap([(x,y), (x, y)], 3000)
+                dx=int(x)
+                dy=int(y)
+        TouchAction(driver).press(x=dx, y=dy).release().perform()  # 小树装饰位置
+        time.sleep(1)
+        TouchAction(driver).press(x=dx, y=dy).release().perform()  # 小树装饰位置
+        time.sleep(1)
+        TouchAction(driver).press(x=dx, y=dy).release().perform()  # 小树装饰位置
+
     except:
         pass
-
     print('正在搜一搜')
     time.sleep(2)
-    iiquit = 0    # 用于控制无能量的次数
     # ----------- 进入偷能量界面 ---------- '''
-    flag = 0
     while True:
         #driver.find_element_by_id('com.alipay.android.phone.wallet.homemarket:id/app_group_item_icon').click()
-        TouchAction(driver).press(x=991, y=1582).release().perform() # 找能量位置
+        TouchAction(driver).press(x=920, y=1582).release().perform() # 找能量位置
+        time.sleep(1)
+        TouchAction(driver).press(x=920, y=1582).release().perform()  # 找能量位置
+
         time.sleep(2) # 等一会让系统进入这个界面
+
         try:
             collect_energy(driver)
         except:
             pass
-
 
 # ----------------- run script --------------------
 main()
