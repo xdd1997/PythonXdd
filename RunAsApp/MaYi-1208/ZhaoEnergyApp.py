@@ -22,7 +22,6 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         # 粘贴程序的地方
         # 搜一搜版本
 
-        # 搜一搜版本
         import os
         import time
         from appium import webdriver
@@ -48,9 +47,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
                         dx = int(x)
                         dy = int(y)
                 TouchAction(driver).press(x=dx, y=dy).release().perform()  # 小树装饰位置
-                time.sleep(1)
                 TouchAction(driver).press(x=dx, y=dy).release().perform()  # 小树装饰位置
-                time.sleep(1)
                 TouchAction(driver).press(x=dx, y=dy).release().perform()  # 小树装饰位置
 
         # ---------- 打开支付宝，点击搜能量 ----------
@@ -96,9 +93,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
                         dx = int(x)
                         dy = int(y)
                 TouchAction(driver).press(x=dx, y=dy).release().perform()  # 小树装饰位置
-                time.sleep(1)
                 TouchAction(driver).press(x=dx, y=dy).release().perform()  # 小树装饰位置
-                time.sleep(1)
                 TouchAction(driver).press(x=dx, y=dy).release().perform()  # 小树装饰位置
 
             except:
@@ -119,7 +114,6 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
                 except:
                     pass
 
-        # ----------------- run script --------------------
         main()
 
 

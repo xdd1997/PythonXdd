@@ -24,9 +24,7 @@ def collect_energy(driver):
                 dx = int(x)
                 dy = int(y)
         TouchAction(driver).press(x=dx, y=dy).release().perform()  # 小树装饰位置
-        time.sleep(1)
         TouchAction(driver).press(x=dx, y=dy).release().perform()  # 小树装饰位置
-        time.sleep(1)
         TouchAction(driver).press(x=dx, y=dy).release().perform()  # 小树装饰位置
 
 
@@ -73,9 +71,7 @@ def main():
                 dx=int(x)
                 dy=int(y)
         TouchAction(driver).press(x=dx, y=dy).release().perform()  # 小树装饰位置
-        time.sleep(1)
         TouchAction(driver).press(x=dx, y=dy).release().perform()  # 小树装饰位置
-        time.sleep(1)
         TouchAction(driver).press(x=dx, y=dy).release().perform()  # 小树装饰位置
 
     except:
