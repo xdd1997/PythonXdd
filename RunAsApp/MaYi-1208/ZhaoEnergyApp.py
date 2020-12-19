@@ -22,6 +22,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         # 粘贴程序的地方
         # 搜一搜版本
 
+        # 搜一搜版本
         import os
         import time
         from appium import webdriver
@@ -114,6 +115,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
                 except:
                     pass
 
+        # ----------------- run script --------------------
         main()
 
 

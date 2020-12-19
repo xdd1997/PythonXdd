@@ -10,7 +10,9 @@ def collect_energy(driver):
     if name=="蚂蚁森林":
         print('退出程序了')
         winsound.Beep(1000, 1000)
-        os._exit(0)
+        global flag
+        flag=1
+        return
     else:
         print('正在查看{0}'.format(name))
         # 能量球可能出现的区域坐标
@@ -20,6 +22,7 @@ def collect_energy(driver):
         end_y = 800
         for y in range(start_y, end_y, 100):
             for x in range(start_x, end_x, 100):
+                print(x,y)
                 driver.tap([(x, y), (x, y)], 3000)
                 dx = int(x)
                 dy = int(y)
@@ -86,9 +89,13 @@ def main():
         TouchAction(driver).press(x=920, y=1582).release().perform()  # 找能量位置
 
         time.sleep(2) # 等一会让系统进入这个界面
-
+        global flag
+        flag=0
         try:
             collect_energy(driver)
+            if flag==1:
+                break
+
         except:
             pass
 
