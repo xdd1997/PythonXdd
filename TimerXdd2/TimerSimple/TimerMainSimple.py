@@ -18,6 +18,7 @@ import binascii
 import tkinter.messagebox
 import winsound
 import time
+import urllib.request
 
 #os._exit(0)
 # pyinstaller -F -w "TimerMainSimple.py"   # 无黑窗
@@ -50,7 +51,24 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         # ---------- 设置logo -------
 
         try:
-            self.setWindowIcon(QIcon('C:\\xdd.jpg'))
+            if os.path.exists("C:\\timerXdd\\timer-logo.jpg"):
+                self.setWindowIcon(QIcon('C:\\timerXdd\\timer-logo.jpg'))
+            else:
+
+                http = "https://pic.downk.cc/item/5feb22143ffa7d37b3c92cc3.jpg"
+                path = "c:\\timerXdd"
+
+                if not os.path.exists(path):
+                    os.makedirs(path)
+
+                filesavepath = os.path.join(path, 'timer-logo.jpg')
+
+                urllib.request.urlretrieve(http, filesavepath)
+                self.setWindowIcon(QIcon('C:\\timerXdd\\timer-logo.jpg'))
+
+
+
+
         except:
             pass
 
@@ -1348,7 +1366,7 @@ if __name__ == '__main__':  # 四句话：继承-实例化-显示-退出
     # 在系统托盘处显示图标
     w=main_form
     tp = QSystemTrayIcon(w)
-    tp.setIcon(QIcon('C:\\xdd.jpg'))
+    tp.setIcon(QIcon('C:\\timerXdd\\timer-logo.jpg'))
     # 设置系统托盘图标的菜单
     a1 = QAction('&显示(Show)', triggered=w.show)
     def quitApp():
